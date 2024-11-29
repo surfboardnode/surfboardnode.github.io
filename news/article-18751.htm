@@ -2,14 +2,13 @@
 <html lang="zh-CN">
 
 <head>
-        <link rel="canonical" href="https://surfboardnode.github.io" />
+        <link rel="canonical" href="https://surfboardnode.github.io/news/article-18751.htm" />
     <!--====== Required meta tags ======-->
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>2024-08归档 - SurfboardNode节点订阅站</title>
-        <meta name="keywords" content="2024-08归档" />
-        <meta name="description" content="2024-08归档" />
+    <title>PHP静态属性和方法详解</title>
+        <meta name="description" content="介绍 在PHP类中，使用static关键字声明的属性和方法无法在-&gt;运算符的帮助下被其对象访问。实际上，不需要对象来访问任何类实例。类中静态项目的默认可见性是公开的 静态特性 要从外部类访问静态" />
         <link rel="icon" href="__ADDON__/img/surfboardnode/favicon.ico" type="image/x-icon"/>
     <!--====== Bootstrap css ======-->
     <link rel="stylesheet" href="/assets/website/css/surfboardnode/bootstrap.min.css">
@@ -36,7 +35,7 @@
      crossorigin="anonymous"></script>
 </head>
 
-<body data-page="category">
+<body data-page="detail">
     <!--====== HEADER ONE PART START ======-->
     <header class="header-area">
         <div class="navbar-area navbar-one navbar-transparent">
@@ -85,9 +84,9 @@
                     <div class="col-lg-12">
                         <div class="header-wrapper">
                             <div class="header-content">
-                                <h1 class="header-title">2024-08 归档</h1>
+                                <h1 class="header-title">PHP静态属性和方法详解</h1>
                                 <p class="text nav">
-                                    <a href="/">首页</a> / <span>2024-08 归档</span>
+                                    <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / <span>正文</span>
                                 </p>
                             </div> <!-- header content -->
                             <div class="header-image d-none d-lg-block">
@@ -109,30 +108,12 @@
     <section id="about" class="about-area pt-70 pb-100">
         <div class="container">
             <div class="row">
-                <div class="col-md-9 xcblog-blog-list">
-                                        <div class="row item xcblog-blog-item" data-date="2024-08-01">
-                        <div class="col-md-3">
-                            <div class="about-feature mt-30">
-                                <div class="about-feature-image">
-                                    <a href="/free-nodes/2024-8-1-surfboard-node.htm" class="xcblog-blog-url">
-                                        <img src="/uploads/20240709-1/310cab61201208c0b3f68c60d4d9cf84.webp" alt="「8月1日」最高速度18.8M/S，2024年SSR/V2ray/Shadowrocket/Clash每天更新免费节点订阅链接">
-                                    </a>
+                <div class="col-md-9">
+                                      				  				  				<h2>介绍</h2> <p>在PHP类中，使用static关键字声明的属性和方法无法在-&gt;运算符的帮助下被其对象访问。实际上，不需要对象来访问任何类实例。类中静态项目的默认可见性是公开的</p> <h2>静态特性</h2> <p>要从外部类访问静态属性，我们需要使用范围解析运算符（：:)和类名。评估类名称的字符串变量也可以提供静态属性</p> <pre>&lt;?php class&nbsp;testclass{ &nbsp;&nbsp;&nbsp;static&nbsp;$name="test"; } echo&nbsp;testclass::$name; $var="testclass"; echo&nbsp;$var::$name; ?&gt;</pre> <p>要在同一类的任何方法中使用静态属性，请使用<strong>self</strong>关键字而不是用于访问实例属性的-&gt;运算符。</p> <pre>&lt;?php class&nbsp;testclass{ &nbsp;&nbsp;&nbsp;static&nbsp;$name="test"; &nbsp;&nbsp;&nbsp;public&nbsp;function&nbsp;test(){ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;self::$name; &nbsp;&nbsp;&nbsp;} } $obj=new&nbsp;testclass(); $obj-&gt;test(); ?&gt;</pre> <p>通过使用<strong>parent</strong>关键字和范围解析运算符，可以在子类方法中引用父类中声明的任何静态属性。</p> <pre>&lt;?php class&nbsp;testclass{ &nbsp;&nbsp;&nbsp;static&nbsp;$name="test"; &nbsp;&nbsp;&nbsp;public&nbsp;function&nbsp;test(){ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;self::$name; &nbsp;&nbsp;&nbsp;} } class&nbsp;myclass&nbsp;extends&nbsp;testclass{ &nbsp;&nbsp;&nbsp;public&nbsp;function&nbsp;mytest(){ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;parent::$name; &nbsp;&nbsp;&nbsp;} } $obj=new&nbsp;myclass(); $obj-&gt;mytest(); ?&gt;</pre> <h2>静态方法</h2> <p>当方法声明为静态时，伪变量<strong>$this</strong>不可使用。因此，无法在其中访问类的实例属性。静态方法由类名以及范围解析运算符调用</p> <p>在下面的示例中，该类具有一个静态属性$count，该属性在每次执行构造函数时都会增加（即针对每个对象）。在类内部，有一个静态函数可检索静态属性的值</p> <h2>示例</h2> <pre>&lt;?php class&nbsp;testclass{ &nbsp;&nbsp;&nbsp;static&nbsp;$count=0; &nbsp;&nbsp;&nbsp;function&nbsp;__construct(){ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self::$count++; &nbsp;&nbsp;&nbsp;} &nbsp;&nbsp;&nbsp;static&nbsp;function&nbsp;showcount(){ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;"count&nbsp;=&nbsp;"&nbsp;.&nbsp;self::$count; &nbsp;&nbsp;&nbsp;} } $a=new&nbsp;testclass(); $b=new&nbsp;testclass(); $c=new&nbsp;testclass(); testclass::showcount(); ?&gt;</pre> <p>输出结果</p> <p>这将产生以下输出-</p> <pre>count&nbsp;=&nbsp;3</pre> <div></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>下一个：<a href="/news/article-18752.htm">宠物粮市场开发方案 宠物粮市场开发方案怎么写</a></p>
+                                    </div>
                                 </div>
-                            </div> <!-- about feature three -->
-                        </div>
-                        <div class="col-md-9">
-                            <div class="about-feature-items d-sm-flex mt-30">
-                                <div class="feature-items-content media-body">
-                                    <a href="/free-nodes/2024-8-1-surfboard-node.htm" class="xcblog-blog-url">
-                                        <h3 class="xcblog-blog-title">「8月1日」最高速度18.8M/S，2024年SSR/V2ray/Shadowrocket/Clash每天更新免费节点订阅链接</h3>
-                                    </a>
-                                    <p class="text">这一次的节点更新覆盖了加拿大、日本、美国、香港、新加坡、韩国、欧洲等地区,最高速度可达18.8 M/S。只需复制下方的Clash/v2ray订阅链接,在客户端添加后即可正常使用。</p>
-                                </div>
-                            </div> <!-- about feature items -->
-                        </div>
-                    </div> <!-- row -->
-                    
-                    <ul class="pagination"><li><a href="/date/2024-08/page-3.htm">&laquo;</a></li> <li><a href="/date/2024-08/">1</a></li><li><a href="/date/2024-08/page-2.htm">2</a></li><li><a href="/date/2024-08/page-3.htm">3</a></li><li class="active"><span>4</span></li> <li class="disabled"><span>&raquo;</span></li></ul>                </div>
                 <div class="col-md-3">
                     <div class="panel panel-default">
     <div class="panel-heading">
@@ -140,16 +121,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2024-10-21-free-high-speed-nodes.htm" title="「10月21日」最高速度19.8M/S，2024年Surfboard每天更新免费节点订阅链接">「10月21日」最高速度19.8M/S，2024年Surfboard每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-8-8-free-node-subscribe-links.htm" title="「8月8日」最高速度20.1M/S，2024年Shadowrocket/SSR/V2ray/Clash每天更新免费节点订阅链接">「8月8日」最高速度20.1M/S，2024年Shadowrocket/SSR/V2ray/Clash每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-7-23-free-surfboard-node.htm" title="「7月23日」最高速度22.4M/S，2024年Clash/V2ray/SSR/Shadowrocket每天更新免费节点订阅链接">「7月23日」最高速度22.4M/S，2024年Clash/V2ray/SSR/Shadowrocket每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-7-21-clash-windows.htm" title="「7月21日」最高速度18.2M/S，2024年V2ray/Shadowrocket/SSR/Clash每天更新免费节点订阅链接">「7月21日」最高速度18.2M/S，2024年V2ray/Shadowrocket/SSR/Clash每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-9-13-shadowrocket-node.htm" title="「9月13日」最高速度18.3M/S，2024年SurfboardNode每天更新免费节点订阅链接">「9月13日」最高速度18.3M/S，2024年SurfboardNode每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-17-clash-node.htm" title="「10月17日」最高速度19M/S，2024年Surfboard每天更新免费节点订阅链接">「10月17日」最高速度19M/S，2024年Surfboard每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-23-free-node-subscribe.htm" title="「11月23日」最高速度21M/S，2024年Surfboard每天更新免费节点订阅链接">「11月23日」最高速度21M/S，2024年Surfboard每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-10-clash-node-daily-updates.htm" title="「9月10日」最高速度20.6M/S，2024年SurfboardNode每天更新免费节点订阅链接">「9月10日」最高速度20.6M/S，2024年SurfboardNode每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-1-node-share-links.htm" title="「11月1日」最高速度19.6M/S，2024年Surfboard每天更新免费节点订阅链接">「11月1日」最高速度19.6M/S，2024年Surfboard每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-26-clash-node-daily-updates.htm" title="「9月26日」最高速度19.1M/S，2024年SurfboardNode每天更新免费节点订阅链接">「9月26日」最高速度19.1M/S，2024年SurfboardNode每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-21-clash-windows.htm" title="「9月21日」最高速度18.9M/S，2024年SurfboardNode每天更新免费节点订阅链接">「9月21日」最高速度18.9M/S，2024年SurfboardNode每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-16-clash-node.htm" title="「11月16日」最高速度18.2M/S，2024年Surfboard每天更新免费节点订阅链接">「11月16日」最高速度18.2M/S，2024年Surfboard每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-21-free-surfboard.htm" title="「8月21日」最高速度18.7M/S，2024年SurfboardNode每天更新免费节点订阅链接">「8月21日」最高速度18.7M/S，2024年SurfboardNode每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-7-clash-node.htm" title="「11月7日」最高速度19.8M/S，2024年Surfboard每天更新免费节点订阅链接">「11月7日」最高速度19.8M/S，2024年Surfboard每天更新免费节点订阅链接</a></li>
                         <li class="py-2"><a href="/free-nodes/2024-10-11-free-surfboard-node.htm" title="「10月11日」最高速度18M/S，2024年Surfboard每天更新免费节点订阅链接">「10月11日」最高速度18M/S，2024年Surfboard每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-13-shadowrocket-node.htm" title="「11月13日」最高速度21.5M/S，2024年Surfboard每天更新免费节点订阅链接">「11月13日」最高速度21.5M/S，2024年Surfboard每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-6-surfboard-node.htm" title="「10月6日」最高速度19.1M/S，2024年Surfboard每天更新免费节点订阅链接">「10月6日」最高速度19.1M/S，2024年Surfboard每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-8-12-node-share.htm" title="「8月12日」最高速度22.6M/S，2024年SurfboardNode每天更新免费节点订阅链接">「8月12日」最高速度22.6M/S，2024年SurfboardNode每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-12-free-node-subscribe-links.htm" title="「11月12日」最高速度22.2M/S，2024年Surfboard每天更新免费节点订阅链接">「11月12日」最高速度22.2M/S，2024年Surfboard每天更新免费节点订阅链接</a></li>
                     </ul>
     </div>
 </div>
