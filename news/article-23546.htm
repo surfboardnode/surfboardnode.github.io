@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://surfboardnode.github.io/news/article-23546.htm" />
+    <!--====== Required meta tags ======-->
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>C ++程序使用Sundaram筛子在给定范围之间生成素数</title>
+        <meta name="description" content="这是C ++程序，用于实现Sundaram筛，以在给定范围之间生成素数。该算法由Sundaram于1934年发现。 算法 Begin &nbsp;&nbsp;&nbsp;printPrimes(n) " />
+        <link rel="icon" href="__ADDON__/img/surfboardnode/favicon.ico" type="image/x-icon"/>
+    <!--====== Bootstrap css ======-->
+    <link rel="stylesheet" href="/assets/website/css/surfboardnode/bootstrap.min.css">
+    <!--====== Slick css ======-->
+    <link rel="stylesheet" href="/assets/website/css/surfboardnode/slick.css">
+    <!--====== Magnific Popup css ======-->
+    <link rel="stylesheet" href="/assets/website/css/surfboardnode/magnific-popup.css">
+    <!--====== Line Icons css ======-->
+    <link rel="stylesheet" href="/assets/website/css/surfboardnode/LineIcons.css">
+    <!--====== Default css ======-->
+    <link rel="stylesheet" href="/assets/website/css/surfboardnode/default.css">
+    <!--====== Style css ======-->
+    <link rel="stylesheet" href="/assets/website/css/surfboardnode/style.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4YFZCSBJW0"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-4YFZCSBJW0');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+    <!--====== HEADER ONE PART START ======-->
+    <header class="header-area">
+        <div class="navbar-area navbar-one navbar-transparent">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <nav class="navbar navbar-expand-lg">
+                                        <a class="navbar-brand" href="/">
+                        Surfboard Node
+                    </a>
+                                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarOne" aria-controls="navbarOne" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="toggler-icon"></span>
+                        <span class="toggler-icon"></span>
+                        <span class="toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse sub-menu-bar" id="navbarOne">
+                        <ul class="navbar-nav m-auto">
+                                                        <li class="nav-item">
+                                <a href="/">首页</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a href="/free-nodes/">免费节点</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a href="/paid-subscribe/">推荐机场</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a href="/news/">新闻资讯</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a href="#">关于</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#">联系</a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav> <!-- navbar -->
+            </div>
+        </div> <!-- row -->
+    </div> <!-- container -->
+</div>
+        <div id="home" class="header-content-area d-flex align-items-center list" style="height:450px;">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="header-wrapper">
+                            <div class="header-content">
+                                <h1 class="header-title">C ++程序使用Sundaram筛子在给定范围之间生成素数</h1>
+                                <p class="text nav">
+                                    <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / <span>正文</span>
+                                </p>
+                            </div> <!-- header content -->
+                            <div class="header-image d-none d-lg-block">
+                                <div class="image">
+                                    <img href="/assets/website/img/surfboardnode/header.png" alt="Header">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> <!-- row -->
+            </div> <!-- container -->
+            <div class="header-shape">
+                <img href="/assets/website/img/surfboardnode/header-shape.svg" alt="shape">
+            </div> <!-- header-shape -->
+        </div> <!-- header content area -->
+    </header>
+    <!--====== HEADER ONE PART ENDS ======-->
+    <!--====== ABOUT THREE PART START ======-->
+    <section id="about" class="about-area pt-70 pb-100">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                      				  				  				<p>这是C ++程序，用于实现Sundaram筛，以在给定范围之间生成素数。该算法由Sundaram于1934年发现。</p> <h2>算法</h2> <pre>Begin &nbsp;&nbsp;&nbsp;printPrimes(n) &nbsp;&nbsp;&nbsp;Here&nbsp;we&nbsp;find&nbsp;out&nbsp;primes &nbsp;&nbsp;&nbsp;smaller&nbsp;than&nbsp;n,&nbsp;we&nbsp;reduce&nbsp;n-2&nbsp;to&nbsp;half.&nbsp;We&nbsp;call&nbsp;it&nbsp;New. &nbsp;&nbsp;&nbsp;New&nbsp;=&nbsp;(n-2)/2; &nbsp;&nbsp;&nbsp;Create&nbsp;an&nbsp;array&nbsp;marked[n]&nbsp;that&nbsp;is&nbsp;going &nbsp;&nbsp;&nbsp;to&nbsp;be&nbsp;used&nbsp;to&nbsp;separate&nbsp;numbers&nbsp;of&nbsp;the&nbsp;form&nbsp;i+j+2ij&nbsp;from &nbsp;&nbsp;&nbsp;others&nbsp;where&nbsp;1&nbsp;&lt;=&nbsp;i&nbsp;&lt;=&nbsp;j &nbsp;&nbsp;&nbsp;Initialize&nbsp;all&nbsp;entries&nbsp;of&nbsp;marked[]&nbsp;as&nbsp;false. &nbsp;&nbsp;&nbsp;Mark&nbsp;all&nbsp;numbers&nbsp;of&nbsp;the&nbsp;form&nbsp;i&nbsp;+&nbsp;j&nbsp;+&nbsp;2ij&nbsp;as&nbsp;true &nbsp;&nbsp;&nbsp;where&nbsp;1&nbsp;&lt;=&nbsp;i&nbsp;&lt;=&nbsp;j &nbsp;&nbsp;&nbsp;for&nbsp;i=1&nbsp;to&nbsp;New &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a)&nbsp;j&nbsp;=&nbsp;i; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;b)&nbsp;Loop&nbsp;While&nbsp;(i&nbsp;+&nbsp;j&nbsp;+&nbsp;2*i*j)&nbsp;2,&nbsp;then&nbsp;print&nbsp;2&nbsp;as&nbsp;first&nbsp;prime. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Remaining&nbsp;primes&nbsp;are&nbsp;of&nbsp;the&nbsp;form&nbsp;2i&nbsp;+&nbsp;1&nbsp;where&nbsp;i&nbsp;is &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;index&nbsp;of&nbsp;NOT&nbsp;marked&nbsp;numbers.&nbsp;So&nbsp;print&nbsp;2i&nbsp;+&nbsp;1&nbsp;for&nbsp;all&nbsp;i &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;such&nbsp;that&nbsp;marked[i]&nbsp;is&nbsp;false. End</pre> <h2>范例程式码</h2> <pre>#include&nbsp;&lt;bits/stdc++.h&gt; using&nbsp;namespace&nbsp;std; int&nbsp;SieveOfSundaram(int&nbsp;m)&nbsp;{ &nbsp;&nbsp;&nbsp;int&nbsp;N=&nbsp;(m-2)/2; &nbsp;&nbsp;&nbsp;bool&nbsp;marked[N&nbsp;+&nbsp;1]; &nbsp;&nbsp;&nbsp;memset(marked,&nbsp;false,&nbsp;sizeof(marked)); &nbsp;&nbsp;&nbsp;for&nbsp;(int&nbsp;i=1;&nbsp;i&lt;=N;&nbsp;i++) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;(int&nbsp;j=i;&nbsp;(i&nbsp;+&nbsp;j&nbsp;+&nbsp;2*i*j)&nbsp;&lt;=&nbsp;N;&nbsp;j++) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;marked[i&nbsp;+&nbsp;j&nbsp;+&nbsp;2*i*j]&nbsp;=&nbsp;true; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(m&nbsp;&gt;&nbsp;2) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cout&nbsp;&lt;&lt;&nbsp;2&nbsp;&lt;&lt;&nbsp;"&nbsp;"; &nbsp;&nbsp;&nbsp;for&nbsp;(int&nbsp;i=1;&nbsp;i&lt;=N;&nbsp;i++) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(marked[i]&nbsp;==&nbsp;false) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cout&nbsp;&lt;&lt;&nbsp;2*i&nbsp;+&nbsp;1&nbsp;&lt;&lt;&nbsp;"&nbsp;"; } int&nbsp;main(void)&nbsp;{ &nbsp;&nbsp;&nbsp;int&nbsp;m&nbsp;=&nbsp;10; &nbsp;&nbsp;&nbsp;SieveOfSundaram(m); &nbsp;&nbsp;&nbsp;return&nbsp;0; }</pre> <p>输出结果</p> <pre>2&nbsp;3&nbsp;5&nbsp;7</pre> <div></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-23094.htm">动物疫苗新规定最新版图片 动物疫苗新规定最新版图片大全</a></p>
+                                        <p>下一个：<a href="/news/article-23548.htm">宠物领养app设计思路（宠物领养app该如何设计）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2024-11-28-free-surfboard.htm" title="「11月28日」最高速度23M/S，2024年Surfboard每天更新免费节点订阅链接">「11月28日」最高速度23M/S，2024年Surfboard每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-16-clash-node-daily-updates.htm" title="「10月16日」最高速度22M/S，2024年Surfboard每天更新免费节点订阅链接">「10月16日」最高速度22M/S，2024年Surfboard每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-24-node-share.htm" title="「10月24日」最高速度20.8M/S，2024年Surfboard每天更新免费节点订阅链接">「10月24日」最高速度20.8M/S，2024年Surfboard每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-21-free-high-speed-nodes.htm" title="「10月21日」最高速度19.8M/S，2024年Surfboard每天更新免费节点订阅链接">「10月21日」最高速度19.8M/S，2024年Surfboard每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-7-9-free-clash.htm" title="「7月9日」最高速度19.8M/S，2024年Surfboard每天更新免费节点订阅链接">「7月9日」最高速度19.8M/S，2024年Surfboard每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-5-clash-node-daily-updates.htm" title="「11月5日」最高速度18.2M/S，2024年Surfboard每天更新免费节点订阅链接">「11月5日」最高速度18.2M/S，2024年Surfboard每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-12-linux-surfboard-node.htm" title="「10月12日」最高速度18.9M/S，2024年Surfboard每天更新免费节点订阅链接">「10月12日」最高速度18.9M/S，2024年Surfboard每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-31-free-surfboard-node.htm" title="「8月31日」最高速度18.7M/S，2024年SurfboardNode每天更新免费节点订阅链接">「8月31日」最高速度18.7M/S，2024年SurfboardNode每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-20-clash-windows.htm" title="「10月20日」最高速度19.2M/S，2024年Surfboard每天更新免费节点订阅链接">「10月20日」最高速度19.2M/S，2024年Surfboard每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-26-clash-node-daily-updates.htm" title="「9月26日」最高速度19.1M/S，2024年SurfboardNode每天更新免费节点订阅链接">「9月26日」最高速度19.1M/S，2024年SurfboardNode每天更新免费节点订阅链接</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">27</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-08/" title="2024-08 归档">2024-08</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">23</span> <a href="/date/2024-07/" title="2024-07 归档">2024-07</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div> <!-- container -->
+    </section>
+    <!--====== ABOUT THREE PART ENDS ======-->
+        <!--====== FOOTER PART START ======-->
+    <footer id="footer" class="footer-area">
+        <div class="footer-copyright">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="copyright text-center">
+                            <p class="text">SurfboardNode节点订阅站 版权所有 Powered by WordPress</p>
+                        </div> <!-- copyright -->
+                    </div>
+                </div> <!-- row -->
+            </div> <!-- container -->
+        </div> <!-- footer copyright -->
+    </footer>
+    <!--====== FOOTER PART ENDS ======-->
+    <!--====== BACK TOP TOP PART START ======-->
+    <a href="#" class="back-to-top"><i class="lni-chevron-up"></i></a>
+    <!--====== BACK TOP TOP PART ENDS ======-->
+    <!--====== jquery js ======-->
+    <script src="/assets/website/js/frontend/surfboardnode/vendor/modernizr-3.6.0.min.js"></script>
+    <script src="/assets/website/js/frontend/surfboardnode/vendor/jquery-1.12.4.min.js"></script>
+    <!--====== Bootstrap js ======-->
+    <script src="/assets/website/js/frontend/surfboardnode/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/surfboardnode/popper.min.js"></script>
+    <!--====== Images Loaded js ======-->
+    <script src="/assets/website/js/frontend/surfboardnode/imagesloaded.pkgd.min.js"></script>
+    <!--====== Scrolling Nav js ======-->
+    <script src="/assets/website/js/frontend/surfboardnode/jquery.easing.min.js"></script>
+    <script src="/assets/website/js/frontend/surfboardnode/scrolling-nav.js"></script>
+    <!--====== Slick js ======-->
+    <script src="/assets/website/js/frontend/surfboardnode/slick.min.js"></script>
+    <!--====== Main js ======-->
+    <script src="/assets/website/js/frontend/surfboardnode/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
