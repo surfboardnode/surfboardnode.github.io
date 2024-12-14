@@ -2,13 +2,13 @@
 <html lang="zh-CN">
 
 <head>
-        <link rel="canonical" href="https://surfboardnode.github.io/news/article-25410.htm" />
+        <link rel="canonical" href="https://surfboardnode.github.io/news/article-25876.htm" />
     <!--====== Required meta tags ======-->
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>MySQL如何使用YEAR数据类型在表中存储年值？</title>
-        <meta name="description" content="MySQL允许声明YEAR类型的列，借助它我们可以将年份值存储在该列中。 mysql&gt;&nbsp;Create&nbsp;table&nbsp;year1&nbsp;(Year_Copyrigh" />
+    <title>DDL(数据定义语言)</title>
+        <meta name="description" content="1.DDL(Data Definition Language):数据定义语言，用来定义数据库对象，库、表、列等；创建、删除、修改：库，表结构； 2.DML(Data Manipulation Lang" />
         <link rel="icon" href="/assets/website/img/surfboardnode/favicon.ico" type="image/x-icon"/>
     <!--====== Bootstrap css ======-->
     <link rel="stylesheet" href="/assets/website/css/surfboardnode/bootstrap.min.css">
@@ -84,7 +84,7 @@
                     <div class="col-lg-12">
                         <div class="header-wrapper">
                             <div class="header-content">
-                                <h1 class="header-title">MySQL如何使用YEAR数据类型在表中存储年值？</h1>
+                                <h1 class="header-title">DDL(数据定义语言)</h1>
                                 <p class="text nav">
                                     <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / <span>正文</span>
                                 </p>
@@ -109,10 +109,10 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-9">
-                                      				  				  				<p>MySQL允许声明YEAR类型的列，借助它我们可以将年份值存储在该列中。</p> <pre>mysql&gt;&nbsp;Create&nbsp;table&nbsp;year1&nbsp;(Year_Copyright&nbsp;YEAR);  mysql&gt;&nbsp;Insert&nbsp;into&nbsp;year1(Year_Copyright)&nbsp;values&nbsp;(2017);  mysql&gt;&nbsp;Select&nbsp;*&nbsp;from&nbsp;year1; +----------------+ |&nbsp;Year_Copyright&nbsp;| +----------------+ |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2017&nbsp;&nbsp;| +----------------+ 1&nbsp;row&nbsp;in&nbsp;set&nbsp;(0.00&nbsp;sec)</pre> <div></div> 			                <div class="clearfix"></div>
+                                      				  				  				<div id="content_views" class="markdown_views prism-atom-one-light"> <blockquote> <p>1.DDL(Data Definition Language):数据定义语言，用来定义数据库对象，库、表、列等；创建、删除、修改：库，表结构；<br /> 2.DML(Data Manipulation Language):数据操作语言，用来定义数据库记录（数据）；增、删、改：表记录<br /> 3.DCL(Data Control Language)：数据控制语言，用来定义访问权限和安全级别<br /> 4.DQL（Data Query Language）:数据查询语言，用来查询记录（数据）</p> </blockquote> <h2> <a id="DDL_5" rel="nofollow"></a>DDL之操作数据库</h2> <p>创建数据库：</p> <pre><code class="prism language-sql"><span class="token keyword">create</span> <span class="token keyword">database</span> mydb1<span class="token punctuation">;</span> </code></pre> <p>删除数据库：</p> <pre><code class="prism language-sql"><span class="token keyword">drop</span> <span class="token keyword">database</span> mysql<span class="token punctuation">;</span> </code></pre> <h2> <a id="_16" rel="nofollow"></a>数据类型（列类型）</h2> <p>int :整型<br /> double :浮点型，例如double(5,2)表示最多5位，其中必须有两位小数。即最大值为999.99<br /> decimal:浮点型，在表单钱方面使用该类型，因为不会出现精度缺失问题<br /> char:固定长度字符串类型 char(255)，数据最长为255，数据的长度不足指定长度，补足到指定长度<br /> varchar: 可变字符串类型，varchar(65535),不补<br /> text(club):字符串类型(mysql独有)<br /> tinytext小<br /> text：<br /> mediumtext:中<br /> longtext:大<br /> blob:字节型<br /> data:日期类型：格式为yyyy-MM-dd;<br /> time:时间类型：格式为hh:mm:ss<br /> timestamp:时间戳类型，既有日期，又有时间</p> <h2> <a id="DDL_31" rel="nofollow"></a>DDL之操作表</h2> <p>创建表：</p> <pre><code class="prism language-sql"><span class="token keyword">create</span> <span class="token keyword">table</span> student<span class="token punctuation">(</span>     <span class="token operator">-</span><span class="token operator">&gt;</span> sno <span class="token keyword">char</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">,</span>     <span class="token operator">-</span><span class="token operator">&gt;</span> sname <span class="token keyword">varchar</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">,</span>     <span class="token operator">-</span><span class="token operator">&gt;</span> sage <span class="token keyword">int</span>     <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token punctuation">)</span><span class="token punctuation">,</span> </code></pre> <p>查询表结构</p> <pre><code class="prism language-sql"><span class="token keyword">desc</span> student<span class="token punctuation">;</span> </code></pre> <p>删除表：</p> <pre><code class="prism language-sql"><span class="token keyword">drop</span> <span class="token keyword">table</span> student<span class="token punctuation">;</span> </code></pre> <p>表中增加列：</p> <pre><code class="prism language-sql"> <span class="token keyword">alter</span> <span class="token keyword">table</span> student     <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token keyword">add</span><span class="token punctuation">(</span>     <span class="token operator">-</span><span class="token operator">&gt;</span> educadtion <span class="token keyword">varchar</span><span class="token punctuation">(</span><span class="token number">50</span><span class="token punctuation">)</span>     <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token punctuation">)</span><span class="token punctuation">;</span> </code></pre> <p>表中修改列属性：</p> <pre><code class="prism language-sql"> <span class="token keyword">alter</span> <span class="token keyword">table</span> student     <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token keyword">modify</span> sage <span class="token keyword">varchar</span><span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">;</span> </code></pre> <p>表中删除列：</p> <pre><code class="prism language-sql"> <span class="token keyword">alter</span> <span class="token keyword">table</span> student     <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token keyword">drop</span> sage<span class="token punctuation">;</span> </code></pre> <p>表的重命名：</p> <pre><code class="prism language-sql"> mysql<span class="token operator">&gt;</span> <span class="token keyword">alter</span> <span class="token keyword">table</span> student     <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token keyword">rename</span> <span class="token keyword">to</span> ss<span class="token punctuation">;</span> </code></pre> </p></div> 			                <div class="clearfix"></div>
                 <div class="col-md-12 mt-5">
-                                        <p>上一个：<a href="/news/article-24941.htm">刚开的宠物店生意不好怎么办（刚开的宠物店生意不好怎么办呀）</a></p>
-                                        <p>下一个：<a href="/news/article-25412.htm">css实现文本垂直居中水平居中的几种方法</a></p>
+                                        <p>上一个：<a href="/news/article-25412.htm">css实现文本垂直居中水平居中的几种方法</a></p>
+                                        <p>下一个：<a href="/news/article-25878.htm">送养一个孩子怎样写协议书范本（送养子女的协议书）</a></p>
                                     </div>
                                 </div>
                 <div class="col-md-3">
@@ -122,16 +122,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/news/article-23546.htm" title="C ++程序使用Sundaram筛子在给定范围之间生成素数">C ++程序使用Sundaram筛子在给定范围之间生成素数</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-9-30-clash-node.htm" title="「9月30日」最高速度19.5M/S，2024年SurfboardNode每天更新免费节点订阅链接">「9月30日」最高速度19.5M/S，2024年SurfboardNode每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/news/article-20342.htm" title="Feign远程调用以及Feign的最优使用">Feign远程调用以及Feign的最优使用</a></li>
-                        <li class="py-2"><a href="/news/article-20803.htm" title="vue中动态控制btn的disabled属性方式_vue.js">vue中动态控制btn的disabled属性方式_vue.js</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-9-16-shadowrocket-node.htm" title="「9月16日」最高速度20M/S，2024年SurfboardNode每天更新免费节点订阅链接">「9月16日」最高速度20M/S，2024年SurfboardNode每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/news/article-22632.htm" title="开宠物店是不是很累（开宠物店会亏本吗）">开宠物店是不是很累（开宠物店会亏本吗）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-19-free-node-subscribe-links.htm" title="「10月19日」最高速度18.8M/S，2024年Surfboard每天更新免费节点订阅链接">「10月19日」最高速度18.8M/S，2024年Surfboard每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-16-clash-node-daily-updates.htm" title="「10月16日」最高速度22M/S，2024年Surfboard每天更新免费节点订阅链接">「10月16日」最高速度22M/S，2024年Surfboard每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-11-free-surfboard.htm" title="「8月11日」最高速度20.8M/S，2024年SurfboardNode每天更新免费节点订阅链接">「8月11日」最高速度20.8M/S，2024年SurfboardNode每天更新免费节点订阅链接</a></li>
                         <li class="py-2"><a href="/news/article-24940.htm" title="宠物食品加工厂手续代办 宠物食品加工厂手续代办多少钱">宠物食品加工厂手续代办 宠物食品加工厂手续代办多少钱</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-15-node-share-links.htm" title="「10月15日」最高速度21.2M/S，2024年Surfboard每天更新免费节点订阅链接">「10月15日」最高速度21.2M/S，2024年Surfboard每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-7-21-clash-windows.htm" title="「7月21日」最高速度18.2M/S，2024年V2ray/Shadowrocket/SSR/Clash每天更新免费节点订阅链接">「7月21日」最高速度18.2M/S，2024年V2ray/Shadowrocket/SSR/Clash每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-29-free-high-speed-nodes.htm" title="「10月29日」最高速度21.9M/S，2024年Surfboard每天更新免费节点订阅链接">「10月29日」最高速度21.9M/S，2024年Surfboard每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-25412.htm" title="css实现文本垂直居中水平居中的几种方法">css实现文本垂直居中水平居中的几种方法</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-6-node-share.htm" title="「12月6日」最高速度19.9M/S，2024年Surfboard每天更新免费节点订阅链接">「12月6日」最高速度19.9M/S，2024年Surfboard每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-10-clash-node.htm" title="「8月10日」最高速度22.6M/S，2024年SurfboardNode每天更新免费节点订阅链接">「8月10日」最高速度22.6M/S，2024年SurfboardNode每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-5-free-surfboard.htm" title="「8月5日」最高速度22.5M/S，2024年Shadowrocket/SSR/Clash/V2ray每天更新免费节点订阅链接">「8月5日」最高速度22.5M/S，2024年Shadowrocket/SSR/Clash/V2ray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-9-node-share.htm" title="「12月9日」最高速度19.5M/S，2024年Surfboard每天更新免费节点订阅链接">「12月9日」最高速度19.5M/S，2024年Surfboard每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-19883.htm" title="昆明哪里可以免费领养宠物猫（昆明市宠物猫领养）">昆明哪里可以免费领养宠物猫（昆明市宠物猫领养）</a></li>
                     </ul>
     </div>
 </div>
