@@ -109,7 +109,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-9">
-                                      				  				  				<p>这是C ++程序，用于实现Sundaram筛，以在给定范围之间生成素数。该算法由Sundaram于1934年发现。</p> <h2>算法</h2> <pre>Begin &nbsp;&nbsp;&nbsp;printPrimes(n) &nbsp;&nbsp;&nbsp;Here&nbsp;we&nbsp;find&nbsp;out&nbsp;primes &nbsp;&nbsp;&nbsp;smaller&nbsp;than&nbsp;n,&nbsp;we&nbsp;reduce&nbsp;n-2&nbsp;to&nbsp;half.&nbsp;We&nbsp;call&nbsp;it&nbsp;New. &nbsp;&nbsp;&nbsp;New&nbsp;=&nbsp;(n-2)/2; &nbsp;&nbsp;&nbsp;Create&nbsp;an&nbsp;array&nbsp;marked[n]&nbsp;that&nbsp;is&nbsp;going &nbsp;&nbsp;&nbsp;to&nbsp;be&nbsp;used&nbsp;to&nbsp;separate&nbsp;numbers&nbsp;of&nbsp;the&nbsp;form&nbsp;i+j+2ij&nbsp;from &nbsp;&nbsp;&nbsp;others&nbsp;where&nbsp;1&nbsp;&lt;=&nbsp;i&nbsp;&lt;=&nbsp;j &nbsp;&nbsp;&nbsp;Initialize&nbsp;all&nbsp;entries&nbsp;of&nbsp;marked[]&nbsp;as&nbsp;false. &nbsp;&nbsp;&nbsp;Mark&nbsp;all&nbsp;numbers&nbsp;of&nbsp;the&nbsp;form&nbsp;i&nbsp;+&nbsp;j&nbsp;+&nbsp;2ij&nbsp;as&nbsp;true &nbsp;&nbsp;&nbsp;where&nbsp;1&nbsp;&lt;=&nbsp;i&nbsp;&lt;=&nbsp;j &nbsp;&nbsp;&nbsp;for&nbsp;i=1&nbsp;to&nbsp;New &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a)&nbsp;j&nbsp;=&nbsp;i; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;b)&nbsp;Loop&nbsp;While&nbsp;(i&nbsp;+&nbsp;j&nbsp;+&nbsp;2*i*j)&nbsp;2,&nbsp;then&nbsp;print&nbsp;2&nbsp;as&nbsp;first&nbsp;prime. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Remaining&nbsp;primes&nbsp;are&nbsp;of&nbsp;the&nbsp;form&nbsp;2i&nbsp;+&nbsp;1&nbsp;where&nbsp;i&nbsp;is &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;index&nbsp;of&nbsp;NOT&nbsp;marked&nbsp;numbers.&nbsp;So&nbsp;print&nbsp;2i&nbsp;+&nbsp;1&nbsp;for&nbsp;all&nbsp;i &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;such&nbsp;that&nbsp;marked[i]&nbsp;is&nbsp;false. End</pre> <h2>范例程式码</h2> <pre>#include&nbsp;&lt;bits/stdc++.h&gt; using&nbsp;namespace&nbsp;std; int&nbsp;SieveOfSundaram(int&nbsp;m)&nbsp;{ &nbsp;&nbsp;&nbsp;int&nbsp;N=&nbsp;(m-2)/2; &nbsp;&nbsp;&nbsp;bool&nbsp;marked[N&nbsp;+&nbsp;1]; &nbsp;&nbsp;&nbsp;memset(marked,&nbsp;false,&nbsp;sizeof(marked)); &nbsp;&nbsp;&nbsp;for&nbsp;(int&nbsp;i=1;&nbsp;i&lt;=N;&nbsp;i++) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;(int&nbsp;j=i;&nbsp;(i&nbsp;+&nbsp;j&nbsp;+&nbsp;2*i*j)&nbsp;&lt;=&nbsp;N;&nbsp;j++) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;marked[i&nbsp;+&nbsp;j&nbsp;+&nbsp;2*i*j]&nbsp;=&nbsp;true; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(m&nbsp;&gt;&nbsp;2) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cout&nbsp;&lt;&lt;&nbsp;2&nbsp;&lt;&lt;&nbsp;"&nbsp;"; &nbsp;&nbsp;&nbsp;for&nbsp;(int&nbsp;i=1;&nbsp;i&lt;=N;&nbsp;i++) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(marked[i]&nbsp;==&nbsp;false) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cout&nbsp;&lt;&lt;&nbsp;2*i&nbsp;+&nbsp;1&nbsp;&lt;&lt;&nbsp;"&nbsp;"; } int&nbsp;main(void)&nbsp;{ &nbsp;&nbsp;&nbsp;int&nbsp;m&nbsp;=&nbsp;10; &nbsp;&nbsp;&nbsp;SieveOfSundaram(m); &nbsp;&nbsp;&nbsp;return&nbsp;0; }</pre> <p>输出结果</p> <pre>2&nbsp;3&nbsp;5&nbsp;7</pre> <div></div> 			                <div class="clearfix"></div>
+                                    <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<p>这是C ++程序，用于实现Sundaram筛，以在给定范围之间生成素数。该算法由Sundaram于1934年发现。</p> <h2>算法</h2> <pre>Begin &nbsp;&nbsp;&nbsp;printPrimes(n) &nbsp;&nbsp;&nbsp;Here&nbsp;we&nbsp;find&nbsp;out&nbsp;primes &nbsp;&nbsp;&nbsp;smaller&nbsp;than&nbsp;n,&nbsp;we&nbsp;reduce&nbsp;n-2&nbsp;to&nbsp;half.&nbsp;We&nbsp;call&nbsp;it&nbsp;New. &nbsp;&nbsp;&nbsp;New&nbsp;=&nbsp;(n-2)/2; &nbsp;&nbsp;&nbsp;Create&nbsp;an&nbsp;array&nbsp;marked[n]&nbsp;that&nbsp;is&nbsp;going &nbsp;&nbsp;&nbsp;to&nbsp;be&nbsp;used&nbsp;to&nbsp;separate&nbsp;numbers&nbsp;of&nbsp;the&nbsp;form&nbsp;i+j+2ij&nbsp;from &nbsp;&nbsp;&nbsp;others&nbsp;where&nbsp;1&nbsp;&lt;=&nbsp;i&nbsp;&lt;=&nbsp;j &nbsp;&nbsp;&nbsp;Initialize&nbsp;all&nbsp;entries&nbsp;of&nbsp;marked[]&nbsp;as&nbsp;false. &nbsp;&nbsp;&nbsp;Mark&nbsp;all&nbsp;numbers&nbsp;of&nbsp;the&nbsp;form&nbsp;i&nbsp;+&nbsp;j&nbsp;+&nbsp;2ij&nbsp;as&nbsp;true &nbsp;&nbsp;&nbsp;where&nbsp;1&nbsp;&lt;=&nbsp;i&nbsp;&lt;=&nbsp;j &nbsp;&nbsp;&nbsp;for&nbsp;i=1&nbsp;to&nbsp;New &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a)&nbsp;j&nbsp;=&nbsp;i; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;b)&nbsp;Loop&nbsp;While&nbsp;(i&nbsp;+&nbsp;j&nbsp;+&nbsp;2*i*j)&nbsp;2,&nbsp;then&nbsp;print&nbsp;2&nbsp;as&nbsp;first&nbsp;prime. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Remaining&nbsp;primes&nbsp;are&nbsp;of&nbsp;the&nbsp;form&nbsp;2i&nbsp;+&nbsp;1&nbsp;where&nbsp;i&nbsp;is &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;index&nbsp;of&nbsp;NOT&nbsp;marked&nbsp;numbers.&nbsp;So&nbsp;print&nbsp;2i&nbsp;+&nbsp;1&nbsp;for&nbsp;all&nbsp;i &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;such&nbsp;that&nbsp;marked[i]&nbsp;is&nbsp;false. End</pre> <h2>范例程式码</h2> <pre>#include&nbsp;&lt;bits/stdc++.h&gt; using&nbsp;namespace&nbsp;std; int&nbsp;SieveOfSundaram(int&nbsp;m)&nbsp;{ &nbsp;&nbsp;&nbsp;int&nbsp;N=&nbsp;(m-2)/2; &nbsp;&nbsp;&nbsp;bool&nbsp;marked[N&nbsp;+&nbsp;1]; &nbsp;&nbsp;&nbsp;memset(marked,&nbsp;false,&nbsp;sizeof(marked)); &nbsp;&nbsp;&nbsp;for&nbsp;(int&nbsp;i=1;&nbsp;i&lt;=N;&nbsp;i++) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;(int&nbsp;j=i;&nbsp;(i&nbsp;+&nbsp;j&nbsp;+&nbsp;2*i*j)&nbsp;&lt;=&nbsp;N;&nbsp;j++) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;marked[i&nbsp;+&nbsp;j&nbsp;+&nbsp;2*i*j]&nbsp;=&nbsp;true; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(m&nbsp;&gt;&nbsp;2) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cout&nbsp;&lt;&lt;&nbsp;2&nbsp;&lt;&lt;&nbsp;"&nbsp;"; &nbsp;&nbsp;&nbsp;for&nbsp;(int&nbsp;i=1;&nbsp;i&lt;=N;&nbsp;i++) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(marked[i]&nbsp;==&nbsp;false) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cout&nbsp;&lt;&lt;&nbsp;2*i&nbsp;+&nbsp;1&nbsp;&lt;&lt;&nbsp;"&nbsp;"; } int&nbsp;main(void)&nbsp;{ &nbsp;&nbsp;&nbsp;int&nbsp;m&nbsp;=&nbsp;10; &nbsp;&nbsp;&nbsp;SieveOfSundaram(m); &nbsp;&nbsp;&nbsp;return&nbsp;0; }</pre> <p>输出结果</p> <pre>2&nbsp;3&nbsp;5&nbsp;7</pre> <div></div> 			                <div class="clearfix"></div>
                 <div class="col-md-12 mt-5">
                                         <p>上一个：<a href="/news/article-23094.htm">动物疫苗新规定最新版图片 动物疫苗新规定最新版图片大全</a></p>
                                         <p>下一个：<a href="/news/article-23548.htm">宠物领养app设计思路（宠物领养app该如何设计）</a></p>
@@ -122,16 +123,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2024-10-10-linux-surfboard-node.htm" title="「10月10日」最高速度21.3M/S，2024年Surfboard每天更新免费节点订阅链接">「10月10日」最高速度21.3M/S，2024年Surfboard每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-8-25-free-high-speed-nodes.htm" title="「8月25日」最高速度18.4M/S，2024年SurfboardNode每天更新免费节点订阅链接">「8月25日」最高速度18.4M/S，2024年SurfboardNode每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-9-29-linux-surfboard-node.htm" title="「9月29日」最高速度22.2M/S，2024年SurfboardNode每天更新免费节点订阅链接">「9月29日」最高速度22.2M/S，2024年SurfboardNode每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-8-28-free-surfboard.htm" title="「8月28日」最高速度20.6M/S，2024年SurfboardNode每天更新免费节点订阅链接">「8月28日」最高速度20.6M/S，2024年SurfboardNode每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-9-17-free-node-subscribe-links.htm" title="「9月17日」最高速度22.4M/S，2024年SurfboardNode每天更新免费节点订阅链接">「9月17日」最高速度22.4M/S，2024年SurfboardNode每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-4-clash-node-daily-updates.htm" title="「12月4日」最高速度19.6M/S，2024年Surfboard每天更新免费节点订阅链接">「12月4日」最高速度19.6M/S，2024年Surfboard每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-8-13-free-node-subscribe-links.htm" title="「8月13日」最高速度22.8M/S，2024年SurfboardNode每天更新免费节点订阅链接">「8月13日」最高速度22.8M/S，2024年SurfboardNode每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-8-23-clash-node.htm" title="「8月23日」最高速度19.6M/S，2024年SurfboardNode每天更新免费节点订阅链接">「8月23日」最高速度19.6M/S，2024年SurfboardNode每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-17-linux-surfboard-node.htm" title="「11月17日」最高速度18.5M/S，2024年Surfboard每天更新免费节点订阅链接">「11月17日」最高速度18.5M/S，2024年Surfboard每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-25410.htm" title="MySQL如何使用YEAR数据类型在表中存储年值？">MySQL如何使用YEAR数据类型在表中存储年值？</a></li>
+                        <li class="py-2"><a href="/news/article-26811.htm" title="调用feign接口时，如何往header中添加参数">调用feign接口时，如何往header中添加参数</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-9-free-node-subscribe-links.htm" title="「8月9日」最高速度20.8M/S，2024年SurfboardNode每天更新免费节点订阅链接">「8月9日」最高速度20.8M/S，2024年SurfboardNode每天更新免费节点订阅链接</a></li>
                         <li class="py-2"><a href="/news/article-22181.htm" title="生物疫苗和疫苗有区别吗 生物疫苗和疫苗有区别吗知乎">生物疫苗和疫苗有区别吗 生物疫苗和疫苗有区别吗知乎</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-28-free-surfboard.htm" title="「11月28日」最高速度23M/S，2024年Surfboard每天更新免费节点订阅链接">「11月28日」最高速度23M/S，2024年Surfboard每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-11-free-surfboard-node.htm" title="「10月11日」最高速度18M/S，2024年Surfboard每天更新免费节点订阅链接">「10月11日」最高速度18M/S，2024年Surfboard每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-23-clash-node-daily-updates.htm" title="「9月23日」最高速度20.7M/S，2024年SurfboardNode每天更新免费节点订阅链接">「9月23日」最高速度20.7M/S，2024年SurfboardNode每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-7-27-clash-node-daily-updates.htm" title="「7月27日」最高速度21.1M/S，2024年Clash/SSR/Shadowrocket/V2ray每天更新免费节点订阅链接">「7月27日」最高速度21.1M/S，2024年Clash/SSR/Shadowrocket/V2ray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-10-clash-node-daily-updates.htm" title="「9月10日」最高速度20.6M/S，2024年SurfboardNode每天更新免费节点订阅链接">「9月10日」最高速度20.6M/S，2024年SurfboardNode每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-7-20-free-surfboard-node.htm" title="「7月20日」最高速度22.8M/S，2024年V2ray/Clash/Shadowrocket/SSR每天更新免费节点订阅链接">「7月20日」最高速度22.8M/S，2024年V2ray/Clash/Shadowrocket/SSR每天更新免费节点订阅链接</a></li>
                     </ul>
     </div>
 </div>
@@ -143,7 +144,7 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">33</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+                <h4><span class="badge" style="float: right;">57</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
@@ -176,6 +177,15 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="copyright text-center">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
                             <p class="text">SurfboardNode节点订阅站 版权所有 Powered by WordPress</p>
                         </div> <!-- copyright -->
                     </div>
