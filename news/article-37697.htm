@@ -2,14 +2,13 @@
 <html lang="zh-CN">
 
 <head>
-        <link rel="canonical" href="https://surfboardnode.github.io" />
+        <link rel="canonical" href="https://surfboardnode.github.io/news/article-37697.htm" />
     <!--====== Required meta tags ======-->
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>2024-12归档 - 第9页 - SurfboardNode节点订阅中文站</title>
-        <meta name="keywords" content="2024-12归档SurfboardNode节点订阅中文站" />
-        <meta name="description" content="2024-12归档，当前是第9页" />
+    <title>Java基础之浅谈异常与了解断言</title>
+        <meta name="description" content="用户输入错误 设备错误 物理限制 代码错误     在Java中异常对象都是派生于Throwable类的一个实例。 我们一般将异常分为两种：①Error和②Exception 如果你的程序出现了Err" />
         <link rel="icon" href="/assets/website/img/surfboardnode/favicon.ico" type="image/x-icon"/>
     <!--====== Bootstrap css ======-->
     <link rel="stylesheet" href="/assets/website/css/surfboardnode/bootstrap.min.css">
@@ -36,7 +35,7 @@
      crossorigin="anonymous"></script>
 </head>
 
-<body data-page="category">
+<body data-page="detail">
     <!--====== HEADER ONE PART START ======-->
     <header class="header-area">
         <div class="navbar-area navbar-one navbar-transparent">
@@ -85,9 +84,9 @@
                     <div class="col-lg-12">
                         <div class="header-wrapper">
                             <div class="header-content">
-                                <h1 class="header-title">2024-12 归档</h1>
+                                <h1 class="header-title">Java基础之浅谈异常与了解断言</h1>
                                 <p class="text nav">
-                                    <a href="/">首页</a> / <span>2024-12 归档</span>
+                                    <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / <span>正文</span>
                                 </p>
                             </div> <!-- header content -->
                             <div class="header-image d-none d-lg-block">
@@ -109,72 +108,13 @@
     <section id="about" class="about-area pt-70 pb-100">
         <div class="container">
             <div class="row">
-                <div class="col-md-9 xcblog-blog-list">
-                                        <div class="row item xcblog-blog-item" data-date="2024-12-01">
-                        <div class="col-md-3">
-                            <div class="about-feature mt-30">
-                                <div class="about-feature-image">
-                                    <a href="/news/article-19883.htm" class="xcblog-blog-url">
-                                        <img src="/uploads/20240709-1/310cab61201208c0b3f68c60d4d9cf84.webp" alt="昆明哪里可以免费领养宠物猫（昆明市宠物猫领养）">
-                                    </a>
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				</h1> <ul> <li>用户输入错误</li> <li>设备错误</li> <li>物理限制</li> <li>代码错误</li> </ul> </h1> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/82e07d110c22ef8e92a30e063641f7c0.jpg" alt="Java基础之浅谈异常与了解断言"></p> <ul> <li>在Java中异常对象都是派生于Throwable类的一个实例。</li> <li>我们一般将异常分为两种：①Error和②Exception</li> <li><strong>如果你的程序出现了Error</strong>：是程序无法处理的错误，表示运行应用程序中较严重问题。基本上躺平吧</li> <li><strong>如果你的程序出现了Exception</strong>：我们可以通过抛出异常并捕获异常来处理。</li> </ul> <h2 id="21引起异常的常见问题">2.1引起异常的常见问题</h2> <p><strong>派生于RuntimeException的异常包括一下问题：</strong></p> <ul> <li>错误的强制类型转换</li> <li>数组访问越界</li> <li>访问null指针</li> <li>出现这些问题，一定是你自己的问题</li> </ul> <p><strong>其它类异常包括：</strong></p> <ul> <li>试图超越文件末尾继续读取数据</li> <li>试图打开一个不存在的文件</li> <li>试图根据给定的字符串查找Class对象，而这个字符串表示的类并不存在。</li> </ul> <h2 id="22常见异常处理">2.2常见异常处理</h2> <ul> <li>过程一：“抛”：一旦出现异常，就会在异常代码处生成一个对应异常类的对象，并将此对象抛出。<br /> 一旦抛出对象后，其后的代码不在执行。(除非这个异常被捕获，这样后面的代码可以继续执行)</li> <li>过程二：“抓”：可以理解为异常处理方式：①try-catch-finally(自己解决)   ②throws(扔给别人解决)</li> </ul> </h1> <h2 id="31如何抛出异常">3.1如何抛出异常</h2> <ul> <li>首先我们抛出异常通常使用throws</li> </ul> <pre><code>public class Son {     public void run() throws Exception{         //若代码中，出现异常，我们可以将这个异常抛出，抛给调用者去解决这个问题。         //可以一层一层的抛出，但是终究我们还是要捕获这个异常，解决问题。         //有时候你也会认为，这是一个极其不负责任的做法。????     } }</code></pre> <h2 id="32创建异常类自定义异常">3.2创建异常类（自定义异常）</h2> <ul> <li>我们需要做的很简单，定义一个派生于(继承)Exception的类，或者是Exception的某个子类。</li> <li>自定义异常通常包含两个构造器，<strong>一个是默认构造器</strong>，一个是<strong>包含详细描述信息的构造器</strong>。</li> </ul> <pre><code>class 自定义异常类 extends Exception {     public 自定义异常类() {     }     public 自定义异常类(String message) {         super(message);     } }  public class Son {     int a = 0;     public void sum() throws 自定义异常类 {         if(a &lt; 0)              throw new 自定义异常类("a不能小于0");     } }</code></pre> <h2 id="33捕获异常try-catch-finally">3.3捕获异常try-catch-finally</h2> <pre><code>public void test() {         try {             //可能存在问题的歧义代码         }catch (Exception e) {             e.printStackTrace();         }finally {             System.out.println("一定会走的代码");         }     }</code></pre> <ul> <li>我们先走try里的代码，若遇到了异常，则进入catch，将异常处理后，继续执行finally语句</li> <li>若try语句中又return语句，我们仍然执行完try后继续执行finally。</li> <li>finally的语句块一定会被执行。(除非我们没有正确处理遇到的异常)</li> <li>若try语句块中没有任何异常，则跳过catch语句块。</li> </ul> <h2 id="34throw和throws区别">3.4throw和throws区别</h2> <p><strong>throws：</strong>throws关键字用来声明要产生的异常，通常在方法名字后面使用<code>public void run() throws Exception</code><br /><strong>throw：</strong>throw关键字通常抛出异常对象，作用就是抛出异常。<code>throw new 自定义异常类("a不能小于0");</code></p> </h1> <p><strong>assert关键字：</strong></p> <ul> <li><code>assert condition;</code>，<code>assert condition :expression;</code></li> <li>断言的作用一般都是debug时候使用，如果 assert x&gt;0；结果为true，程序继续执行，反之程序直接停止。</li> <li>了解即可，我这个层次接触用的较少。</li> </ul> </h1> <ul> <li>对于<strong>异常处理</strong>内容就总结这么多，若想深入学习等待后续更新，基础部分掌握这些足矣。如果有不足之处，希望大家多多包涵，多多支持。如果有不懂的地方可以直接私信问我，欢迎来访！</li> <li>我将会继续更新关于Java的学习知识，感兴趣的小伙伴可以关注一下。</li> <li>文章写得比较走心，用了很长时间，绝对不是copy过来的！</li> <li>尊重每一位学习知识的人，同时也尊重每一位分享知识的人。</li> </ul> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-37696.htm">Echarts饼图 改变大小与位置</a></p>
+                                    </div>
                                 </div>
-                            </div> <!-- about feature three -->
-                        </div>
-                        <div class="col-md-9">
-                            <div class="about-feature-items d-sm-flex mt-30">
-                                <div class="feature-items-content media-body">
-                                    <a href="/news/article-19883.htm" class="xcblog-blog-url">
-                                        <h3 class="xcblog-blog-title">昆明哪里可以免费领养宠物猫（昆明市宠物猫领养）</h3>
-                                    </a>
-                                    <p class="text">摘要：       本篇文章给大家谈谈昆明哪里可以免费领养宠物猫，以及昆明市宠物猫领养对应的知识点，希望对各位有所帮助，不要忘了收藏本站喔。本文目录一览：1、在昆明的,,有没有谁家有需要被领养的小..</p>
-                                </div>
-                            </div> <!-- about feature items -->
-                        </div>
-                    </div> <!-- row -->
-                                        <div class="row item xcblog-blog-item" data-date="2024-12-01">
-                        <div class="col-md-3">
-                            <div class="about-feature mt-30">
-                                <div class="about-feature-image">
-                                    <a href="/news/article-19882.htm" class="xcblog-blog-url">
-                                        <img src="/uploads/20240709-1/9ab7e7c122529a36426cf22349b0467d.webp" alt="JDK内置锁深入探究">
-                                    </a>
-                                </div>
-                            </div> <!-- about feature three -->
-                        </div>
-                        <div class="col-md-9">
-                            <div class="about-feature-items d-sm-flex mt-30">
-                                <div class="feature-items-content media-body">
-                                    <a href="/news/article-19882.htm" class="xcblog-blog-url">
-                                        <h3 class="xcblog-blog-title">JDK内置锁深入探究</h3>
-                                    </a>
-                                    <p class="text">一、序言 本文讲述仅针对 JVM 层次的内置锁，不涉及分布式锁。 锁有多种分类形式，比如公平锁与非公平锁、可重入锁与非重入锁、独享锁与共享锁、乐观锁与悲观锁、互斥锁与读写锁、自旋锁、分段锁和偏向锁/轻</p>
-                                </div>
-                            </div> <!-- about feature items -->
-                        </div>
-                    </div> <!-- row -->
-                                        <div class="row item xcblog-blog-item" data-date="2024-12-01">
-                        <div class="col-md-3">
-                            <div class="about-feature mt-30">
-                                <div class="about-feature-image">
-                                    <a href="/free-nodes/2024-12-1-node-share-links.htm" class="xcblog-blog-url">
-                                        <img src="/uploads/20240709-1/c7d29da4e3a243c4dd441d9fc50f1496.webp" alt="「12月1日」最高速度20.5M/S，2024年Surfboard每天更新免费节点订阅链接">
-                                    </a>
-                                </div>
-                            </div> <!-- about feature three -->
-                        </div>
-                        <div class="col-md-9">
-                            <div class="about-feature-items d-sm-flex mt-30">
-                                <div class="feature-items-content media-body">
-                                    <a href="/free-nodes/2024-12-1-node-share-links.htm" class="xcblog-blog-url">
-                                        <h3 class="xcblog-blog-title">「12月1日」最高速度20.5M/S，2024年Surfboard每天更新免费节点订阅链接</h3>
-                                    </a>
-                                    <p class="text">这一次的节点更新覆盖了欧洲、韩国、香港、新加坡、日本、加拿大、美国等地区,最高速度可达20.5 M/S。只需复制下方的Clash/v2ray订阅链接,在客户端添加后即可正常使用。</p>
-                                </div>
-                            </div> <!-- about feature items -->
-                        </div>
-                    </div> <!-- row -->
-                    
-                    <ul class="pagination"><li><a href="/date/2024-12/page-9.htm">&laquo;</a></li> <li><a href="/date/2024-12/">1</a></li><li><a href="/date/2024-12/page-2.htm">2</a></li><li><a href="/date/2024-12/page-3.htm">3</a></li><li><a href="/date/2024-12/page-4.htm">4</a></li><li><a href="/date/2024-12/page-5.htm">5</a></li><li><a href="/date/2024-12/page-6.htm">6</a></li><li><a href="/date/2024-12/page-7.htm">7</a></li><li><a href="/date/2024-12/page-8.htm">8</a></li><li><a href="/date/2024-12/page-9.htm">9</a></li><li class="active"><span>10</span></li> <li class="disabled"><span>&raquo;</span></li></ul>                </div>
                 <div class="col-md-3">
                     <div class="panel panel-default">
     <div class="panel-heading">
@@ -182,16 +122,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/news/article-21684.htm" title="狗粮颗粒机最好产品排名前十（狗粮颗粒怎么做的）">狗粮颗粒机最好产品排名前十（狗粮颗粒怎么做的）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-7-free-node-subscribe-links.htm" title="「12月7日」最高速度19.8M/S，2024年Surfboard每天更新免费节点订阅链接">「12月7日」最高速度19.8M/S，2024年Surfboard每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-1-2-node-share.htm" title="「1月2日」最高速度19M/S，2025年Surfboard每天更新免费节点订阅链接">「1月2日」最高速度19M/S，2025年Surfboard每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/news/article-31016.htm" title="Python 一网打尽＜排序算法＞之从希尔排序算法的分治哲学开始">Python 一网打尽＜排序算法＞之从希尔排序算法的分治哲学开始</a></li>
-                        <li class="py-2"><a href="/news/article-23548.htm" title="宠物领养app设计思路（宠物领养app该如何设计）">宠物领养app设计思路（宠物领养app该如何设计）</a></li>
-                        <li class="py-2"><a href="/news/article-19428.htm" title="天宠宠物殡葬官网上海（天宠宠物殡葬人均消费）">天宠宠物殡葬官网上海（天宠宠物殡葬人均消费）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-25-free-surfboard.htm" title="「10月25日」最高速度18.9M/S，2024年Surfboard每天更新免费节点订阅链接">「10月25日」最高速度18.9M/S，2024年Surfboard每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-23-clash-node-daily-updates.htm" title="「12月23日」最高速度20.5M/S，2024年Surfboard每天更新免费节点订阅链接">「12月23日」最高速度20.5M/S，2024年Surfboard每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-11-free-node-subscribe-links.htm" title="「12月11日」最高速度22.5M/S，2024年Surfboard每天更新免费节点订阅链接">「12月11日」最高速度22.5M/S，2024年Surfboard每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-22-surfboard-node.htm" title="「10月22日」最高速度18.5M/S，2024年Surfboard每天更新免费节点订阅链接">「10月22日」最高速度18.5M/S，2024年Surfboard每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-27-free-surfboard.htm" title="「10月27日」最高速度20.8M/S，2024年Surfboard每天更新免费节点订阅链接">「10月27日」最高速度20.8M/S，2024年Surfboard每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-27273.htm" title="动物疫苗多少钱一支啊图片（动物疫苗多少钱一支啊图片及价格）">动物疫苗多少钱一支啊图片（动物疫苗多少钱一支啊图片及价格）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-15-node-share-links.htm" title="「10月15日」最高速度21.2M/S，2024年Surfboard每天更新免费节点订阅链接">「10月15日」最高速度21.2M/S，2024年Surfboard每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-32924.htm" title="领养宠物协议书范本图片模板高清（领养宠物协议有法律效力吗）">领养宠物协议书范本图片模板高清（领养宠物协议有法律效力吗）</a></li>
+                        <li class="py-2"><a href="/news/article-30547.htm" title="制作猫粮的机器 制作猫粮的机器多少钱">制作猫粮的机器 制作猫粮的机器多少钱</a></li>
+                        <li class="py-2"><a href="/news/article-36752.htm" title="宠物寄养协议书怎么写模板（宠物寄养协议有法律效力吗）">宠物寄养协议书怎么写模板（宠物寄养协议有法律效力吗）</a></li>
+                        <li class="py-2"><a href="/news/article-29868.htm" title="动物疫苗接种时应注意哪些安全事项（动物疫苗接种时应注意哪些安全事项和要求）">动物疫苗接种时应注意哪些安全事项（动物疫苗接种时应注意哪些安全事项和要求）</a></li>
+                        <li class="py-2"><a href="/news/article-34356.htm" title=".Net IDE智能提示汉化(.Net6、AspNetCore)">.Net IDE智能提示汉化(.Net6、AspNetCore)</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-18-clash-windows.htm" title="「10月18日」最高速度21.2M/S，2024年Surfboard每天更新免费节点订阅链接">「10月18日」最高速度21.2M/S，2024年Surfboard每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-34834.htm" title="同安宠物领养中心在哪里有 同安宠物领养中心在哪里有啊">同安宠物领养中心在哪里有 同安宠物领养中心在哪里有啊</a></li>
                     </ul>
     </div>
 </div>
