@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="zh-CN">
+<html xml:lang="zh-CN" lang="zh-CN">
 
 <head>
         <link rel="canonical" href="https://surfboardnode.github.io/news/article-35493.htm" />
@@ -10,6 +10,33 @@
     <title>关于Mina中IoBuffer与Java NIO中ByteBufferde的使用</title>
         <meta name="description" content="项目中大量的使用&nbsp;NIO&nbsp;和&nbsp;Mina，虽然之前一直对这部分比较关注，但是还没有好好的总结一下这方面的内容，本节内容介绍一下NIO&nbsp;里最基本的一个类&nbsp;" />
         <link rel="icon" href="/assets/website/img/surfboardnode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="SurfboardNode节点订阅中文站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://surfboardnode.github.io/news/article-35493.htm" />
+    <meta property="og:site_name" content="SurfboardNode节点订阅中文站" />
+    <meta property="og:title" content="关于Mina中IoBuffer与Java NIO中ByteBufferde的使用" />
+    <meta property="og:image" content="https://surfboardnode.github.io/uploads/20240709-1/b91f22334568760315782b9828522a30.webp" />
+        <meta property="og:release_date" content="2025-01-04T10:23:54" />
+    <meta property="og:updated_time" content="2025-01-04T10:23:54" />
+        <meta property="og:description" content="项目中大量的使用&nbsp;NIO&nbsp;和&nbsp;Mina，虽然之前一直对这部分比较关注，但是还没有好好的总结一下这方面的内容，本节内容介绍一下NIO&nbsp;里最基本的一个类&nbsp;" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="关于Mina中IoBuffer与Java NIO中ByteBufferde的使用">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
     <!--====== Bootstrap css ======-->
     <link rel="stylesheet" href="/assets/website/css/surfboardnode/bootstrap.min.css">
     <!--====== Slick css ======-->
@@ -91,7 +118,7 @@
                             </div> <!-- header content -->
                             <div class="header-image d-none d-lg-block">
                                 <div class="image">
-                                    <img href="/assets/website/img/surfboardnode/header.png" alt="Header">
+                                    <img src="/assets/website/img/surfboardnode/header.png" alt="Header">
                                 </div>
                             </div>
                         </div>
@@ -99,7 +126,7 @@
                 </div> <!-- row -->
             </div> <!-- container -->
             <div class="header-shape">
-                <img href="/assets/website/img/surfboardnode/header-shape.svg" alt="shape">
+                <img src="/assets/website/img/surfboardnode/header-shape.svg" alt="shape">
             </div> <!-- header-shape -->
         </div> <!-- header content area -->
     </header>
@@ -123,16 +150,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/news/article-24233.htm" title="附近的动物医院在哪里（附近兽医院和动物医院）">附近的动物医院在哪里（附近兽医院和动物医院）</a></li>
-                        <li class="py-2"><a href="/news/article-21684.htm" title="狗粮颗粒机最好产品排名前十（狗粮颗粒怎么做的）">狗粮颗粒机最好产品排名前十（狗粮颗粒怎么做的）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-25-free-surfboard.htm" title="「10月25日」最高速度18.9M/S，2024年Surfboard每天更新免费节点订阅链接">「10月25日」最高速度18.9M/S，2024年Surfboard每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/news/article-34834.htm" title="同安宠物领养中心在哪里有 同安宠物领养中心在哪里有啊">同安宠物领养中心在哪里有 同安宠物领养中心在哪里有啊</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-31-linux-surfboard-node.htm" title="「10月31日」最高速度21.1M/S，2024年Surfboard每天更新免费节点订阅链接">「10月31日」最高速度21.1M/S，2024年Surfboard每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-19882.htm" title="JDK内置锁深入探究">JDK内置锁深入探究</a></li>
+                        <li class="py-2"><a href="/news/article-39697.htm" title="宠颐生收费标准 宠颐生怎么样">宠颐生收费标准 宠颐生怎么样</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-4-linux-surfboard-node.htm" title="「1月4日」最高速度21.7M/S，2025年Surfboard每天更新免费节点订阅链接">「1月4日」最高速度21.7M/S，2025年Surfboard每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-27732.htm" title="仓鼠去医院花费（仓鼠医药费）">仓鼠去医院花费（仓鼠医药费）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-28-node-share.htm" title="「1月28日」最高速度19.9M/S，Shadowrocket/V2ray/SSR/Clash/Surfboard免费节点订阅链接">「1月28日」最高速度19.9M/S，Shadowrocket/V2ray/SSR/Clash/Surfboard免费节点订阅链接</a></li>
                         <li class="py-2"><a href="/news/article-34987.htm" title="机智的恋爱综艺最后谁和谁在一起了（X恋人是什么意）越早知道越好，">机智的恋爱综艺最后谁和谁在一起了（X恋人是什么意）越早知道越好，</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-9-shadowrocket-node.htm" title="「10月9日」最高速度18.9M/S，2024年Surfboard每天更新免费节点订阅链接">「10月9日」最高速度18.9M/S，2024年Surfboard每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-17-node-share-links.htm" title="「12月17日」最高速度18.7M/S，2024年Surfboard每天更新免费节点订阅链接">「12月17日」最高速度18.7M/S，2024年Surfboard每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-26-free-subscribe-node.htm" title="「11月26日」最高速度21.3M/S，2024年Surfboard每天更新免费节点订阅链接">「11月26日」最高速度21.3M/S，2024年Surfboard每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/news/article-29126.htm" title="厦门宠物家庭寄养（厦门宠物寄养多少钱一天）">厦门宠物家庭寄养（厦门宠物寄养多少钱一天）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-18-linux-surfboard-node.htm" title="「11月18日」最高速度21.3M/S，2024年Surfboard每天更新免费节点订阅链接">「11月18日」最高速度21.3M/S，2024年Surfboard每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-8-free-node-subscribe-links.htm" title="「1月8日」最高速度21M/S，V2ray/SSR/Clash/Shadowrocket/Surfboard免费节点订阅链接">「1月8日」最高速度21M/S，V2ray/SSR/Clash/Shadowrocket/Surfboard免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-48113.htm" title="沈阳宠物用品批发在哪进货（沈阳哪有宠物用品批发）">沈阳宠物用品批发在哪进货（沈阳哪有宠物用品批发）</a></li>
+                        <li class="py-2"><a href="/news/article-29125.htm" title="动物疫苗的概念是什么样的 动物疫苗的概念是什么样的呢">动物疫苗的概念是什么样的 动物疫苗的概念是什么样的呢</a></li>
                     </ul>
     </div>
 </div>
@@ -144,16 +171,16 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">17</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+                <h4><span class="badge" style="float: right;">6</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">92</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">25</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
             </li>
                     </ul>
     </div>
