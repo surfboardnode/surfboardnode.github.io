@@ -2819,6 +2819,7 @@ p {
 /*# sourceMappingURL=style.css.map */
 
 .navbar-brand, .navbar-brand:hover {color: #fff;font-size: 2.5rem;font-weight: bold;}
+.navbar-brand h1 {color: #fff;}
 #home.list .header-image {right: -90px;z-index: 1;}
 #home.list .header-content {max-width: 800px;padding-top: 55px;}
 #home.list .header-content .nav a {color: #fff;}

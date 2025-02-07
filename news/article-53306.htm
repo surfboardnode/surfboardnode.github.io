@@ -1,0 +1,241 @@
+<!doctype html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://surfboardnode.github.io/news/article-53306.htm" />
+    <!--====== Required meta tags ======-->
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Java数据结构之单向环形链表（解决Josephu约瑟夫环问题）</title>
+        <meta name="description" content="1.Josephu（约瑟夫、约瑟夫环）问题： 设编号为1，2，… n的n个人围坐一圈，约定编号为k（1&lt;=k&lt;=n）的人从1开始报数，数到m 的那个人出列，它的下一位又从1开始报数，数到m" />
+        <link rel="icon" href="/assets/website/img/surfboardnode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="SurfboardNode节点订阅中文站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://surfboardnode.github.io/news/article-53306.htm" />
+    <meta property="og:site_name" content="SurfboardNode节点订阅中文站" />
+    <meta property="og:title" content="Java数据结构之单向环形链表（解决Josephu约瑟夫环问题）" />
+    <meta property="og:image" content="https://surfboardnode.github.io/uploads/20240709-1/ab9c50af26d6909a5d79c0c2ab0176cc.webp" />
+        <meta property="og:release_date" content="2025-02-08T04:41:38" />
+    <meta property="og:updated_time" content="2025-02-08T04:41:38" />
+        <meta property="og:description" content="1.Josephu（约瑟夫、约瑟夫环）问题： 设编号为1，2，… n的n个人围坐一圈，约定编号为k（1&lt;=k&lt;=n）的人从1开始报数，数到m 的那个人出列，它的下一位又从1开始报数，数到m" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Java数据结构之单向环形链表（解决Josephu约瑟夫环问题）">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!--====== Bootstrap css ======-->
+    <link rel="stylesheet" href="/assets/website/css/surfboardnode/bootstrap.min.css">
+    <!--====== Slick css ======-->
+    <link rel="stylesheet" href="/assets/website/css/surfboardnode/slick.css">
+    <!--====== Magnific Popup css ======-->
+    <link rel="stylesheet" href="/assets/website/css/surfboardnode/magnific-popup.css">
+    <!--====== Line Icons css ======-->
+    <link rel="stylesheet" href="/assets/website/css/surfboardnode/LineIcons.css">
+    <!--====== Default css ======-->
+    <link rel="stylesheet" href="/assets/website/css/surfboardnode/default.css">
+    <!--====== Style css ======-->
+    <link rel="stylesheet" href="/assets/website/css/surfboardnode/style.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4YFZCSBJW0"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-4YFZCSBJW0');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+    <!--====== HEADER ONE PART START ======-->
+    <header class="header-area">
+        <div class="navbar-area navbar-one navbar-transparent">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <nav class="navbar navbar-expand-lg">
+                    <a class="navbar-brand" href="/">
+                                        <span>
+                        Surfboard Node                    </span>
+                                        </a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarOne" aria-controls="navbarOne" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="toggler-icon"></span>
+                        <span class="toggler-icon"></span>
+                        <span class="toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse sub-menu-bar" id="navbarOne">
+                        <ul class="navbar-nav m-auto">
+                                                        <li class="nav-item">
+                                <a href="/">首页</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a href="/free-nodes/">免费节点</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a href="/paid-subscribe/">推荐机场</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a href="/news/">新闻资讯</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a href="#">关于</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#">联系</a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav> <!-- navbar -->
+            </div>
+        </div> <!-- row -->
+    </div> <!-- container -->
+</div>
+        <div id="home" class="header-content-area d-flex align-items-center list" style="height:450px;">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="header-wrapper">
+                            <div class="header-content">
+                                <h1 class="header-title">Java数据结构之单向环形链表（解决Josephu约瑟夫环问题）</h1>
+                                <p class="text nav">
+                                    <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / <span>正文</span>
+                                </p>
+                            </div> <!-- header content -->
+                            <div class="header-image d-none d-lg-block">
+                                <div class="image">
+                                    <img src="/assets/website/img/surfboardnode/header.png" alt="Header">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> <!-- row -->
+            </div> <!-- container -->
+            <div class="header-shape">
+                <img src="/assets/website/img/surfboardnode/header-shape.svg" alt="shape">
+            </div> <!-- header-shape -->
+        </div> <!-- header content area -->
+    </header>
+    <!--====== HEADER ONE PART ENDS ======-->
+    <!--====== ABOUT THREE PART START ======-->
+    <section id="about" class="about-area pt-70 pb-100">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="htmledit_views"> <div id="cnblogs_post_body"> <p><strong>1.Josephu（约瑟夫、约瑟夫环）问题：</strong></p> <p>设编号为1，2，… n的n个人围坐一圈，约定编号为k（1&lt;=k&lt;=n）的人从1开始报数，数到m 的那个人出列，它的下一位又从1开始报数，数到m的那个人又出列，依次类推，直到所有人出列为止，由此产生一个出队编号的序列。</p> <p><strong>提示：</strong></p> <p>用一个不带头结点的循环链表来处理Josephu 问题：先构成一个有n个结点的单循环链表，然后由k结点起从1开始计数，计到m时，对应结点从链表中删除，然后再从被删除结点的下一个结点又从1开始计数，直到最后一个结点从链表中删除算法结束。</p> <p>2.单向环形链表示意图</p> <p><img decoding="async" alt="" class="has" src="http://img.555519.xyz/uploads/20230108/50cd9f19dce07f7b683a1ba51a65ad87.jpg"></p> <p>3.约瑟夫问题的示意图</p> <p><img fetchpriority="high" decoding="async" alt="" class="has" height="482" src="http://img.555519.xyz/uploads/20230108/11d8f31c72fa699574d637c4207e21b2.jpg"></p> <p>4.创建环形链表的思路</p> <p><img decoding="async" alt="" class="has" height="214" src="http://img.555519.xyz/uploads/20230108/e6f7c54e56eea936fdcc1273ba2e9dc9.jpg"></p> <p>1）构建一个单向的环形链表思路</p> <ul> <li>先创建第一个节点，让first指向该节点，并形成环形</li> <li>后面当我们每创建一个新的节点，就把该节点加入到已有的环形链表中即可。</li> </ul> <p>2）遍历环形链表</p> <ul> <li>先让一个辅助指针（变量）curBoy，指向first节点</li> <li>然后通过一个while循环遍历该环形链表即可，curBoy.next == first结束</li> </ul> <p>5. 约瑟夫问题小孩出圈的思路分析</p> <p><img decoding="async" alt="" class="has" height="425" src="http://img.555519.xyz/uploads/20230108/6e8050ec6a82ab63210689c6f61b11e7.jpg"></p> <p>6.代码实现</p> <div> <pre><code class="language-html hljs">public class Josepfu {      public static void main(String[] args) {         // 测试一把看看构建环形链表，和遍历是否ok         CircleSingleLinkedList circleSingleLinkedList = new CircleSingleLinkedList();         circleSingleLinkedList.addBoy(125);// 加入5个小孩节点         circleSingleLinkedList.showBoy();                  //测试一把小孩出圈是否正确         circleSingleLinkedList.countBoy(10, 20, 125); // 2-&gt;4-&gt;1-&gt;5-&gt;3         //String str = "7*2*2-5+1-5+3-3";     }  }  // 创建一个环形的单向链表 class CircleSingleLinkedList {     // 创建一个first节点,当前没有编号     private Boy first = null;      // 添加小孩节点，构建成一个环形的链表     public void addBoy(int nums) {         // nums 做一个数据校验         if (nums &lt; 1) {             System.out.println("nums的值不正确");             return;         }         Boy curBoy = null; // 辅助指针，帮助构建环形链表         // 使用for来创建我们的环形链表         for (int i = 1; i &lt;= nums; i++) {             // 根据编号，创建小孩节点             Boy boy = new Boy(i);             // 如果是第一个小孩             if (i == 1) {                 first = boy;                 first.setNext(first); // 构成环                 curBoy = first; // 让curBoy指向第一个小孩             } else {                 curBoy.setNext(boy);//                 boy.setNext(first);//                 curBoy = boy;             }         }     }      // 遍历当前的环形链表     public void showBoy() {         // 判断链表是否为空         if (first == null) {             System.out.println("没有任何小孩~~");             return;         }         // 因为first不能动，因此我们仍然使用一个辅助指针完成遍历         Boy curBoy = first;         while (true) {             System.out.printf("小孩的编号 %d \n", curBoy.getNo());             if (curBoy.getNext() == first) {// 说明已经遍历完毕                 break;             }             curBoy = curBoy.getNext(); // curBoy后移         }     }      // 根据用户的输入，计算出小孩出圈的顺序     /**      *       * @param startNo      *            表示从第几个小孩开始数数      * @param countNum      *            表示数几下      * @param nums      *            表示最初有多少小孩在圈中      */     public void countBoy(int startNo, int countNum, int nums) {         // 先对数据进行校验         if (first == null || startNo &lt; 1 || startNo &gt; nums) {             System.out.println("参数输入有误， 请重新输入");             return;         }         // 创建要给辅助指针,帮助完成小孩出圈         Boy helper = first;         // 需求创建一个辅助指针(变量) helper , 事先应该指向环形链表的最后这个节点         while (true) {             if (helper.getNext() == first) { // 说明helper指向最后小孩节点                 break;             }             helper = helper.getNext();         }         //小孩报数前，先让 first 和  helper 移动 k - 1次         for(int j = 0; j &lt; startNo - 1; j++) {             first = first.getNext();             helper = helper.getNext();         }         //当小孩报数时，让first 和 helper 指针同时 的移动  m  - 1 次, 然后出圈         //这里是一个循环操作，知道圈中只有一个节点         while(true) {             if(helper == first) { //说明圈中只有一个节点                 break;             }             //让 first 和 helper 指针同时 的移动 countNum - 1             for(int j = 0; j &lt; countNum - 1; j++) {                 first = first.getNext();                 helper = helper.getNext();             }             //这时first指向的节点，就是要出圈的小孩节点             System.out.printf("小孩%d出圈\n", first.getNo());             //这时将first指向的小孩节点出圈             first = first.getNext();             helper.setNext(first); //                      }         System.out.printf("最后留在圈中的小孩编号%d \n", first.getNo());              } }  // 创建一个Boy类，表示一个节点 class Boy {     private int no;// 编号     private Boy next; // 指向下一个节点,默认null      public Boy(int no) {         this.no = no;     }      public int getNo() {         return no;     }      public void setNo(int no) {         this.no = no;     }      public Boy getNext() {         return next;     }      public void setNext(Boy next) {         this.next = next;     } }</code></pre> </p></div> <p>&nbsp;</p> </div></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-52769.htm">动物医院办理条件要求是什么意思呀（动物医院办理条件要求是什么意思呀怎么写）</a></p>
+                                        <p>下一个：<a href="/news/article-53307.htm">电脑上查看已连接过的WiFi密码</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-48112.htm" title="2020年中国动物疫苗市场分析（中国动物疫苗10强企业）">2020年中国动物疫苗市场分析（中国动物疫苗10强企业）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-1-clash-windows.htm" title="「1月1日」最高速度18.4M/S，2025年Surfboard每天更新免费节点订阅链接">「1月1日」最高速度18.4M/S，2025年Surfboard每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-26811.htm" title="调用feign接口时，如何往header中添加参数">调用feign接口时，如何往header中添加参数</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-6-clash-node.htm" title="「11月6日」最高速度20.1M/S，2024年Surfboard每天更新免费节点订阅链接">「11月6日」最高速度20.1M/S，2024年Surfboard每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-9-share-surfboard-node.htm" title="「11月9日」最高速度18.4M/S，2024年Surfboard每天更新免费节点订阅链接">「11月9日」最高速度18.4M/S，2024年Surfboard每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-46156.htm" title="Bootstrap Blazor 模板使用Layout 组件">Bootstrap Blazor 模板使用Layout 组件</a></li>
+                        <li class="py-2"><a href="/news/article-24005.htm" title="宠物领养平台app推荐哪个好用点的简单介绍">宠物领养平台app推荐哪个好用点的简单介绍</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-15-free-high-speed-nodes.htm" title="「1月15日」最高速度18.1M/S，Shadowrocket/SSR/V2ray/Clash/Surfboard免费节点订阅链接">「1月15日」最高速度18.1M/S，Shadowrocket/SSR/V2ray/Clash/Surfboard免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-7-free-node-subscribe-links.htm" title="「2月7日」最高速度19.9M/S，V2ray/SSR/Shadowrocket/Clash/Surfboard免费节点订阅链接">「2月7日」最高速度19.9M/S，V2ray/SSR/Shadowrocket/Clash/Surfboard免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-19429.htm" title="动物疫苗一般在哪里打针的 动物疫苗在哪里购买">动物疫苗一般在哪里打针的 动物疫苗在哪里购买</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">24</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">92</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div> <!-- container -->
+    </section>
+    <!--====== ABOUT THREE PART ENDS ======-->
+        <!--====== FOOTER PART START ======-->
+    <footer id="footer" class="footer-area">
+        <div class="footer-copyright">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="copyright text-center">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                            <p class="text">SurfboardNode节点订阅中文站 版权所有 Powered by WordPress</p>
+                        </div> <!-- copyright -->
+                    </div>
+                </div> <!-- row -->
+            </div> <!-- container -->
+        </div> <!-- footer copyright -->
+    </footer>
+    <!--====== FOOTER PART ENDS ======-->
+    <!--====== BACK TOP TOP PART START ======-->
+    <a href="#" class="back-to-top"><i class="lni-chevron-up"></i></a>
+    <!--====== BACK TOP TOP PART ENDS ======-->
+    <!--====== jquery js ======-->
+    <script src="/assets/website/js/frontend/surfboardnode/vendor/modernizr-3.6.0.min.js"></script>
+    <script src="/assets/website/js/frontend/surfboardnode/vendor/jquery-1.12.4.min.js"></script>
+    <!--====== Bootstrap js ======-->
+    <script src="/assets/website/js/frontend/surfboardnode/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/surfboardnode/popper.min.js"></script>
+    <!--====== Images Loaded js ======-->
+    <script src="/assets/website/js/frontend/surfboardnode/imagesloaded.pkgd.min.js"></script>
+    <!--====== Scrolling Nav js ======-->
+    <script src="/assets/website/js/frontend/surfboardnode/jquery.easing.min.js"></script>
+    <script src="/assets/website/js/frontend/surfboardnode/scrolling-nav.js"></script>
+    <!--====== Slick js ======-->
+    <script src="/assets/website/js/frontend/surfboardnode/slick.min.js"></script>
+    <!--====== Main js ======-->
+    <script src="/assets/website/js/frontend/surfboardnode/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
