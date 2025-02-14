@@ -1,0 +1,238 @@
+<!doctype html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://surfboardnode.github.io/news/article-55505.htm" />
+    <!--====== Required meta tags ======-->
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>面试题：NIO/Netty 中的零拷贝体现在哪里？</title>
+        <meta name="description" content="目录  前言 相关知识 DirectByteBuffer 与 HeapByteBuffer 的关系 面试题：NIO 的零拷贝体现在哪里？ 面试题：Netty 的零拷贝体现在哪里？ 关于文件传输 关于 " />
+        <link rel="icon" href="/assets/website/img/surfboardnode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="SurfboardNode节点订阅中文站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://surfboardnode.github.io/news/article-55505.htm" />
+    <meta property="og:site_name" content="SurfboardNode节点订阅中文站" />
+    <meta property="og:title" content="面试题：NIO/Netty 中的零拷贝体现在哪里？" />
+    <meta property="og:image" content="https://surfboardnode.github.io/uploads/20240709-1/8a859b71ec9caf61880724f329357095.webp" />
+        <meta property="og:release_date" content="2025-02-12T09:09:25" />
+    <meta property="og:updated_time" content="2025-02-12T09:09:25" />
+        <meta property="og:description" content="目录  前言 相关知识 DirectByteBuffer 与 HeapByteBuffer 的关系 面试题：NIO 的零拷贝体现在哪里？ 面试题：Netty 的零拷贝体现在哪里？ 关于文件传输 关于 " />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="面试题：NIO/Netty 中的零拷贝体现在哪里？">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!--====== Bootstrap css ======-->
+    <link rel="stylesheet" href="/assets/website/css/surfboardnode/bootstrap.min.css">
+    <!--====== Slick css ======-->
+    <link rel="stylesheet" href="/assets/website/css/surfboardnode/slick.css">
+    <!--====== Magnific Popup css ======-->
+    <link rel="stylesheet" href="/assets/website/css/surfboardnode/magnific-popup.css">
+    <!--====== Line Icons css ======-->
+    <link rel="stylesheet" href="/assets/website/css/surfboardnode/LineIcons.css">
+    <!--====== Default css ======-->
+    <link rel="stylesheet" href="/assets/website/css/surfboardnode/default.css">
+    <!--====== Style css ======-->
+    <link rel="stylesheet" href="/assets/website/css/surfboardnode/style.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4YFZCSBJW0"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-4YFZCSBJW0');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+    <!--====== HEADER ONE PART START ======-->
+    <header class="header-area">
+        <div class="navbar-area navbar-one navbar-transparent">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <nav class="navbar navbar-expand-lg">
+                    <a class="navbar-brand" href="/">
+                                        <span>
+                        Surfboard Node                    </span>
+                                        </a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarOne" aria-controls="navbarOne" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="toggler-icon"></span>
+                        <span class="toggler-icon"></span>
+                        <span class="toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse sub-menu-bar" id="navbarOne">
+                        <ul class="navbar-nav m-auto">
+                                                        <li class="nav-item">
+                                <a href="/">首页</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a href="/free-nodes/">免费节点</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a href="/paid-subscribe/">推荐机场</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a href="/client.htm">客户端</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a href="/news/">新闻资讯</a>
+                            </li>
+                                                    </ul>
+                    </div>
+                </nav> <!-- navbar -->
+            </div>
+        </div> <!-- row -->
+    </div> <!-- container -->
+</div>
+        <div id="home" class="header-content-area d-flex align-items-center list" style="height:450px;">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="header-wrapper">
+                            <div class="header-content">
+                                <h1 class="header-title">面试题：NIO/Netty 中的零拷贝体现在哪里？</h1>
+                                <p class="text nav">
+                                    <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / <span>正文</span>
+                                </p>
+                            </div> <!-- header content -->
+                            <div class="header-image d-none d-lg-block">
+                                <div class="image">
+                                    <img src="/assets/website/img/surfboardnode/header.png" alt="Header">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> <!-- row -->
+            </div> <!-- container -->
+            <div class="header-shape">
+                <img src="/assets/website/img/surfboardnode/header-shape.svg" alt="shape">
+            </div> <!-- header-shape -->
+        </div> <!-- header content area -->
+    </header>
+    <!--====== HEADER ONE PART ENDS ======-->
+    <!--====== ABOUT THREE PART START ======-->
+    <section id="about" class="about-area pt-70 pb-100">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="markdown_views prism-tomorrow-night"> <div class="toc"> <h3>目录</h3> <ul> <li><a href="#_1" rel="nofollow">前言</a></li> <li><a href="#_6" rel="nofollow">相关知识</a></li> <li><a href="#DirectByteBuffer__HeapByteBuffer__15" rel="nofollow">DirectByteBuffer 与 HeapByteBuffer 的关系</a></li> <li><a href="#NIO__111" rel="nofollow">面试题：NIO 的零拷贝体现在哪里？</a></li> <li><a href="#Netty__116" rel="nofollow">面试题：Netty 的零拷贝体现在哪里？</a></li> <li><a href="#_122" rel="nofollow">关于文件传输</a></li> <li><a href="#_TCP__130" rel="nofollow">关于 TCP 缓冲区的思考</a></li> <li><a href="#_138" rel="nofollow">参考文章</a></li> </ul> </div> </h1> <p>关于 NIO 里的零拷贝，很多博客提及的都是关于磁盘到网络的拷贝，他们写得很清楚了。总结起来就是，关于磁盘到网络（或磁盘到磁盘）的拷贝，与底层系统有关，Java 做的是封装。这种零拷贝是不能给我们 Java 程序操作数据的。因为 Java 程序在这里面起到的作用仅仅是发一个“系统调用”（以及封装），其它工作都是内核完成的。</p> <p>现在的 Java 程序员，更多关注地是 Java 程序（内存）到网络之间的拷贝。因为关于磁盘的读写往往是通过数据库来做的，而不是通过 FileChannel 来读文件。本文想讲明白的，就是<strong>内存到网络</strong>的零拷贝。</p> </h1> <p><strong>内核</strong><br /> 内核是操作系统的软件，它封装了最底层的细节，提供接口，保证安全。Java 程序要调用内核的接口，就涉及 2 次模式切换。调用：从用户模式到内核模式；返回：从内核模式到用户模式。这是耗性能的。内核模式（也叫内核态）拥有比用户模式更大的权限。</p> <p><strong>系统调用</strong><br /> 关于 Java 里的 IO 这一块，相关代码大量调用了 JNI（Java Native Interface），JNI 是由 c/c++ 写的。而这些底层语言关于 IO 这一块，调用的是“系统调用”，“系统调用”是系统内核提供的接口。</p> <p><strong>虚拟内存</strong><br /> 对于 Linux 系统，每个进程分配的内存是虚拟内存，虚拟内存以<strong>页</strong>为单位分配，并且有页表能找到物理内存的位置。虚拟内存让进程以为自己有连续的内存空间。</p> </h1> <p>我们创建一个 DirectByteBuffer：<br /> 类 ByteBuffer</p> <pre><code class="prism language-java"><span class="token keyword">public</span><span class="token keyword">static</span> ByteBuffer<span class="token function">allocateDirect</span><span class="token punctuation">(</span><span class="token keyword">int</span> capacity<span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token keyword">return</span><span class="token keyword">new</span><span class="token class-name">DirectByteBuffer</span><span class="token punctuation">(</span>capacity<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">}</span></code></pre> <p>底层是通过 c++ 的 malloc 方法分配内存。这个内存是<strong>堆外内存</strong>，也就是<strong>直接内存</strong>。</p> <p>SocketChannelImpl 的源码得在 OpenJDK 中看，它里面有 write 和 read 方法，我们只看 write，因为它们是类似的。</p> <pre><code class="prism language-java"><span class="token keyword">public</span><span class="token keyword">int</span><span class="token function">write</span><span class="token punctuation">(</span>ByteBuffer buf<span class="token punctuation">)</span><span class="token keyword">throws</span> IOException<span class="token punctuation">{<!-- --></span><span class="token keyword">if</span><span class="token punctuation">(</span>buf<span class="token operator">==</span> null<span class="token punctuation">)</span><span class="token keyword">throw</span><span class="token keyword">new</span><span class="token class-name">NullPointerException</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token keyword">synchronized</span><span class="token punctuation">(</span>writeLock<span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token function">ensureWriteOpen</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token keyword">int</span> n<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span><span class="token keyword">try</span><span class="token punctuation">{<!-- --></span><span class="token function">begin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token keyword">synchronized</span><span class="token punctuation">(</span>stateLock<span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span><span class="token function">isOpen</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token keyword">return</span><span class="token number">0</span><span class="token punctuation">;</span>                 writerThread<span class="token operator">=</span> NativeThread<span class="token punctuation">.</span><span class="token function">current</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token keyword">for</span><span class="token punctuation">(</span><span class="token punctuation">;</span><span class="token punctuation">;</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token comment">//这里</span>                 n<span class="token operator">=</span> IOUtil<span class="token punctuation">.</span><span class="token function">write</span><span class="token punctuation">(</span>fd<span class="token punctuation">,</span> buf<span class="token punctuation">,</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span> nd<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token keyword">if</span><span class="token punctuation">(</span><span class="token punctuation">(</span>n<span class="token operator">==</span> IOStatus<span class="token punctuation">.</span>INTERRUPTED<span class="token punctuation">)</span><span class="token operator">&amp;&amp;</span><span class="token function">isOpen</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token keyword">continue</span><span class="token punctuation">;</span><span class="token keyword">return</span> IOStatus<span class="token punctuation">.</span><span class="token function">normalize</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token keyword">finally</span><span class="token punctuation">{<!-- --></span><span class="token function">writerCleanup</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token function">end</span><span class="token punctuation">(</span>n<span class="token operator">&gt;</span><span class="token number">0</span><span class="token operator">||</span><span class="token punctuation">(</span>n<span class="token operator">==</span> IOStatus<span class="token punctuation">.</span>UNAVAILABLE<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token keyword">synchronized</span><span class="token punctuation">(</span>stateLock<span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token keyword">if</span><span class="token punctuation">(</span><span class="token punctuation">(</span>n<span class="token operator">&lt;=</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token operator">&amp;&amp;</span><span class="token punctuation">(</span><span class="token operator">!</span>isOutputOpen<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token keyword">throw</span><span class="token keyword">new</span><span class="token class-name">AsynchronousCloseException</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token keyword">assert</span> IOStatus<span class="token punctuation">.</span><span class="token function">check</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">}</span></code></pre> <p>类 IOUtil</p> <pre><code class="prism language-java"><span class="token keyword">static</span><span class="token keyword">int</span><span class="token function">write</span><span class="token punctuation">(</span>FileDescriptor fd<span class="token punctuation">,</span> ByteBuffer src<span class="token punctuation">,</span><span class="token keyword">long</span> position<span class="token punctuation">,</span>                      NativeDispatcher nd<span class="token punctuation">)</span><span class="token keyword">throws</span> IOException<span class="token punctuation">{<!-- --></span><span class="token comment">//如果是DirectBuffer</span><span class="token keyword">if</span><span class="token punctuation">(</span>src<span class="token keyword">instanceof</span><span class="token class-name">DirectBuffer</span><span class="token punctuation">)</span><span class="token keyword">return</span><span class="token function">writeFromNativeBuffer</span><span class="token punctuation">(</span>fd<span class="token punctuation">,</span> src<span class="token punctuation">,</span> position<span class="token punctuation">,</span> nd<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//不是DirectBuffer，就是一种堆内Buffer,Java里没有HeapBuffer这个接口</span><span class="token comment">// Substitute a native buffer</span><span class="token keyword">int</span> pos<span class="token operator">=</span> src<span class="token punctuation">.</span><span class="token function">position</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token keyword">int</span> lim<span class="token operator">=</span> src<span class="token punctuation">.</span><span class="token function">limit</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token keyword">assert</span><span class="token punctuation">(</span>pos<span class="token operator">&lt;=</span> lim<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token keyword">int</span> rem<span class="token operator">=</span><span class="token punctuation">(</span>pos<span class="token operator">&lt;=</span> lim<span class="token operator">?</span> lim<span class="token operator">-</span> pos<span class="token operator">:</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//还是要创建一个临时的DirectBuffer</span>     ByteBuffer bb<span class="token operator">=</span> Util<span class="token punctuation">.</span><span class="token function">getTemporaryDirectBuffer</span><span class="token punctuation">(</span>rem<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token keyword">try</span><span class="token punctuation">{<!-- --></span>         bb<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span>src<span class="token punctuation">)</span><span class="token punctuation">;</span>         bb<span class="token punctuation">.</span><span class="token function">flip</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">// Do not update src until we see how many bytes were written</span>         src<span class="token punctuation">.</span><span class="token function">position</span><span class="token punctuation">(</span>pos<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//还是要调用这个方法</span><span class="token keyword">int</span> n<span class="token operator">=</span><span class="token function">writeFromNativeBuffer</span><span class="token punctuation">(</span>fd<span class="token punctuation">,</span> bb<span class="token punctuation">,</span> position<span class="token punctuation">,</span> nd<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token keyword">if</span><span class="token punctuation">(</span>n<span class="token operator">&gt;</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token comment">// now update src</span>             src<span class="token punctuation">.</span><span class="token function">position</span><span class="token punctuation">(</span>pos<span class="token operator">+</span> n<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token keyword">return</span> n<span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token keyword">finally</span><span class="token punctuation">{<!-- --></span>         Util<span class="token punctuation">.</span><span class="token function">offerFirstTemporaryDirectBuffer</span><span class="token punctuation">(</span>bb<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">}</span></code></pre> <ol> <li>如果src为DirectBuffer，那么就直接调用writeFromNativeBuffer</li> <li>否则src为一个HeapBuffer（Java中没有这个接口），先通过getTemporaryDirectBuffer创建一个临时的DirectBuffer，然后将HeapBuffer中的数据拷贝到这个临时的DirectBuffer，最后再调用writeFromNativeBuffer发送数据</li> </ol> <p>writeFromNative本质是JVM发起了系统调用，将<strong>直接内存</strong>地址给内核操作。内核由于权限最高，所以可以通过我们发起JNI调用时传递的直接内存地址来帮我们直接操作堆外内存，也就减少了我们正常方式中需要将数据从用户态内存（堆内内存和堆外内存）拷贝到内核态内存。</p> <p>为什么不能让内核系统直接操作堆内内存?因为 JVM 不让。</p> <p><strong>总结</strong>一下上面的内容：<br /> 在 NIO 里，通过 Buffer 的方式，Java 程序与外设（网卡、磁盘）交流，必须通过堆外内存。</p> <p>如果不用 DirectBuffer 的内存复制过程：<strong>堆内内存 =&gt; 堆外内存 == 内核内存=&gt; 外设</strong>（磁盘或者网卡缓存，它们与内核之间的数据读写不由 CPU 完成）<br /> 其中，<strong>堆外内存 == 内核内存</strong> 是因为：用户态的逻辑地址和内核态的逻辑地址使用的是同一个物理空间，内核态直接操作了用户态内存。</p> </h1> <p>从上面的内容就可以知道 NIO 的零拷贝是怎么回事了：</p> <ol> <li>使用 DirectBuffer 不仅省去了数据在堆内内存与堆外内存之间的拷贝</li> <li>而且用户态的逻辑地址和内核态的逻辑地址使用的是同一个物理空间，内核态直接操作了用户态内存，省去了数据在用户态与内核态之间的拷贝。<strong>CPU不需要为数据在内存之间的拷贝消耗资源</strong>。</li> </ol> </h1> <p>Netty 是基于 NIO 的，所以上面的两点要先答出来。除了这两点外，Netty 还有自己的一点：</p> <ul> <li>Netty 提供了组合 Buffer 对象，可以聚合多个 ByteBuffer 对象，用户可以像操作一个 Buffer 那样方便的对组合 Buffer 进行操作，避免了传统通过内存拷贝的方式将几个小 Buffer 合并成一个大的 Buffer。</li> </ul> </h1> <p>其实答完上面几点就已经能让面试官刮目相看了。但文章看开头也说了，本文讲述的是<strong>内存到网络</strong>的零拷贝，还有关于<strong>磁盘到网络</strong>/<strong>磁盘到磁盘</strong>的零拷贝在文章开头大致讲述了一下。在这里简单总结一下怎么讲给面试官：</p> <ul> <li>关于<strong>磁盘到网络</strong>/<strong>磁盘到磁盘</strong>的零拷贝，NIO/Netty 是通过 transferTo 完成的，transferTo 发出系统调用，零拷贝由系统内核完成。（也就是说零拷贝能到那种程度，取决于你的操作系统）</li> </ul> <p>更多详情请看文章末尾的参考文章</p> </h1> <p><strong>堆内内存 =&gt; 堆外内存 == 内核内存=&gt; 网卡</strong> 的过程中，TCP 缓冲区在哪儿？</p> <p>TCP 缓冲区在内核中，这是可以肯定的。但问题是现在内核操作的内存其实是 Java 申请的堆外内存，之后就要传输数据到网卡了，也没有再复制到 TCP 缓冲区这一步，那么 TCP 缓冲区到底在哪里呢？</p> <p>其实，TCP 缓冲区保存的也是内存的地址。这样来看，似乎就没什么问题了。堆外内存，内核内存，TCP 缓冲区用了同一块物理内存。</p> <p>如果有误，欢迎指正。</p> </h1> <p><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://blog.csdn.net/localhost01/article/details/83422888"  rel="nofollow">浅谈NIO与零拷贝</a></p> <p><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://blog.csdn.net/weixin_40864891/article/details/105272616"  rel="nofollow">Linux 虚拟内存、Java直接内存和内存映射</a></p> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-54949.htm">【免费领养狗狗】（免费领养狗狗是什么套路）</a></p>
+                                        <p>下一个：<a href="/news/article-55506.htm">动物疫苗的使用方法有哪些呢图片视频（动物疫苗的使用方法有哪些呢图片视频大全）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-55505.htm" title="面试题：NIO/Netty 中的零拷贝体现在哪里？">面试题：NIO/Netty 中的零拷贝体现在哪里？</a></li>
+                        <li class="py-2"><a href="/news/article-44674.htm" title="中国十大动物疫苗公司排名榜 中国十大动物疫苗公司排名榜单">中国十大动物疫苗公司排名榜 中国十大动物疫苗公司排名榜单</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-9-node-share.htm" title="「12月9日」最高速度19.5M/S，2024年Surfboard每天更新免费节点订阅链接">「12月9日」最高速度19.5M/S，2024年Surfboard每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-31378.htm" title="在哪开宠物店生意好（在哪里开宠物店比较好）">在哪开宠物店生意好（在哪里开宠物店比较好）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-11-free-node-subscribe-links.htm" title="「12月11日」最高速度22.5M/S，2024年Surfboard每天更新免费节点订阅链接">「12月11日」最高速度22.5M/S，2024年Surfboard每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-16-clash-node.htm" title="「11月16日」最高速度18.2M/S，2024年Surfboard每天更新免费节点订阅链接">「11月16日」最高速度18.2M/S，2024年Surfboard每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-48463.htm" title="Python 基础系列 11 &#8211; Python 异常处理 Exception Handling">Python 基础系列 11 &#8211; Python 异常处理 Exception Handling</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-7-free-node-subscribe-links.htm" title="「12月7日」最高速度19.8M/S，2024年Surfboard每天更新免费节点订阅链接">「12月7日」最高速度19.8M/S，2024年Surfboard每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-5-shadowrocket-node.htm" title="「2月5日」最高速度19.1M/S，SSR/Shadowrocket/V2ray/Clash/Surfboard免费节点订阅链接">「2月5日」最高速度19.1M/S，SSR/Shadowrocket/V2ray/Clash/Surfboard免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-50654.htm" title="宠物粮食市场预测分析图表（宠物粮市场前景）">宠物粮食市场预测分析图表（宠物粮市场前景）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">42</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">92</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div> <!-- container -->
+    </section>
+    <!--====== ABOUT THREE PART ENDS ======-->
+        <!--====== FOOTER PART START ======-->
+    <footer id="footer" class="footer-area">
+        <div class="footer-copyright">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="copyright text-center">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                            <p class="text">SurfboardNode节点订阅中文站 版权所有 Powered by WordPress</p>
+                        </div> <!-- copyright -->
+                    </div>
+                </div> <!-- row -->
+            </div> <!-- container -->
+        </div> <!-- footer copyright -->
+    </footer>
+    <!--====== FOOTER PART ENDS ======-->
+    <!--====== BACK TOP TOP PART START ======-->
+    <a href="#" class="back-to-top"><i class="lni-chevron-up"></i></a>
+    <!--====== BACK TOP TOP PART ENDS ======-->
+    <!--====== jquery js ======-->
+    <script src="/assets/website/js/frontend/surfboardnode/vendor/modernizr-3.6.0.min.js"></script>
+    <script src="/assets/website/js/frontend/surfboardnode/vendor/jquery-1.12.4.min.js"></script>
+    <!--====== Bootstrap js ======-->
+    <script src="/assets/website/js/frontend/surfboardnode/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/surfboardnode/popper.min.js"></script>
+    <!--====== Images Loaded js ======-->
+    <script src="/assets/website/js/frontend/surfboardnode/imagesloaded.pkgd.min.js"></script>
+    <!--====== Scrolling Nav js ======-->
+    <script src="/assets/website/js/frontend/surfboardnode/jquery.easing.min.js"></script>
+    <script src="/assets/website/js/frontend/surfboardnode/scrolling-nav.js"></script>
+    <!--====== Slick js ======-->
+    <script src="/assets/website/js/frontend/surfboardnode/slick.min.js"></script>
+    <!--====== Main js ======-->
+    <script src="/assets/website/js/frontend/surfboardnode/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
