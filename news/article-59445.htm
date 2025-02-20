@@ -1,0 +1,238 @@
+<!doctype html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://surfboardnode.github.io/news/article-59445.htm" />
+    <!--====== Required meta tags ======-->
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>vue如何实现关闭对话框后刷新列表_vue.js</title>
+        <meta name="description" content="目录  关闭对话框后刷新列表  父窗口代码 子窗口代码  关闭打开的窗口后刷新父页面  解决办法     关闭对话框后刷新列表 有些场景需要实现用户弹窗确定后自动刷新列表，父窗口绑定fevent即可 " />
+        <link rel="icon" href="/assets/website/img/surfboardnode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="SurfboardNode节点订阅中文站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://surfboardnode.github.io/news/article-59445.htm" />
+    <meta property="og:site_name" content="SurfboardNode节点订阅中文站" />
+    <meta property="og:title" content="vue如何实现关闭对话框后刷新列表_vue.js" />
+    <meta property="og:image" content="https://surfboardnode.github.io/uploads/20240709-1/429658daad74043447777814a12b8f89.webp" />
+        <meta property="og:release_date" content="2025-02-19T06:38:09" />
+    <meta property="og:updated_time" content="2025-02-19T06:38:09" />
+        <meta property="og:description" content="目录  关闭对话框后刷新列表  父窗口代码 子窗口代码  关闭打开的窗口后刷新父页面  解决办法     关闭对话框后刷新列表 有些场景需要实现用户弹窗确定后自动刷新列表，父窗口绑定fevent即可 " />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="vue如何实现关闭对话框后刷新列表_vue.js">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!--====== Bootstrap css ======-->
+    <link rel="stylesheet" href="/assets/website/css/surfboardnode/bootstrap.min.css">
+    <!--====== Slick css ======-->
+    <link rel="stylesheet" href="/assets/website/css/surfboardnode/slick.css">
+    <!--====== Magnific Popup css ======-->
+    <link rel="stylesheet" href="/assets/website/css/surfboardnode/magnific-popup.css">
+    <!--====== Line Icons css ======-->
+    <link rel="stylesheet" href="/assets/website/css/surfboardnode/LineIcons.css">
+    <!--====== Default css ======-->
+    <link rel="stylesheet" href="/assets/website/css/surfboardnode/default.css">
+    <!--====== Style css ======-->
+    <link rel="stylesheet" href="/assets/website/css/surfboardnode/style.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4YFZCSBJW0"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-4YFZCSBJW0');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+    <!--====== HEADER ONE PART START ======-->
+    <header class="header-area">
+        <div class="navbar-area navbar-one navbar-transparent">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <nav class="navbar navbar-expand-lg">
+                    <a class="navbar-brand" href="/">
+                                        <span>
+                        Surfboard Node                    </span>
+                                        </a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarOne" aria-controls="navbarOne" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="toggler-icon"></span>
+                        <span class="toggler-icon"></span>
+                        <span class="toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse sub-menu-bar" id="navbarOne">
+                        <ul class="navbar-nav m-auto">
+                                                        <li class="nav-item">
+                                <a href="/">首页</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a href="/free-nodes/">免费节点</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a href="/paid-subscribe/">推荐机场</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a href="/client.htm">客户端</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a href="/news/">新闻资讯</a>
+                            </li>
+                                                    </ul>
+                    </div>
+                </nav> <!-- navbar -->
+            </div>
+        </div> <!-- row -->
+    </div> <!-- container -->
+</div>
+        <div id="home" class="header-content-area d-flex align-items-center list" style="height:450px;">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="header-wrapper">
+                            <div class="header-content">
+                                <h1 class="header-title">vue如何实现关闭对话框后刷新列表_vue.js</h1>
+                                <p class="text nav">
+                                    <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / <span>正文</span>
+                                </p>
+                            </div> <!-- header content -->
+                            <div class="header-image d-none d-lg-block">
+                                <div class="image">
+                                    <img src="/assets/website/img/surfboardnode/header.png" alt="Header">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> <!-- row -->
+            </div> <!-- container -->
+            <div class="header-shape">
+                <img src="/assets/website/img/surfboardnode/header-shape.svg" alt="shape">
+            </div> <!-- header-shape -->
+        </div> <!-- header content area -->
+    </header>
+    <!--====== HEADER ONE PART ENDS ======-->
+    <!--====== ABOUT THREE PART START ======-->
+    <section id="about" class="about-area pt-70 pb-100">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="navCategory"> <h5 class="catalogue">目录</h5> <ul class="first_class_ul"> <li><a href="#_label0" rel="nofollow">关闭对话框后刷新列表</a></li> <ul class="second_class_ul"> <li><a href="#_lab2_0_0" rel="nofollow">父窗口代码</a></li> <li><a href="#_lab2_0_1" rel="nofollow">子窗口代码</a></li> </ul> <li><a href="#_label1" rel="nofollow">关闭打开的窗口后刷新父页面</a></li> <ul class="second_class_ul"> <li><a href="#_lab2_1_2" rel="nofollow">解决办法</a></li> </ul> </ul> </div> <p class="maodian"><a name="_label0" rel="nofollow"></a></p> <h2>关闭对话框后刷新列表</h2> <p>有些场景需要实现用户弹窗确定后自动刷新列表，父窗口绑定fevent即可</p> <p class="maodian"><a name="_lab2_0_0" rel="nofollow"></a></p> <h3>父窗口代码</h3> <div class="ay1code"> <pre class="brush:xhtml;">&lt;template&gt;       &lt;div&gt;   &lt;el-button @click="$refs.editform.dialogFormVisible = true" &gt;编辑用户&lt;/el-button&gt;   &lt;editform  @fevent="update_table" ref="editform"&gt;   &lt;/editform&gt;       &lt;/div&gt;   &lt;/template&gt;</pre> </div> <div class="ay1code"> <pre class="brush:js;">&lt;script&gt;  import editform from './editform.vue'  export default {    components: {      editform    },    methods: {      update_table () {        console.log('列表框被刷新了')      }    }  }  &lt;/script&gt;</pre> </div> <p class="maodian"><a name="_lab2_0_1" rel="nofollow"></a></p> <h3>子窗口代码</h3> <div class="ay1code"> <pre class="brush:xhtml;">&lt;template&gt;         &lt;el-dialog title="编辑用户"  :visible.sync="dialogFormVisible"&gt;             &lt;el-button @click="delete_user"&gt;删除用户&lt;/el-button&gt;      &lt;/el-dialog&gt;  &lt;/template&gt;</pre> </div> <div class="ay1code"> <pre class="brush:js;">&lt;script&gt;  export default {    data () {      return {        dialogFormVisible: false      }    },    methods: {      delete_user () {           this.$emit('fevent')           this.$message.success('删除成功')           this.dialogFormVisible = false      }    }  }  &lt;/script&gt;</pre> </div> <p>附加上自己的业务代码，即可实现列表自动刷新</p> <p class="maodian"><a name="_label1" rel="nofollow"></a></p> <h2>关闭打开的窗口后刷新父页面</h2> <p><strong>背景：</strong>在做页面的过程中需要在页面列表里面添加数据，但是添加之后需要手动刷新页面才会出现添加的数据。</p> <p class="maodian"><a name="_lab2_1_2" rel="nofollow"></a></p> <h3>解决办法</h3> <p>可在添加成功之后添加代码 </p> <div class="ay1code"> <pre class="brush:js;">parent.location.reload();</pre> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-58518.htm">南京宠物狗领养中心地址在哪里 南京宠物狗领养中心地址在哪里啊</a></p>
+                                        <p>下一个：<a href="/news/article-59446.htm">动物医院好评语30字以内 动物医院好评语30字以内怎么写</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-36749.htm" title="inner join 和 exists 效率_19条效率至少提高3倍的MySQL技巧">inner join 和 exists 效率_19条效率至少提高3倍的MySQL技巧</a></li>
+                        <li class="py-2"><a href="/news/article-26344.htm" title="小县城最缺什么生意（小县城最缺什么生意路边小吃）">小县城最缺什么生意（小县城最缺什么生意路边小吃）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-19-free-surfboard-node.htm" title="「11月19日」最高速度20.7M/S，2024年Surfboard每天更新免费节点订阅链接">「11月19日」最高速度20.7M/S，2024年Surfboard每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-27733.htm" title="猫轻微抓伤有一点渗血用酒精可以吗（猫轻微抓伤有一点渗血用酒精可以吗有事吗）">猫轻微抓伤有一点渗血用酒精可以吗（猫轻微抓伤有一点渗血用酒精可以吗有事吗）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-3-free-node-subscribe.htm" title="「2月3日」最高速度19.3M/S，Shadowrocket/V2ray/SSR/Clash/Surfboard免费节点订阅链接">「2月3日」最高速度19.3M/S，Shadowrocket/V2ray/SSR/Clash/Surfboard免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-22182.htm" title="在哪免费领养宠物（在哪里免费领养宠物）">在哪免费领养宠物（在哪里免费领养宠物）</a></li>
+                        <li class="py-2"><a href="/news/article-29868.htm" title="动物疫苗接种时应注意哪些安全事项（动物疫苗接种时应注意哪些安全事项和要求）">动物疫苗接种时应注意哪些安全事项（动物疫苗接种时应注意哪些安全事项和要求）</a></li>
+                        <li class="py-2"><a href="/news/article-30546.htm" title="动物医院诊疗许可证办理程序规定是什么意思（动物医院办理条件）">动物医院诊疗许可证办理程序规定是什么意思（动物医院办理条件）</a></li>
+                        <li class="py-2"><a href="/news/article-29125.htm" title="动物疫苗的概念是什么样的 动物疫苗的概念是什么样的呢">动物疫苗的概念是什么样的 动物疫苗的概念是什么样的呢</a></li>
+                        <li class="py-2"><a href="/news/article-48463.htm" title="Python 基础系列 11 &#8211; Python 异常处理 Exception Handling">Python 基础系列 11 &#8211; Python 异常处理 Exception Handling</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">59</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">92</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div> <!-- container -->
+    </section>
+    <!--====== ABOUT THREE PART ENDS ======-->
+        <!--====== FOOTER PART START ======-->
+    <footer id="footer" class="footer-area">
+        <div class="footer-copyright">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="copyright text-center">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                            <p class="text">SurfboardNode节点订阅中文站 版权所有 Powered by WordPress</p>
+                        </div> <!-- copyright -->
+                    </div>
+                </div> <!-- row -->
+            </div> <!-- container -->
+        </div> <!-- footer copyright -->
+    </footer>
+    <!--====== FOOTER PART ENDS ======-->
+    <!--====== BACK TOP TOP PART START ======-->
+    <a href="#" class="back-to-top"><i class="lni-chevron-up"></i></a>
+    <!--====== BACK TOP TOP PART ENDS ======-->
+    <!--====== jquery js ======-->
+    <script src="/assets/website/js/frontend/surfboardnode/vendor/modernizr-3.6.0.min.js"></script>
+    <script src="/assets/website/js/frontend/surfboardnode/vendor/jquery-1.12.4.min.js"></script>
+    <!--====== Bootstrap js ======-->
+    <script src="/assets/website/js/frontend/surfboardnode/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/surfboardnode/popper.min.js"></script>
+    <!--====== Images Loaded js ======-->
+    <script src="/assets/website/js/frontend/surfboardnode/imagesloaded.pkgd.min.js"></script>
+    <!--====== Scrolling Nav js ======-->
+    <script src="/assets/website/js/frontend/surfboardnode/jquery.easing.min.js"></script>
+    <script src="/assets/website/js/frontend/surfboardnode/scrolling-nav.js"></script>
+    <!--====== Slick js ======-->
+    <script src="/assets/website/js/frontend/surfboardnode/slick.min.js"></script>
+    <!--====== Main js ======-->
+    <script src="/assets/website/js/frontend/surfboardnode/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
