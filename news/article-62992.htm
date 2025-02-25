@@ -1,0 +1,238 @@
+<!doctype html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://surfboardnode.github.io/news/article-62992.htm" />
+    <!--====== Required meta tags ======-->
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Spring AOP打通两个切面之间的通信详解</title>
+        <meta name="description" content="场景描述 在秒杀微服务中，笔者在需要各种校验前端传来的参数后，通过 Redis 加锁限流（切面A）并返回，最后封装订单数据推送到 RabbitMQ 消息队列（切面B）做善后工作。 问题：如何将 切面 " />
+        <link rel="icon" href="/assets/website/img/surfboardnode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="SurfboardNode节点订阅中文站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://surfboardnode.github.io/news/article-62992.htm" />
+    <meta property="og:site_name" content="SurfboardNode节点订阅中文站" />
+    <meta property="og:title" content="Spring AOP打通两个切面之间的通信详解" />
+    <meta property="og:image" content="https://surfboardnode.github.io/uploads/20240709-1/2bfaad964cac755492b7ea7f03576712.webp" />
+        <meta property="og:release_date" content="2025-02-25T05:01:29" />
+    <meta property="og:updated_time" content="2025-02-25T05:01:29" />
+        <meta property="og:description" content="场景描述 在秒杀微服务中，笔者在需要各种校验前端传来的参数后，通过 Redis 加锁限流（切面A）并返回，最后封装订单数据推送到 RabbitMQ 消息队列（切面B）做善后工作。 问题：如何将 切面 " />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Spring AOP打通两个切面之间的通信详解">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!--====== Bootstrap css ======-->
+    <link rel="stylesheet" href="/assets/website/css/surfboardnode/bootstrap.min.css">
+    <!--====== Slick css ======-->
+    <link rel="stylesheet" href="/assets/website/css/surfboardnode/slick.css">
+    <!--====== Magnific Popup css ======-->
+    <link rel="stylesheet" href="/assets/website/css/surfboardnode/magnific-popup.css">
+    <!--====== Line Icons css ======-->
+    <link rel="stylesheet" href="/assets/website/css/surfboardnode/LineIcons.css">
+    <!--====== Default css ======-->
+    <link rel="stylesheet" href="/assets/website/css/surfboardnode/default.css">
+    <!--====== Style css ======-->
+    <link rel="stylesheet" href="/assets/website/css/surfboardnode/style.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4YFZCSBJW0"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-4YFZCSBJW0');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+    <!--====== HEADER ONE PART START ======-->
+    <header class="header-area">
+        <div class="navbar-area navbar-one navbar-transparent">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <nav class="navbar navbar-expand-lg">
+                    <a class="navbar-brand" href="/">
+                                        <span>
+                        Surfboard Node                    </span>
+                                        </a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarOne" aria-controls="navbarOne" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="toggler-icon"></span>
+                        <span class="toggler-icon"></span>
+                        <span class="toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse sub-menu-bar" id="navbarOne">
+                        <ul class="navbar-nav m-auto">
+                                                        <li class="nav-item">
+                                <a href="/">首页</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a href="/free-nodes/">免费节点</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a href="/paid-subscribe/">推荐机场</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a href="/client.htm">客户端</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a href="/news/">新闻资讯</a>
+                            </li>
+                                                    </ul>
+                    </div>
+                </nav> <!-- navbar -->
+            </div>
+        </div> <!-- row -->
+    </div> <!-- container -->
+</div>
+        <div id="home" class="header-content-area d-flex align-items-center list" style="height:450px;">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="header-wrapper">
+                            <div class="header-content">
+                                <h1 class="header-title">Spring AOP打通两个切面之间的通信详解</h1>
+                                <p class="text nav">
+                                    <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / <span>正文</span>
+                                </p>
+                            </div> <!-- header content -->
+                            <div class="header-image d-none d-lg-block">
+                                <div class="image">
+                                    <img src="/assets/website/img/surfboardnode/header.png" alt="Header">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> <!-- row -->
+            </div> <!-- container -->
+            <div class="header-shape">
+                <img src="/assets/website/img/surfboardnode/header-shape.svg" alt="shape">
+            </div> <!-- header-shape -->
+        </div> <!-- header content area -->
+    </header>
+    <!--====== HEADER ONE PART ENDS ======-->
+    <!--====== ABOUT THREE PART START ======-->
+    <section id="about" class="about-area pt-70 pb-100">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<h3 id="场景描述">场景描述</h3> <p>在秒杀微服务中，笔者在需要各种校验前端传来的参数后，通过 Redis 加锁限流（切面A）并返回，最后封装订单数据推送到 RabbitMQ 消息队列（切面B）做善后工作。</p> <p>问题：如何将 切面 A 的数据传递 给切面B 处理呢？</p> <pre><code class="language-java">/**  * 添加到秒杀流程  *  * @param killId 秒杀商品缓存键 sessionId_skuId  * @param key    随机码 randomCode  * @param num    数量  * @return {@link R}  */ @GetMapping("/kill") public R addToSeckill(         @RequestParam("killId") String killId,         @RequestParam("key") String key,         @RequestParam("num") Integer num) {     // 实现类只是带有两个注解方法，返回 null（因为全部交给切面托管了）     String orderSn = seckillService.kill(killId, key, num);     if (StringUtils.isEmpty(orderSn)) {         return R.error();     }     return R.ok().setData(orderSn); }</code></pre> <h3 id="解决方案">解决方案</h3> <p>通过参数传递数据，通过捕获异常保证业务逻辑（离谱但有用） ????</p> <pre><code class="language-java">// 强制修改参数，通过异常返回正常流程，而通过AOP消息队列处理收尾动作 try {     return pjp.proceed(new Object[]{orderTo, null, null}); } catch (Throwable e) {     return orderSn; }</code></pre> <p>注意事项：</p> <ol> <li> <p>参数一致性：必须伪造和方法签名的<strong>数量相等</strong>的参数 ⇒ 否则线程会抛出异常 I 就返回了，无法执行<code>pjp.proceed</code> 原始方法 ⇒ 无法跳转第二个切面<br /><code>java.lang.IllegalArgumentException: Expecting 3 arguments to proceed, but was passed 1 arguments</code></p> </li> <li> <p>捕获异常不抛出，直接执行正常业务逻辑 ⇒ 否则线程将吞没异常 II<br /><code>cn.miozus.gulimall.common.to.mq.SeckillOrderTo cannot be cast to java.lang.String</code></p> </li> </ol> <p>3.虽然两个切面都返回了<code>orderSn</code> ，实际最终只有切面A传递到了控制层和前端， 切面B的返回值成了摆设。</p> <h3 id="跳转过程">跳转过程</h3> <p>打断点查看两个切面的跳转过程。</p> <p>切面A：准备跳转第二个切面</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/efb74164f89abe7e257ea98171039d08.jpg" alt="Spring AOP打通两个切面之间的通信详解"></p> <p>切面B：发送消息完成</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/9845db59d43c7dc2ab69121c99b45333.jpg" alt="Spring AOP打通两个切面之间的通信详解"></p> <p>打印日志，可见场景需求，已经满足了。</p> <pre><code class="language-bash">2022-03-29 17:32:56.521  INFO 7904 --- [io-25000-exec-8] c.m.g.s.aspect.SeckillRabbitMqAspect     : 快速创建订单：发送消息创建完成: 202203291732444881508738921192005634 2022-03-29 17:33:01.526  INFO 7904 --- [io-25000-exec-8] c.m.g.s.controller.SeckillController     : 秒杀创建订单用时：28778 ???? seckill orderSn = 202203291732444881508738921192005634 2022-03-29 17:33:01.527  INFO 7904 --- [nectionFactory5] c.m.g.s.config.RabbitMqSeckillConfig     : ???? 消息已发送, params: correlationData:null,ack:true,cause:null</code></pre> <h3 id="其他方案">其他方案</h3> <p>最简单的办法，不切了，两个切面耦合在一起。注入和调用方法。</p> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-62397.htm">springboot读取resources下文件方式</a></p>
+                                        <p>下一个：<a href="/news/article-62994.htm">宠物店从哪进货比较好（宠物店怎么拿货源）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-27732.htm" title="仓鼠去医院花费（仓鼠医药费）">仓鼠去医院花费（仓鼠医药费）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-14-clash-node-daily-updates.htm" title="「11月14日」最高速度18.4M/S，2024年Surfboard每天更新免费节点订阅链接">「11月14日」最高速度18.4M/S，2024年Surfboard每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-4-shadowrocket-node.htm" title="「2月4日」最高速度19.1M/S，Shadowrocket/V2ray/SSR/Clash/Surfboard免费节点订阅链接">「2月4日」最高速度19.1M/S，Shadowrocket/V2ray/SSR/Clash/Surfboard免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-29-free-surfboard-node.htm" title="「11月29日」最高速度22.2M/S，2024年Surfboard每天更新免费节点订阅链接">「11月29日」最高速度22.2M/S，2024年Surfboard每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-39222.htm" title="SpringMVC基础：自定义异常处理">SpringMVC基础：自定义异常处理</a></li>
+                        <li class="py-2"><a href="/news/article-37697.htm" title="Java基础之浅谈异常与了解断言">Java基础之浅谈异常与了解断言</a></li>
+                        <li class="py-2"><a href="/news/article-20342.htm" title="Feign远程调用以及Feign的最优使用">Feign远程调用以及Feign的最优使用</a></li>
+                        <li class="py-2"><a href="/news/article-34356.htm" title=".Net IDE智能提示汉化(.Net6、AspNetCore)">.Net IDE智能提示汉化(.Net6、AspNetCore)</a></li>
+                        <li class="py-2"><a href="/news/article-24940.htm" title="宠物食品加工厂手续代办 宠物食品加工厂手续代办多少钱">宠物食品加工厂手续代办 宠物食品加工厂手续代办多少钱</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-3-free-surfboard-node.htm" title="「1月3日」最高速度21.6M/S，2025年Surfboard每天更新免费节点订阅链接">「1月3日」最高速度21.6M/S，2025年Surfboard每天更新免费节点订阅链接</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">74</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">92</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div> <!-- container -->
+    </section>
+    <!--====== ABOUT THREE PART ENDS ======-->
+        <!--====== FOOTER PART START ======-->
+    <footer id="footer" class="footer-area">
+        <div class="footer-copyright">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="copyright text-center">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                            <p class="text">SurfboardNode节点订阅中文站 版权所有 Powered by WordPress</p>
+                        </div> <!-- copyright -->
+                    </div>
+                </div> <!-- row -->
+            </div> <!-- container -->
+        </div> <!-- footer copyright -->
+    </footer>
+    <!--====== FOOTER PART ENDS ======-->
+    <!--====== BACK TOP TOP PART START ======-->
+    <a href="#" class="back-to-top"><i class="lni-chevron-up"></i></a>
+    <!--====== BACK TOP TOP PART ENDS ======-->
+    <!--====== jquery js ======-->
+    <script src="/assets/website/js/frontend/surfboardnode/vendor/modernizr-3.6.0.min.js"></script>
+    <script src="/assets/website/js/frontend/surfboardnode/vendor/jquery-1.12.4.min.js"></script>
+    <!--====== Bootstrap js ======-->
+    <script src="/assets/website/js/frontend/surfboardnode/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/surfboardnode/popper.min.js"></script>
+    <!--====== Images Loaded js ======-->
+    <script src="/assets/website/js/frontend/surfboardnode/imagesloaded.pkgd.min.js"></script>
+    <!--====== Scrolling Nav js ======-->
+    <script src="/assets/website/js/frontend/surfboardnode/jquery.easing.min.js"></script>
+    <script src="/assets/website/js/frontend/surfboardnode/scrolling-nav.js"></script>
+    <!--====== Slick js ======-->
+    <script src="/assets/website/js/frontend/surfboardnode/slick.min.js"></script>
+    <!--====== Main js ======-->
+    <script src="/assets/website/js/frontend/surfboardnode/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
