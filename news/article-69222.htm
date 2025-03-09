@@ -1,0 +1,235 @@
+<!doctype html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://surfboardnode.github.io/news/article-69222.htm" />
+    <!--====== Required meta tags ======-->
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>k8s 部署Redis集群</title>
+        <meta name="description" content="创建namespace  sudo kubectl create namespace redis-cluster  创建configmap  apiVersion: v1kind: ConfigMap" />
+        <link rel="icon" href="/assets/website/img/surfboardnode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="SurfboardNode节点订阅中文站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://surfboardnode.github.io/news/article-69222.htm" />
+    <meta property="og:site_name" content="SurfboardNode节点订阅中文站" />
+    <meta property="og:title" content="k8s 部署Redis集群" />
+    <meta property="og:image" content="https://surfboardnode.github.io/uploads/20240709-1/066bced409656bce5834bc7c7df89610.webp" />
+        <meta property="og:release_date" content="2025-03-07T06:36:30" />
+    <meta property="og:updated_time" content="2025-03-07T06:36:30" />
+        <meta property="og:description" content="创建namespace  sudo kubectl create namespace redis-cluster  创建configmap  apiVersion: v1kind: ConfigMap" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="k8s 部署Redis集群">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!--====== Bootstrap css ======-->
+    <link rel="stylesheet" href="/assets/website/css/surfboardnode/bootstrap.min.css">
+    <!--====== Slick css ======-->
+    <link rel="stylesheet" href="/assets/website/css/surfboardnode/slick.css">
+    <!--====== Magnific Popup css ======-->
+    <link rel="stylesheet" href="/assets/website/css/surfboardnode/magnific-popup.css">
+    <!--====== Line Icons css ======-->
+    <link rel="stylesheet" href="/assets/website/css/surfboardnode/LineIcons.css">
+    <!--====== Default css ======-->
+    <link rel="stylesheet" href="/assets/website/css/surfboardnode/default.css">
+    <!--====== Style css ======-->
+    <link rel="stylesheet" href="/assets/website/css/surfboardnode/style.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4YFZCSBJW0"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-4YFZCSBJW0');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+    <!--====== HEADER ONE PART START ======-->
+    <header class="header-area">
+        <div class="navbar-area navbar-one navbar-transparent">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <nav class="navbar navbar-expand-lg">
+                    <a class="navbar-brand" href="/">
+                                        <span>
+                        Surfboard Node                    </span>
+                                        </a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarOne" aria-controls="navbarOne" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="toggler-icon"></span>
+                        <span class="toggler-icon"></span>
+                        <span class="toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse sub-menu-bar" id="navbarOne">
+                        <ul class="navbar-nav m-auto">
+                                                        <li class="nav-item">
+                                <a href="/">首页</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a href="/free-nodes/">免费节点</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a href="/paid-subscribe/">推荐机场</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a href="/client.htm">客户端</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a href="/news/">新闻资讯</a>
+                            </li>
+                                                    </ul>
+                    </div>
+                </nav> <!-- navbar -->
+            </div>
+        </div> <!-- row -->
+    </div> <!-- container -->
+</div>
+        <div id="home" class="header-content-area d-flex align-items-center list" style="height:450px;">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="header-wrapper">
+                            <div class="header-content">
+                                <h1 class="header-title">k8s 部署Redis集群</h1>
+                                <p class="text nav">
+                                    <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / <span>正文</span>
+                                </p>
+                            </div> <!-- header content -->
+                            <div class="header-image d-none d-lg-block">
+                                <div class="image">
+                                    <img src="/assets/website/img/surfboardnode/header.png" alt="Header">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> <!-- row -->
+            </div> <!-- container -->
+            <div class="header-shape">
+                <img src="/assets/website/img/surfboardnode/header-shape.svg" alt="shape">
+            </div> <!-- header-shape -->
+        </div> <!-- header content area -->
+    </header>
+    <!--====== HEADER ONE PART ENDS ======-->
+    <!--====== ABOUT THREE PART START ======-->
+    <section id="about" class="about-area pt-70 pb-100">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <ol> <li>创建namespace</li> </ol> <pre><code class="prism language-bash"><span class="token function">sudo</span> kubectl create namespace redis-cluster</code></pre> <ol start="2"> <li>创建configmap</li> </ol> <pre><code class="prism language-yaml"><span class="token key atrule">apiVersion</span><span class="token punctuation">:</span> v1<span class="token key atrule">kind</span><span class="token punctuation">:</span> ConfigMap<span class="token key atrule">metadata</span><span class="token punctuation">:</span><span class="token key atrule">name</span><span class="token punctuation">:</span> redis<span class="token punctuation">-</span>conf<span class="token key atrule">namespace</span><span class="token punctuation">:</span> redis<span class="token punctuation">-</span>cluster<span class="token key atrule">data</span><span class="token punctuation">:</span><span class="token key atrule">redis.conf</span><span class="token punctuation">:</span><span class="token punctuation">|</span><span class="token scalar string">     appendonly yes     cluster-enabled yes     cluster-config-file /var/lib/redis/nodes.conf     dir /var/lib/redis     port 6379</span></code></pre> <ol start="3"> <li>创建PV</li> </ol> <pre><code class="prism language-yaml"><span class="token key atrule">apiVersion</span><span class="token punctuation">:</span> v1<span class="token key atrule">kind</span><span class="token punctuation">:</span> PersistentVolume<span class="token key atrule">metadata</span><span class="token punctuation">:</span><span class="token key atrule">name</span><span class="token punctuation">:</span> nfspv0<span class="token key atrule">spec</span><span class="token punctuation">:</span><span class="token key atrule">storageClassName</span><span class="token punctuation">:</span> redis<span class="token punctuation">-</span>storage<span class="token punctuation">-</span>class<span class="token key atrule">capacity</span><span class="token punctuation">:</span><span class="token key atrule">storage</span><span class="token punctuation">:</span> 1Gi<span class="token key atrule">accessModes</span><span class="token punctuation">:</span><span class="token punctuation">-</span> ReadWriteOnce<span class="token key atrule">nfs</span><span class="token punctuation">:</span><span class="token key atrule">path</span><span class="token punctuation">:</span><span class="token string">"/redis0"</span><span class="token key atrule">server</span><span class="token punctuation">:</span> 192.168.43.205<span class="token punctuation">---</span><span class="token key atrule">apiVersion</span><span class="token punctuation">:</span> v1<span class="token key atrule">kind</span><span class="token punctuation">:</span> PersistentVolume<span class="token key atrule">metadata</span><span class="token punctuation">:</span><span class="token key atrule">name</span><span class="token punctuation">:</span> nfspv1<span class="token key atrule">spec</span><span class="token punctuation">:</span><span class="token key atrule">storageClassName</span><span class="token punctuation">:</span> redis<span class="token punctuation">-</span>storage<span class="token punctuation">-</span>class<span class="token key atrule">capacity</span><span class="token punctuation">:</span><span class="token key atrule">storage</span><span class="token punctuation">:</span> 1Gi<span class="token key atrule">accessModes</span><span class="token punctuation">:</span><span class="token punctuation">-</span> ReadWriteOnce<span class="token key atrule">nfs</span><span class="token punctuation">:</span><span class="token key atrule">path</span><span class="token punctuation">:</span><span class="token string">"/redis1"</span><span class="token key atrule">server</span><span class="token punctuation">:</span> 192.168.43.205<span class="token punctuation">---</span><span class="token key atrule">apiVersion</span><span class="token punctuation">:</span> v1<span class="token key atrule">kind</span><span class="token punctuation">:</span> PersistentVolume<span class="token key atrule">metadata</span><span class="token punctuation">:</span><span class="token key atrule">name</span><span class="token punctuation">:</span> nfspv2<span class="token key atrule">spec</span><span class="token punctuation">:</span><span class="token key atrule">storageClassName</span><span class="token punctuation">:</span> redis<span class="token punctuation">-</span>storage<span class="token punctuation">-</span>class<span class="token key atrule">capacity</span><span class="token punctuation">:</span><span class="token key atrule">storage</span><span class="token punctuation">:</span> 1Gi<span class="token key atrule">accessModes</span><span class="token punctuation">:</span><span class="token punctuation">-</span> ReadWriteOnce<span class="token key atrule">nfs</span><span class="token punctuation">:</span><span class="token key atrule">path</span><span class="token punctuation">:</span><span class="token string">"/redis2"</span><span class="token key atrule">server</span><span class="token punctuation">:</span> 192.168.43.205<span class="token punctuation">---</span><span class="token key atrule">apiVersion</span><span class="token punctuation">:</span> v1<span class="token key atrule">kind</span><span class="token punctuation">:</span> PersistentVolume<span class="token key atrule">metadata</span><span class="token punctuation">:</span><span class="token key atrule">name</span><span class="token punctuation">:</span> nfspv3<span class="token key atrule">spec</span><span class="token punctuation">:</span><span class="token key atrule">storageClassName</span><span class="token punctuation">:</span> redis<span class="token punctuation">-</span>storage<span class="token punctuation">-</span>class<span class="token key atrule">capacity</span><span class="token punctuation">:</span><span class="token key atrule">storage</span><span class="token punctuation">:</span> 1Gi<span class="token key atrule">accessModes</span><span class="token punctuation">:</span><span class="token punctuation">-</span> ReadWriteOnce<span class="token key atrule">nfs</span><span class="token punctuation">:</span><span class="token key atrule">path</span><span class="token punctuation">:</span><span class="token string">"/redis3"</span><span class="token key atrule">server</span><span class="token punctuation">:</span> 192.168.43.205<span class="token punctuation">---</span><span class="token key atrule">apiVersion</span><span class="token punctuation">:</span> v1<span class="token key atrule">kind</span><span class="token punctuation">:</span> PersistentVolume<span class="token key atrule">metadata</span><span class="token punctuation">:</span><span class="token key atrule">name</span><span class="token punctuation">:</span> nfspv4<span class="token key atrule">spec</span><span class="token punctuation">:</span><span class="token key atrule">storageClassName</span><span class="token punctuation">:</span> redis<span class="token punctuation">-</span>storage<span class="token punctuation">-</span>class<span class="token key atrule">capacity</span><span class="token punctuation">:</span><span class="token key atrule">storage</span><span class="token punctuation">:</span> 1Gi<span class="token key atrule">accessModes</span><span class="token punctuation">:</span><span class="token punctuation">-</span> ReadWriteOnce<span class="token key atrule">nfs</span><span class="token punctuation">:</span><span class="token key atrule">path</span><span class="token punctuation">:</span><span class="token string">"/redis4"</span><span class="token key atrule">server</span><span class="token punctuation">:</span> 192.168.43.205<span class="token punctuation">---</span><span class="token key atrule">apiVersion</span><span class="token punctuation">:</span> v1<span class="token key atrule">kind</span><span class="token punctuation">:</span> PersistentVolume<span class="token key atrule">metadata</span><span class="token punctuation">:</span><span class="token key atrule">name</span><span class="token punctuation">:</span> nfspv5<span class="token key atrule">spec</span><span class="token punctuation">:</span><span class="token key atrule">storageClassName</span><span class="token punctuation">:</span> redis<span class="token punctuation">-</span>storage<span class="token punctuation">-</span>class<span class="token key atrule">capacity</span><span class="token punctuation">:</span><span class="token key atrule">storage</span><span class="token punctuation">:</span> 1Gi<span class="token key atrule">accessModes</span><span class="token punctuation">:</span><span class="token punctuation">-</span> ReadWriteOnce<span class="token key atrule">nfs</span><span class="token punctuation">:</span><span class="token key atrule">path</span><span class="token punctuation">:</span><span class="token string">"/redis5"</span><span class="token key atrule">server</span><span class="token punctuation">:</span> 192.168.43.205<span class="token punctuation">---</span><span class="token key atrule">apiVersion</span><span class="token punctuation">:</span> v1<span class="token key atrule">kind</span><span class="token punctuation">:</span> PersistentVolume<span class="token key atrule">metadata</span><span class="token punctuation">:</span><span class="token key atrule">name</span><span class="token punctuation">:</span> nfspv6<span class="token key atrule">spec</span><span class="token punctuation">:</span><span class="token key atrule">storageClassName</span><span class="token punctuation">:</span> redis<span class="token punctuation">-</span>storage<span class="token punctuation">-</span>class<span class="token key atrule">capacity</span><span class="token punctuation">:</span><span class="token key atrule">storage</span><span class="token punctuation">:</span> 1Gi<span class="token key atrule">accessModes</span><span class="token punctuation">:</span><span class="token punctuation">-</span> ReadWriteOnce<span class="token key atrule">nfs</span><span class="token punctuation">:</span><span class="token key atrule">path</span><span class="token punctuation">:</span><span class="token string">"/redis6"</span><span class="token key atrule">server</span><span class="token punctuation">:</span> 192.168.43.205<span class="token punctuation">---</span><span class="token key atrule">apiVersion</span><span class="token punctuation">:</span> v1<span class="token key atrule">kind</span><span class="token punctuation">:</span> PersistentVolume<span class="token key atrule">metadata</span><span class="token punctuation">:</span><span class="token key atrule">name</span><span class="token punctuation">:</span> nfspv7<span class="token key atrule">spec</span><span class="token punctuation">:</span><span class="token key atrule">storageClassName</span><span class="token punctuation">:</span> redis<span class="token punctuation">-</span>storage<span class="token punctuation">-</span>class<span class="token key atrule">capacity</span><span class="token punctuation">:</span><span class="token key atrule">storage</span><span class="token punctuation">:</span> 1Gi<span class="token key atrule">accessModes</span><span class="token punctuation">:</span><span class="token punctuation">-</span> ReadWriteOnce<span class="token key atrule">nfs</span><span class="token punctuation">:</span><span class="token key atrule">path</span><span class="token punctuation">:</span><span class="token string">"/redis7"</span><span class="token key atrule">server</span><span class="token punctuation">:</span> 192.168.43.205</code></pre> <ol start="4"> <li>创建head-less service<br /> StatefulSet需建立headlessService</li> </ol> <pre><code class="prism language-yaml"><span class="token key atrule">apiVersion</span><span class="token punctuation">:</span> v1<span class="token key atrule">kind</span><span class="token punctuation">:</span> Service<span class="token key atrule">metadata</span><span class="token punctuation">:</span><span class="token key atrule">name</span><span class="token punctuation">:</span> redis<span class="token punctuation">-</span>headless<span class="token punctuation">-</span>server<span class="token key atrule">namespace</span><span class="token punctuation">:</span> redis<span class="token punctuation">-</span>cluster<span class="token key atrule">labels</span><span class="token punctuation">:</span><span class="token key atrule">app</span><span class="token punctuation">:</span> redis<span class="token punctuation">-</span>cluster<span class="token punctuation">-</span>app<span class="token key atrule">spec</span><span class="token punctuation">:</span><span class="token key atrule">ports</span><span class="token punctuation">:</span><span class="token punctuation">-</span><span class="token key atrule">name</span><span class="token punctuation">:</span> redis<span class="token punctuation">-</span>port<span class="token key atrule">port</span><span class="token punctuation">:</span><span class="token number">6379</span><span class="token key atrule">clusterIP</span><span class="token punctuation">:</span> None<span class="token key atrule">selector</span><span class="token punctuation">:</span><span class="token key atrule">app</span><span class="token punctuation">:</span> redis<span class="token punctuation">-</span>cluster<span class="token punctuation">-</span>app</code></pre> <ol start="5"> <li>创建statefulset<br /> –cluster-announce-ip $(MY_POD_IP) 可在pod重启集群自动恢复时带入新ip</li> </ol> <pre><code class="prism language-yaml"><span class="token key atrule">apiVersion</span><span class="token punctuation">:</span> apps/v1<span class="token key atrule">kind</span><span class="token punctuation">:</span> StatefulSet<span class="token key atrule">metadata</span><span class="token punctuation">:</span><span class="token key atrule">name</span><span class="token punctuation">:</span> redis<span class="token punctuation">-</span>app<span class="token key atrule">namespace</span><span class="token punctuation">:</span> redis<span class="token punctuation">-</span>cluster<span class="token key atrule">spec</span><span class="token punctuation">:</span><span class="token key atrule">selector</span><span class="token punctuation">:</span><span class="token key atrule">matchLabels</span><span class="token punctuation">:</span><span class="token key atrule">app</span><span class="token punctuation">:</span> redis<span class="token punctuation">-</span>cluster<span class="token punctuation">-</span>app<span class="token key atrule">serviceName</span><span class="token punctuation">:</span><span class="token string">"redis-cluster-app"</span><span class="token key atrule">replicas</span><span class="token punctuation">:</span><span class="token number">6</span><span class="token key atrule">template</span><span class="token punctuation">:</span><span class="token key atrule">metadata</span><span class="token punctuation">:</span><span class="token key atrule">labels</span><span class="token punctuation">:</span><span class="token key atrule">app</span><span class="token punctuation">:</span> redis<span class="token punctuation">-</span>cluster<span class="token punctuation">-</span>app<span class="token key atrule">spec</span><span class="token punctuation">:</span><span class="token key atrule">containers</span><span class="token punctuation">:</span><span class="token punctuation">-</span><span class="token key atrule">name</span><span class="token punctuation">:</span> redis<span class="token key atrule">image</span><span class="token punctuation">:</span><span class="token string">"redis:6.0.6"</span><span class="token key atrule">command</span><span class="token punctuation">:</span><span class="token punctuation">-</span><span class="token string">"redis-server"</span><span class="token key atrule">args</span><span class="token punctuation">:</span><span class="token punctuation">-</span><span class="token string">"/etc/redis/redis.conf"</span><span class="token punctuation">-</span><span class="token string">"--protected-mode"</span><span class="token punctuation">-</span><span class="token string">"no"</span><span class="token punctuation">-</span><span class="token string">"--cluster-announce-ip"</span><span class="token punctuation">-</span><span class="token string">" $(MY_POD_IP)"</span><span class="token key atrule">ports</span><span class="token punctuation">:</span><span class="token punctuation">-</span><span class="token key atrule">name</span><span class="token punctuation">:</span> redis<span class="token key atrule">containerPort</span><span class="token punctuation">:</span><span class="token number">6379</span><span class="token key atrule">protocol</span><span class="token punctuation">:</span><span class="token string">"TCP"</span><span class="token punctuation">-</span><span class="token key atrule">name</span><span class="token punctuation">:</span> cluster<span class="token key atrule">containerPort</span><span class="token punctuation">:</span><span class="token number">16379</span><span class="token key atrule">protocol</span><span class="token punctuation">:</span><span class="token string">"TCP"</span><span class="token key atrule">volumeMounts</span><span class="token punctuation">:</span><span class="token punctuation">-</span><span class="token key atrule">name</span><span class="token punctuation">:</span><span class="token string">"redis-conf"</span><span class="token key atrule">mountPath</span><span class="token punctuation">:</span><span class="token string">"/etc/redis"</span><span class="token punctuation">-</span><span class="token key atrule">name</span><span class="token punctuation">:</span><span class="token string">"redis-data"</span><span class="token key atrule">mountPath</span><span class="token punctuation">:</span><span class="token string">"/var/lib/redis"</span><span class="token key atrule">env</span><span class="token punctuation">:</span><span class="token punctuation">-</span><span class="token key atrule">name</span><span class="token punctuation">:</span> MY_POD_IP<span class="token key atrule">valueFrom</span><span class="token punctuation">:</span><span class="token key atrule">fieldRef</span><span class="token punctuation">:</span><span class="token key atrule">fieldPath</span><span class="token punctuation">:</span> status.podIP<span class="token key atrule">volumes</span><span class="token punctuation">:</span><span class="token punctuation">-</span><span class="token key atrule">name</span><span class="token punctuation">:</span><span class="token string">"redis-conf"</span><span class="token key atrule">configMap</span><span class="token punctuation">:</span><span class="token key atrule">name</span><span class="token punctuation">:</span><span class="token string">"redis-conf"</span><span class="token key atrule">items</span><span class="token punctuation">:</span><span class="token punctuation">-</span><span class="token key atrule">key</span><span class="token punctuation">:</span><span class="token string">"redis.conf"</span><span class="token key atrule">path</span><span class="token punctuation">:</span><span class="token string">"redis.conf"</span><span class="token key atrule">volumeClaimTemplates</span><span class="token punctuation">:</span><span class="token punctuation">-</span><span class="token key atrule">metadata</span><span class="token punctuation">:</span><span class="token key atrule">name</span><span class="token punctuation">:</span> redis<span class="token punctuation">-</span>data<span class="token key atrule">spec</span><span class="token punctuation">:</span><span class="token key atrule">accessModes</span><span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token string">"ReadWriteOnce"</span><span class="token punctuation">]</span><span class="token key atrule">storageClassName</span><span class="token punctuation">:</span><span class="token string">"redis-storage-class"</span><span class="token key atrule">resources</span><span class="token punctuation">:</span><span class="token key atrule">requests</span><span class="token punctuation">:</span><span class="token key atrule">storage</span><span class="token punctuation">:</span> 1Gi</code></pre> <ol start="6"> <li>创建redis cluster</li> </ol> <pre><code class="prism language-bash">kubectl get pods -l<span class="token assign-left variable">app</span><span class="token operator">=</span>redis-cluster-app -o<span class="token assign-left variable">jsonpath</span><span class="token operator">=</span><span class="token string">'{range.items[*]}{.status.podIP}:6379 '</span> -n redis-cluster<span class="token comment">#取得redis pod ip</span></code></pre> <pre><code class="prism language-bash">kubectl -n redis-cluster<span class="token builtin class-name">exec</span> -it redis-app-0 -- redis-cli --cluster create --cluster-replicas<span class="token number">1</span><span class="token punctuation">\</span><span class="token variable"><span class="token variable">$(</span>kubectl get pods -l<span class="token assign-left variable">app</span><span class="token operator">=</span>redis-cluster-app -o<span class="token assign-left variable">jsonpath</span><span class="token operator">=</span><span class="token string">'{range.items[*]}{.status.podIP}:6379 '</span> -n redis-cluster<span class="token variable">)</span></span></code></pre> <p>7 创建service</p> <pre><code class="prism language-yaml"><span class="token key atrule">apiVersion</span><span class="token punctuation">:</span> v1<span class="token key atrule">kind</span><span class="token punctuation">:</span> Service<span class="token key atrule">metadata</span><span class="token punctuation">:</span><span class="token key atrule">name</span><span class="token punctuation">:</span> redis<span class="token punctuation">-</span>service<span class="token key atrule">namespace</span><span class="token punctuation">:</span> redis<span class="token punctuation">-</span>cluster<span class="token key atrule">labels</span><span class="token punctuation">:</span><span class="token key atrule">app</span><span class="token punctuation">:</span> redis<span class="token punctuation">-</span>cluster<span class="token punctuation">-</span>app<span class="token key atrule">spec</span><span class="token punctuation">:</span><span class="token key atrule">ports</span><span class="token punctuation">:</span><span class="token punctuation">-</span><span class="token key atrule">name</span><span class="token punctuation">:</span> redis<span class="token punctuation">-</span>port<span class="token key atrule">protocol</span><span class="token punctuation">:</span><span class="token string">"TCP"</span><span class="token key atrule">port</span><span class="token punctuation">:</span><span class="token number">6379</span><span class="token key atrule">targetPort</span><span class="token punctuation">:</span><span class="token number">6379</span><span class="token key atrule">selector</span><span class="token punctuation">:</span><span class="token key atrule">app</span><span class="token punctuation">:</span> redis<span class="token punctuation">-</span>cluster<span class="token punctuation">-</span>app</code></pre> <p>参考<br /> https://www.tpisoftware.com/tpu/articleDetails/2011</p> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-68553.htm">动物疫苗价格排行前十（动物疫苗有哪些大厂家）</a></p>
+                                        <p>下一个：<a href="/news/article-69223.htm">猫疫苗三针隔多久打一次（猫打疫苗三针间隔时间）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-2-5-shadowrocket-node.htm" title="「2月5日」最高速度19.1M/S，SSR/Shadowrocket/V2ray/Clash/Surfboard免费节点订阅链接">「2月5日」最高速度19.1M/S，SSR/Shadowrocket/V2ray/Clash/Surfboard免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-45651.htm" title="架构设计基础设施保障IaaS之计算篇">架构设计基础设施保障IaaS之计算篇</a></li>
+                        <li class="py-2"><a href="/news/article-56620.htm" title="flex布局，解决最后一排数量不够自动向两端对齐的问题（适合所有列的布局：3列、4列、5列等等）推荐使用！">flex布局，解决最后一排数量不够自动向两端对齐的问题（适合所有列的布局：3列、4列、5列等等）推荐使用！</a></li>
+                        <li class="py-2"><a href="/news/article-36752.htm" title="宠物寄养协议书怎么写模板（宠物寄养协议有法律效力吗）">宠物寄养协议书怎么写模板（宠物寄养协议有法律效力吗）</a></li>
+                        <li class="py-2"><a href="/news/article-40694.htm" title="宠物粮食品牌起名大全图片及名字 宠物粮食品牌起名大全图片及名字怎么起">宠物粮食品牌起名大全图片及名字 宠物粮食品牌起名大全图片及名字怎么起</a></li>
+                        <li class="py-2"><a href="/news/article-38200.htm" title="猫三联一共几针多少钱每年都要打吗-宠物汇（猫三联一共几针,多少钱）">猫三联一共几针多少钱每年都要打吗-宠物汇（猫三联一共几针,多少钱）</a></li>
+                        <li class="py-2"><a href="/news/article-50142.htm" title="如何将CONCAT()函数应用于MySQL表的列？">如何将CONCAT()函数应用于MySQL表的列？</a></li>
+                        <li class="py-2"><a href="/news/article-51711.htm" title="宠物粮的利润有多大 宠物粮的利润有多大了">宠物粮的利润有多大 宠物粮的利润有多大了</a></li>
+                        <li class="py-2"><a href="/news/article-44675.htm" title="南京寄养狗狗价格查询（南京宠物寄养价目表）">南京寄养狗狗价格查询（南京宠物寄养价目表）</a></li>
+                        <li class="py-2"><a href="/news/article-36749.htm" title="inner join 和 exists 效率_19条效率至少提高3倍的MySQL技巧">inner join 和 exists 效率_19条效率至少提高3倍的MySQL技巧</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">26</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">83</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div> <!-- container -->
+    </section>
+    <!--====== ABOUT THREE PART ENDS ======-->
+        <!--====== FOOTER PART START ======-->
+    <footer id="footer" class="footer-area">
+        <div class="footer-copyright">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="copyright text-center">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                            <p class="text">SurfboardNode节点订阅中文站 版权所有 Powered by WordPress</p>
+                        </div> <!-- copyright -->
+                    </div>
+                </div> <!-- row -->
+            </div> <!-- container -->
+        </div> <!-- footer copyright -->
+    </footer>
+    <!--====== FOOTER PART ENDS ======-->
+    <!--====== BACK TOP TOP PART START ======-->
+    <a href="#" class="back-to-top"><i class="lni-chevron-up"></i></a>
+    <!--====== BACK TOP TOP PART ENDS ======-->
+    <!--====== jquery js ======-->
+    <script src="/assets/website/js/frontend/surfboardnode/vendor/modernizr-3.6.0.min.js"></script>
+    <script src="/assets/website/js/frontend/surfboardnode/vendor/jquery-1.12.4.min.js"></script>
+    <!--====== Bootstrap js ======-->
+    <script src="/assets/website/js/frontend/surfboardnode/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/surfboardnode/popper.min.js"></script>
+    <!--====== Images Loaded js ======-->
+    <script src="/assets/website/js/frontend/surfboardnode/imagesloaded.pkgd.min.js"></script>
+    <!--====== Scrolling Nav js ======-->
+    <script src="/assets/website/js/frontend/surfboardnode/jquery.easing.min.js"></script>
+    <script src="/assets/website/js/frontend/surfboardnode/scrolling-nav.js"></script>
+    <!--====== Slick js ======-->
+    <script src="/assets/website/js/frontend/surfboardnode/slick.min.js"></script>
+    <!--====== Main js ======-->
+    <script src="/assets/website/js/frontend/surfboardnode/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
