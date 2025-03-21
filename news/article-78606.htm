@@ -1,0 +1,235 @@
+<!doctype html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://surfboardnode.github.io/news/article-78606.htm" />
+    <!--====== Required meta tags ======-->
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>springboot项目在启动时自动添加定时任务</title>
+        <meta name="description" content="springboot项目在启动时自动添加定时任务    1、springboot项目的启动器类添加注解 2、动态添加定时任务   2-1、添加配置类   3、静态添加定时任务 4、cron表达式在线生" />
+        <link rel="icon" href="/assets/website/img/surfboardnode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="SurfboardNode节点订阅中文站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://surfboardnode.github.io/news/article-78606.htm" />
+    <meta property="og:site_name" content="SurfboardNode节点订阅中文站" />
+    <meta property="og:title" content="springboot项目在启动时自动添加定时任务" />
+    <meta property="og:image" content="https://surfboardnode.github.io/uploads/20240709-1/573e92309286b3745d1cf9a5789b9d49.webp" />
+        <meta property="og:release_date" content="2025-03-21T10:32:05" />
+    <meta property="og:updated_time" content="2025-03-21T10:32:05" />
+        <meta property="og:description" content="springboot项目在启动时自动添加定时任务    1、springboot项目的启动器类添加注解 2、动态添加定时任务   2-1、添加配置类   3、静态添加定时任务 4、cron表达式在线生" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="springboot项目在启动时自动添加定时任务">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!--====== Bootstrap css ======-->
+    <link rel="stylesheet" href="/assets/website/css/surfboardnode/bootstrap.min.css">
+    <!--====== Slick css ======-->
+    <link rel="stylesheet" href="/assets/website/css/surfboardnode/slick.css">
+    <!--====== Magnific Popup css ======-->
+    <link rel="stylesheet" href="/assets/website/css/surfboardnode/magnific-popup.css">
+    <!--====== Line Icons css ======-->
+    <link rel="stylesheet" href="/assets/website/css/surfboardnode/LineIcons.css">
+    <!--====== Default css ======-->
+    <link rel="stylesheet" href="/assets/website/css/surfboardnode/default.css">
+    <!--====== Style css ======-->
+    <link rel="stylesheet" href="/assets/website/css/surfboardnode/style.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4YFZCSBJW0"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-4YFZCSBJW0');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+    <!--====== HEADER ONE PART START ======-->
+    <header class="header-area">
+        <div class="navbar-area navbar-one navbar-transparent">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <nav class="navbar navbar-expand-lg">
+                    <a class="navbar-brand" href="/">
+                                        <span>
+                        Surfboard Node                    </span>
+                                        </a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarOne" aria-controls="navbarOne" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="toggler-icon"></span>
+                        <span class="toggler-icon"></span>
+                        <span class="toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse sub-menu-bar" id="navbarOne">
+                        <ul class="navbar-nav m-auto">
+                                                        <li class="nav-item">
+                                <a href="/">首页</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a href="/free-nodes/">免费节点</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a href="/paid-subscribe/">推荐机场</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a href="/client.htm">客户端</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a href="/news/">新闻资讯</a>
+                            </li>
+                                                    </ul>
+                    </div>
+                </nav> <!-- navbar -->
+            </div>
+        </div> <!-- row -->
+    </div> <!-- container -->
+</div>
+        <div id="home" class="header-content-area d-flex align-items-center list" style="height:450px;">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="header-wrapper">
+                            <div class="header-content">
+                                <h1 class="header-title">springboot项目在启动时自动添加定时任务</h1>
+                                <p class="text nav">
+                                    <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / <span>正文</span>
+                                </p>
+                            </div> <!-- header content -->
+                            <div class="header-image d-none d-lg-block">
+                                <div class="image">
+                                    <img src="/assets/website/img/surfboardnode/header.png" alt="Header">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> <!-- row -->
+            </div> <!-- container -->
+            <div class="header-shape">
+                <img src="/assets/website/img/surfboardnode/header-shape.svg" alt="shape">
+            </div> <!-- header-shape -->
+        </div> <!-- header content area -->
+    </header>
+    <!--====== HEADER ONE PART ENDS ======-->
+    <!--====== ABOUT THREE PART START ======-->
+    <section id="about" class="about-area pt-70 pb-100">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-light"> <div class="toc"> <h3>springboot项目在启动时自动添加定时任务</h3> <ul> <li> <ul> <li><a href="#1springboot_1" rel="nofollow">1、springboot项目的启动器类添加注解</a></li> <li><a href="#2_6" rel="nofollow">2、动态添加定时任务</a></li> <li> <ul> <li><a href="#21_8" rel="nofollow">2-1、添加配置类</a></li> </ul> </li> <li><a href="#3_67" rel="nofollow">3、静态添加定时任务</a></li> <li><a href="#4cron_76" rel="nofollow">4、cron表达式在线生成</a></li> <li><a href="#5cron_78" rel="nofollow">5、如果不用cron表达式，可以直接使用毫秒</a></li> </ul> </li> </ul> </div> <h2> <a id="1springboot_1" rel="nofollow"></a>1、springboot项目的启动器类添加注解</h2> <pre><code class="prism language-java"><span class="token annotation punctuation">@EnableScheduling</span> </code></pre> <h2> <a id="2_6" rel="nofollow"></a>2、动态添加定时任务</h2> <p><strong>需求：启动项目时自动添加定时任务，定时时间从数据库查</strong></p> <h3> <a id="21_8" rel="nofollow"></a>2-1、添加配置类</h3> <p>新建config包，包下新建<code>ScheduleTask</code>类实现<code>SchedulingConfigurer</code>接口，代码如下：</p> <pre><code class="prism language-java"><span class="token keyword">package</span> <span class="token namespace">org<span class="token punctuation">.</span>springxxx<span class="token punctuation">.</span>modules<span class="token punctuation">.</span>xxx<span class="token punctuation">.</span>config</span><span class="token punctuation">;</span>  <span class="token keyword">import</span> <span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">List</span><span class="token punctuation">;</span>  <span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>springblade<span class="token punctuation">.</span>modules<span class="token punctuation">.</span>datatrans<span class="token punctuation">.</span>entity<span class="token punctuation">.</span></span><span class="token class-name">DataResource</span><span class="token punctuation">;</span> <span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>springblade<span class="token punctuation">.</span>modules<span class="token punctuation">.</span>datatrans<span class="token punctuation">.</span>mapper<span class="token punctuation">.</span></span><span class="token class-name">DataResourceMapper</span><span class="token punctuation">;</span> <span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>springblade<span class="token punctuation">.</span>modules<span class="token punctuation">.</span>datatrans<span class="token punctuation">.</span>service<span class="token punctuation">.</span></span><span class="token class-name">IDataResourceService</span><span class="token punctuation">;</span> <span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>springblade<span class="token punctuation">.</span>modules<span class="token punctuation">.</span>datatrans<span class="token punctuation">.</span>utils<span class="token punctuation">.</span></span><span class="token class-name">CronExpParser</span><span class="token punctuation">;</span> <span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>beans<span class="token punctuation">.</span>factory<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span></span><span class="token class-name">Autowired</span><span class="token punctuation">;</span> <span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>context<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span></span><span class="token class-name">Configuration</span><span class="token punctuation">;</span> <span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>scheduling<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span></span><span class="token class-name">EnableScheduling</span><span class="token punctuation">;</span> <span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>scheduling<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span></span><span class="token class-name">SchedulingConfigurer</span><span class="token punctuation">;</span> <span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>scheduling<span class="token punctuation">.</span>config<span class="token punctuation">.</span></span><span class="token class-name">ScheduledTaskRegistrar</span><span class="token punctuation">;</span> <span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>scheduling<span class="token punctuation">.</span>support<span class="token punctuation">.</span></span><span class="token class-name">CronTrigger</span><span class="token punctuation">;</span>  <span class="token keyword">import</span> <span class="token namespace">com<span class="token punctuation">.</span>aliyuncs<span class="token punctuation">.</span>utils<span class="token punctuation">.</span></span><span class="token class-name">StringUtils</span><span class="token punctuation">;</span> <span class="token keyword">import</span> <span class="token namespace">com<span class="token punctuation">.</span>baomidou<span class="token punctuation">.</span>mybatisplus<span class="token punctuation">.</span>core<span class="token punctuation">.</span>conditions<span class="token punctuation">.</span>query<span class="token punctuation">.</span></span><span class="token class-name">QueryWrapper</span><span class="token punctuation">;</span>  <span class="token annotation punctuation">@Configuration</span> <span class="token comment">// 1.主要用于标记配置类，兼备Component的效果。</span> <span class="token annotation punctuation">@EnableScheduling</span> <span class="token comment">// 2.开启定时任务</span> <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">ScheduleTask</span> <span class="token keyword">implements</span> <span class="token class-name">SchedulingConfigurer</span> <span class="token punctuation">{<!-- --></span>  	<span class="token annotation punctuation">@Autowired</span> 	<span class="token class-name">DataResourceMapper</span> dataResourceMapper<span class="token punctuation">;</span>  	<span class="token annotation punctuation">@Autowired</span> 	<span class="token class-name">IDataResourceService</span> dataResourceService<span class="token punctuation">;</span>  	<span class="token annotation punctuation">@Override</span> 	<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">configureTasks</span><span class="token punctuation">(</span><span class="token class-name">ScheduledTaskRegistrar</span> taskRegistrar<span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span> 		<span class="token class-name">QueryWrapper</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">DataResource</span><span class="token punctuation">&gt;</span></span> drWrapper <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">QueryWrapper</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 		<span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">DataResource</span><span class="token punctuation">&gt;</span></span> dataResourceList <span class="token operator">=</span> dataResourceMapper<span class="token punctuation">.</span><span class="token function">selectList</span><span class="token punctuation">(</span>drWrapper<span class="token punctuation">.</span><span class="token function">eq</span><span class="token punctuation">(</span><span class="token string">"deleted"</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 		<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token class-name">DataResource</span> dataResource <span class="token operator">:</span> dataResourceList<span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span> 			<span class="token comment">// 2.1 从数据库获取执行周期</span> 			<span class="token class-name">String</span> cron <span class="token operator">=</span> dataResource<span class="token punctuation">.</span><span class="token function">getExecuteCron</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 			<span class="token comment">// 2.2 合法性校验. 正确的cron表达式+数据资源可访问状态为正常</span> 			<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token class-name">StringUtils</span><span class="token punctuation">.</span><span class="token function">isEmpty</span><span class="token punctuation">(</span>cron<span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> dataResource<span class="token punctuation">.</span><span class="token function">getAccessibleState</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span><span class="token string">"1"</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span> 				<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"添加动态定时任务: "</span> <span class="token operator">+</span> dataResource<span class="token punctuation">.</span><span class="token function">getDataName</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">","</span> 						<span class="token operator">+</span> <span class="token class-name">CronExpParser</span><span class="token punctuation">.</span><span class="token function">translateToChinese</span><span class="token punctuation">(</span>cron<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">"执行一次"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 				taskRegistrar<span class="token punctuation">.</span><span class="token function">addTriggerTask</span><span class="token punctuation">(</span> 						<span class="token comment">// 1.添加任务内容(Runnable)</span> 						<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-&gt;</span> <span class="token punctuation">{<!-- --></span> 							<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"执行动态定时任务: "</span> <span class="token operator">+</span> dataResource<span class="token punctuation">.</span><span class="token function">getDataName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 							dataResourceService<span class="token punctuation">.</span><span class="token function">refreshByTime</span><span class="token punctuation">(</span>dataResource<span class="token punctuation">)</span><span class="token punctuation">;</span> 						<span class="token punctuation">}</span><span class="token punctuation">,</span> 						<span class="token comment">// 2.设置执行周期(Trigger)</span> 						triggerContext <span class="token operator">-&gt;</span> <span class="token punctuation">{<!-- --></span> 							<span class="token comment">// 2.3 返回执行周期(Date)</span> 							<span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">CronTrigger</span><span class="token punctuation">(</span>cron<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">nextExecutionTime</span><span class="token punctuation">(</span>triggerContext<span class="token punctuation">)</span><span class="token punctuation">;</span> 						<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 			<span class="token punctuation">}</span> 		<span class="token punctuation">}</span> 	<span class="token punctuation">}</span> <span class="token punctuation">}</span>  </code></pre> <h2> <a id="3_67" rel="nofollow"></a>3、静态添加定时任务</h2> <p><strong>需求：定时执行某个方法，定时时间写死</strong><br /> 在方法上面加</p> <pre><code class="prism language-java">	<span class="token annotation punctuation">@Scheduled</span><span class="token punctuation">(</span>cron <span class="token operator">=</span> <span class="token string">"0 0/30 * * * ? "</span><span class="token punctuation">)</span> 	<span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">checkRsa</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span> 	<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"每三十分钟执行一次"</span><span class="token punctuation">)</span> 	<span class="token punctuation">}</span> </code></pre> <h2> <a id="4cron_76" rel="nofollow"></a>4、cron表达式在线生成</h2> <p><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://cron.qqe2.com/"  rel="nofollow">cron表达式在线生成</a></p> <h2> <a id="5cron_78" rel="nofollow"></a>5、如果不用cron表达式，可以直接使用毫秒</h2> <pre><code class="prism language-bash">    //initialDelay：当任务启动后多久开始执行此方法，fixedDelay：执行频率为多少     @Scheduled<span class="token punctuation">(</span>initialDelay <span class="token operator">=</span> <span class="token number">1000</span>,fixedDelay <span class="token operator">=</span> <span class="token number">1000</span>*10<span class="token punctuation">)</span>     public static void <span class="token function-name function">checkRsa</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span> 	System.out.println<span class="token punctuation">(</span><span class="token string">"每十秒钟执行一次"</span><span class="token punctuation">)</span> 	<span class="token punctuation">}</span> </code></pre> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-77919.htm">宠物领养网站的设计与实现方案有哪些内容（宠物领养网站的设计与实现方案有哪些内容和要求）</a></p>
+                                        <p>下一个：<a href="/news/article-78607.htm">victoriaMetrics库之布隆过滤器</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-2-6-clash-node.htm" title="「2月6日」最高速度20.8M/S，Clash/V2ray/Shadowrocket/SSR/Surfboard免费节点订阅链接">「2月6日」最高速度20.8M/S，Clash/V2ray/Shadowrocket/SSR/Surfboard免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-43664.htm" title="动物诊疗许可证申请书（动物诊疗许可证申领准备材料）">动物诊疗许可证申请书（动物诊疗许可证申领准备材料）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-14-free-subscribe-node.htm" title="「3月14日」最高速度19.2M/S，Clash/Shadowrocket/SSR/V2ray/Surfboard免费节点订阅链接">「3月14日」最高速度19.2M/S，Clash/Shadowrocket/SSR/V2ray/Surfboard免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-69222.htm" title="k8s 部署Redis集群">k8s 部署Redis集群</a></li>
+                        <li class="py-2"><a href="/news/article-56620.htm" title="flex布局，解决最后一排数量不够自动向两端对齐的问题（适合所有列的布局：3列、4列、5列等等）推荐使用！">flex布局，解决最后一排数量不够自动向两端对齐的问题（适合所有列的布局：3列、4列、5列等等）推荐使用！</a></li>
+                        <li class="py-2"><a href="/news/article-54404.htm" title="动物预防接种计划表 动物预防接种计划表格">动物预防接种计划表 动物预防接种计划表格</a></li>
+                        <li class="py-2"><a href="/news/article-42675.htm" title="宠物粮进货平台有哪些（宠物粮进货平台有哪些品牌）">宠物粮进货平台有哪些（宠物粮进货平台有哪些品牌）</a></li>
+                        <li class="py-2"><a href="/news/article-71186.htm" title="动物疫苗批发 动物疫苗批发商">动物疫苗批发 动物疫苗批发商</a></li>
+                        <li class="py-2"><a href="/news/article-43663.htm" title="mysql中的日期时间类型有哪些？">mysql中的日期时间类型有哪些？</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-16-free-surfboard-node.htm" title="「2月16日」最高速度23M/S，Clash/SSR/V2ray/Shadowrocket/Surfboard免费节点订阅链接">「2月16日」最高速度23M/S，Clash/SSR/V2ray/Shadowrocket/Surfboard免费节点订阅链接</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">83</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div> <!-- container -->
+    </section>
+    <!--====== ABOUT THREE PART ENDS ======-->
+        <!--====== FOOTER PART START ======-->
+    <footer id="footer" class="footer-area">
+        <div class="footer-copyright">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="copyright text-center">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                            <p class="text">SurfboardNode节点订阅中文站 版权所有 Powered by WordPress</p>
+                        </div> <!-- copyright -->
+                    </div>
+                </div> <!-- row -->
+            </div> <!-- container -->
+        </div> <!-- footer copyright -->
+    </footer>
+    <!--====== FOOTER PART ENDS ======-->
+    <!--====== BACK TOP TOP PART START ======-->
+    <a href="#" class="back-to-top"><i class="lni-chevron-up"></i></a>
+    <!--====== BACK TOP TOP PART ENDS ======-->
+    <!--====== jquery js ======-->
+    <script src="/assets/website/js/frontend/surfboardnode/vendor/modernizr-3.6.0.min.js"></script>
+    <script src="/assets/website/js/frontend/surfboardnode/vendor/jquery-1.12.4.min.js"></script>
+    <!--====== Bootstrap js ======-->
+    <script src="/assets/website/js/frontend/surfboardnode/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/surfboardnode/popper.min.js"></script>
+    <!--====== Images Loaded js ======-->
+    <script src="/assets/website/js/frontend/surfboardnode/imagesloaded.pkgd.min.js"></script>
+    <!--====== Scrolling Nav js ======-->
+    <script src="/assets/website/js/frontend/surfboardnode/jquery.easing.min.js"></script>
+    <script src="/assets/website/js/frontend/surfboardnode/scrolling-nav.js"></script>
+    <!--====== Slick js ======-->
+    <script src="/assets/website/js/frontend/surfboardnode/slick.min.js"></script>
+    <!--====== Main js ======-->
+    <script src="/assets/website/js/frontend/surfboardnode/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>

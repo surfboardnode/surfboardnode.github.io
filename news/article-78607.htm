@@ -1,0 +1,234 @@
+<!doctype html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://surfboardnode.github.io/news/article-78607.htm" />
+    <!--====== Required meta tags ======-->
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>victoriaMetrics库之布隆过滤器</title>
+        <meta name="description" content="victoriaMetrics库之布隆过滤器 代码路径：/lib/bloomfilter 概述 victoriaMetrics的vmstorage组件会接收上游传递过来的指标，在现实场景中，指标或瞬时" />
+        <link rel="icon" href="/assets/website/img/surfboardnode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="SurfboardNode节点订阅中文站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://surfboardnode.github.io/news/article-78607.htm" />
+    <meta property="og:site_name" content="SurfboardNode节点订阅中文站" />
+    <meta property="og:title" content="victoriaMetrics库之布隆过滤器" />
+    <meta property="og:image" content="https://surfboardnode.github.io/uploads/20240709-1/ab9c50af26d6909a5d79c0c2ab0176cc.webp" />
+        <meta property="og:release_date" content="2025-03-21T10:32:05" />
+    <meta property="og:updated_time" content="2025-03-21T10:32:05" />
+        <meta property="og:description" content="victoriaMetrics库之布隆过滤器 代码路径：/lib/bloomfilter 概述 victoriaMetrics的vmstorage组件会接收上游传递过来的指标，在现实场景中，指标或瞬时" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="victoriaMetrics库之布隆过滤器">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!--====== Bootstrap css ======-->
+    <link rel="stylesheet" href="/assets/website/css/surfboardnode/bootstrap.min.css">
+    <!--====== Slick css ======-->
+    <link rel="stylesheet" href="/assets/website/css/surfboardnode/slick.css">
+    <!--====== Magnific Popup css ======-->
+    <link rel="stylesheet" href="/assets/website/css/surfboardnode/magnific-popup.css">
+    <!--====== Line Icons css ======-->
+    <link rel="stylesheet" href="/assets/website/css/surfboardnode/LineIcons.css">
+    <!--====== Default css ======-->
+    <link rel="stylesheet" href="/assets/website/css/surfboardnode/default.css">
+    <!--====== Style css ======-->
+    <link rel="stylesheet" href="/assets/website/css/surfboardnode/style.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4YFZCSBJW0"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-4YFZCSBJW0');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+    <!--====== HEADER ONE PART START ======-->
+    <header class="header-area">
+        <div class="navbar-area navbar-one navbar-transparent">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <nav class="navbar navbar-expand-lg">
+                    <a class="navbar-brand" href="/">
+                                        <span>
+                        Surfboard Node                    </span>
+                                        </a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarOne" aria-controls="navbarOne" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="toggler-icon"></span>
+                        <span class="toggler-icon"></span>
+                        <span class="toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse sub-menu-bar" id="navbarOne">
+                        <ul class="navbar-nav m-auto">
+                                                        <li class="nav-item">
+                                <a href="/">首页</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a href="/free-nodes/">免费节点</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a href="/paid-subscribe/">推荐机场</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a href="/client.htm">客户端</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a href="/news/">新闻资讯</a>
+                            </li>
+                                                    </ul>
+                    </div>
+                </nav> <!-- navbar -->
+            </div>
+        </div> <!-- row -->
+    </div> <!-- container -->
+</div>
+        <div id="home" class="header-content-area d-flex align-items-center list" style="height:450px;">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="header-wrapper">
+                            <div class="header-content">
+                                <h1 class="header-title">victoriaMetrics库之布隆过滤器</h1>
+                                <p class="text nav">
+                                    <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / <span>正文</span>
+                                </p>
+                            </div> <!-- header content -->
+                            <div class="header-image d-none d-lg-block">
+                                <div class="image">
+                                    <img src="/assets/website/img/surfboardnode/header.png" alt="Header">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> <!-- row -->
+            </div> <!-- container -->
+            <div class="header-shape">
+                <img src="/assets/website/img/surfboardnode/header-shape.svg" alt="shape">
+            </div> <!-- header-shape -->
+        </div> <!-- header content area -->
+    </header>
+    <!--====== HEADER ONE PART ENDS ======-->
+    <!--====== ABOUT THREE PART START ======-->
+    <section id="about" class="about-area pt-70 pb-100">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<h2 id="victoriametrics库之布隆过滤器">victoriaMetrics库之布隆过滤器</h2> <p>代码路径：<code>/lib/bloomfilter</code></p> <h3 id="概述">概述</h3> <p>victoriaMetrics的<code>vmstorage</code>组件会接收上游传递过来的指标，在现实场景中，指标或瞬时指标的数量级可能会非常恐怖，如果不限制缓存的大小，有可能会由于cache miss而导致出现过高的<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://docs.victoriametrics.com/FAQ.html#what-is-a-slow-insert"  target="_blank" rel="nofollow">slow insert</a>。</p> <p>为此，vmstorage提供了两个参数：<code>maxHourlySeries</code>和<code>maxDailySeries</code>，用于限制每小时/每天添加到缓存的唯一序列。</p> <blockquote> <p>唯一序列指表示唯一的时间序列，如<code>metrics{label1="value1",label2="value2"}</code>属于一个时间序列，但多条不同值的<code>metrics{label1="value1",label2="value2"}</code>属于同一条时间序列。victoriaMetrics使用如下方式来获取时序的唯一标识：</p> <pre><code class="language-go">func getLabelsHash(labels []prompbmarshal.Label) uint64 { 	bb := labelsHashBufPool.Get() 	b := bb.B[:0] 	for _, label := range labels { 		b = append(b, label.Name...) 		b = append(b, label.Value...) 	} 	h := xxhash.Sum64(b) 	bb.B = b 	labelsHashBufPool.Put(bb) 	return h }</code></pre> </blockquote> <h3 id="限速器的初始化">限速器的初始化</h3> <p>victoriaMetrics使用了一个类似限速器的概念，限制每小时/每天新增的唯一序列，但与普通的限速器不同的是，它需要在序列级别进行限制，即判断某个序列是否是新的唯一序列，如果是，则需要进一步判断一段时间内缓存中新的时序数目是否超过限制，而不是简单地在请求层面进行限制。</p> <pre><code class="language-go">hourlySeriesLimiter = bloomfilter.NewLimiter(*maxHourlySeries, time.Hour) dailySeriesLimiter = bloomfilter.NewLimiter(*maxDailySeries, 24*time.Hour)</code></pre> <p>下面是新建限速器的函数，传入一个最大(序列)值，以及一个刷新时间。该函数中会：</p> <ol> <li>初始化一个限速器，限速器的最大元素个数为<code>maxItems</code></li> <li>则启用了一个goroutine，当时间达到<code>refreshInterval</code>时会重置限速器</li> </ol> <pre><code class="language-go">func NewLimiter(maxItems int, refreshInterval time.Duration) *Limiter { 	l := &amp;Limiter{ 		maxItems: maxItems, 		stopCh:   make(chan struct{}), 	} 	l.v.Store(newLimiter(maxItems)) //1 	l.wg.Add(1) 	go func() { 		defer l.wg.Done() 		t := time.NewTicker(refreshInterval) 		defer t.Stop() 		for { 			select { 			case &lt;-t.C: 				l.v.Store(newLimiter(maxItems))//2 			case &lt;-l.stopCh: 				return 			} 		} 	}() 	return l }</code></pre> <p>限速器只有一个核心函数<code>Add</code>，当vmstorage接收到一个指标之后，会(通过<code>getLabelsHash</code>计算该指标的唯一标识(h)，然后调用下面的<code>Add</code>函数来判断该唯一标识是否存在于缓存中。</p> <p>如果当前存储的元素个数大于等于允许的最大元素，则通过过滤器判断缓存中是否已经存在该元素；否则将该元素直接加入过滤器中，后续允许将该元素加入到缓存中。</p> <pre><code class="language-go">func (l *Limiter) Add(h uint64) bool { 	lm := l.v.Load().(*limiter) 	return lm.Add(h) }  func (l *limiter) Add(h uint64) bool { 	currentItems := atomic.LoadUint64(&amp;l.currentItems) 	if currentItems &gt;= uint64(l.f.maxItems) { 		return l.f.Has(h) 	} 	if l.f.Add(h) { 		atomic.AddUint64(&amp;l.currentItems, 1) 	} 	return true }</code></pre> <p>上面的过滤器采用的是布隆过滤器，核心函数为<code>Has</code>和<code>Add</code>，分别用于判断某个元素是否存在于过滤器中，以及将元素添加到布隆过滤器中。</p> <p>过滤器的初始化函数如下，<code>bitsPerItem</code>是个常量，值为16。<code>bitsCount</code>统计了过滤器中的总bit数，每个bit表示某个值的存在性。<code>bits</code>以64bit为单位的(后续称之为slot，目的是为了在bitsCount中快速检索目标bit)。计算<code>bits</code>时加上<code>63</code>的原因是为了四舍五入向上取值，比如当maxItems=1时至少需要1个unit64的slot。</p> <pre><code class="language-go">func newFilter(maxItems int) *filter { 	bitsCount := maxItems * bitsPerItem 	bits := make([]uint64, (bitsCount+63)/64) 	return &amp;filter{ 		maxItems: maxItems, 		bits:     bits, 	} }</code></pre> <blockquote> <p>为什么<code>bitsPerItem</code>为16？<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://zhuanlan.zhihu.com/p/282864286"  target="_blank" rel="nofollow">这篇文章</a>给出了如何计算布隆过滤器的大小。在本代码中，k为4(<code>hashesCount</code>)，期望的漏失率为0.003(可以从官方的<code>filter_test.go</code>中看出)，则要求总存储和总元素的比例为15，为了方便检索slot(64bit，为16的倍数)，将之设置为16。</p> <pre><code class="language-go">	if p &gt; 0.003 { 		t.Fatalf("too big false hits share for maxItems=%d: %.5f, falseHits: %d", maxItems, p, falseHits) 	}</code></pre> <p><img decoding="async" src="https://img2022.cnblogs.com/blog/1334952/202204/1334952-20220404235017277-1492083064.png" alt="victoriaMetrics库之布隆过滤器" style="zoom: 80%"/></p></blockquote> <p>下面是过滤器的<code>Add</code>操作，目的是在过滤器中添加某个元素。<code>Add</code>函数中没有使用多个哈希函数来计算元素的哈希值，转而改变同一个元素的值，然后对相应的值应用相同的哈希函数，元素改变的次数受<code>hashesCount</code>的限制。</p> <ol> <li>获取过滤器的完整存储，并转换为以bit单位</li> <li>将元素<code>h</code>转换为byte数组，便于xxhash.Sum64计算</li> <li>后续将执行hashesCount次哈希，降低漏失率</li> <li>计算元素h的哈希</li> <li>递增元素<code>h</code>，为下一次哈希做准备</li> <li>取余法获取元素的bit范围</li> <li>获取元素所在的slot(即uint64大小的bit范围)</li> <li>获取元素所在的slot中的bit位，该位为1表示该元素存在，为0表示该元素不存在</li> <li>获取元素所在bit位的掩码</li> <li>加载元素所在的slot的数值</li> <li>如果<code>w &amp; mask</code>结果为0，说明该元素不存在，</li> <li>将元素所在的slot(<code>w</code>)中的元素所在的bit位(mask)置为1，表示添加了该元素</li> <li>由于<code>Add</code>函数可以并发访问，因此<code>bits[i]</code>有可能被其他操作修改，因此需要通过重新加载(14)并通过循环来在<code>bits[i]</code>中设置该元素的存在性</li> </ol> <pre><code class="language-go">func (f *filter) Add(h uint64) bool { 	bits := f.bits 	maxBits := uint64(len(bits)) * 64 //1 	bp := (*[8]byte)(unsafe.Pointer(&amp;h))//2 	b := bp[:] 	isNew := false 	for i := 0; i &lt; hashesCount; i++ {//3 		hi := xxhash.Sum64(b)//4 		h++ //5 		idx := hi % maxBits //6 		i := idx / 64 //7 		j := idx % 64 //8 		mask := uint64(1) &lt;&lt; j //9 		w := atomic.LoadUint64(&amp;bits[i])//10 		for (w &amp; mask) == 0 {//11 			wNew := w | mask //12 			if atomic.CompareAndSwapUint64(&amp;bits[i], w, wNew) {//13 				isNew = true//14 				break 			} 			w = atomic.LoadUint64(&amp;bits[i])//14 		} 	} 	return isNew }</code></pre> <p>看懂了<code>Add</code>函数，<code>Has</code>就相当简单了，它只是<code>Add</code>函数的缩减版，无需设置<code>bits[i]</code>：</p> <pre><code class="language-go">func (f *filter) Has(h uint64) bool { 	bits := f.bits 	maxBits := uint64(len(bits)) * 64 	bp := (*[8]byte)(unsafe.Pointer(&amp;h)) 	b := bp[:] 	for i := 0; i &lt; hashesCount; i++ { 		hi := xxhash.Sum64(b) 		h++ 		idx := hi % maxBits 		i := idx / 64 		j := idx % 64 		mask := uint64(1) &lt;&lt; j 		w := atomic.LoadUint64(&amp;bits[i]) 		if (w &amp; mask) == 0 { 			return false 		} 	} 	return true }</code></pre> <h3 id="总结">总结</h3> <p>由于victoriaMetrics的过滤器采用的是布隆过滤器，因此它的限速并不精准，在源码条件下， 大约有3%的偏差。但同样地，由于采用了布隆过滤器，降低了所需的内存以及相关计算资源。此外victoriaMetrics的过滤器实现了并发访问。<br /> 过滤器为了支持并发访问，使用atomic来实现数值存储和加载以及数值变更等操作。</p> <p>在大流量场景中，如果需要对请求进行相对精准的过滤，可以考虑使用布隆过滤器，降低所需要的资源，但前提是过滤的结果能够忍受一定程度的漏失率。</p> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-78606.htm">springboot项目在启动时自动添加定时任务</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-2-1-node-share.htm" title="「2月1日」最高速度21.6M/S，Clash/V2ray/SSR/Shadowrocket/Surfboard免费节点订阅链接">「2月1日」最高速度21.6M/S，Clash/V2ray/SSR/Shadowrocket/Surfboard免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-17-free-node-subscribe-links.htm" title="「2月17日」最高速度22.2M/S，Shadowrocket/SSR/Clash/V2ray/Surfboard免费节点订阅链接">「2月17日」最高速度22.2M/S，Shadowrocket/SSR/Clash/V2ray/Surfboard免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-45170.htm" title="做猫粮的机器多少钱一台啊图片 做猫粮的机器多少钱一台啊图片大全">做猫粮的机器多少钱一台啊图片 做猫粮的机器多少钱一台啊图片大全</a></li>
+                        <li class="py-2"><a href="/news/article-48463.htm" title="Python 基础系列 11 &#8211; Python 异常处理 Exception Handling">Python 基础系列 11 &#8211; Python 异常处理 Exception Handling</a></li>
+                        <li class="py-2"><a href="/news/article-63591.htm" title="动物疫苗使用注意事项有哪些呢图片（动物疫苗知识）">动物疫苗使用注意事项有哪些呢图片（动物疫苗知识）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-15-clash-node.htm" title="「2月15日」最高速度22.8M/S，SSR/Shadowrocket/V2ray/Clash/Surfboard免费节点订阅链接">「2月15日」最高速度22.8M/S，SSR/Shadowrocket/V2ray/Clash/Surfboard免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-37244.htm" title="美团评价宠物医院好评怎么写 美团评价宠物医院好评怎么写文案">美团评价宠物医院好评怎么写 美团评价宠物医院好评怎么写文案</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-30-node-share-links.htm" title="「1月30日」最高速度19.3M/S，V2ray/Clash/Shadowrocket/SSR/Surfboard免费节点订阅链接">「1月30日」最高速度19.3M/S，V2ray/Clash/Shadowrocket/SSR/Surfboard免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-48112.htm" title="2020年中国动物疫苗市场分析（中国动物疫苗10强企业）">2020年中国动物疫苗市场分析（中国动物疫苗10强企业）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-9-clash-node-daily-updates.htm" title="「1月9日」最高速度21.9M/S，SSR/V2ray/Clash/Shadowrocket/Surfboard免费节点订阅链接">「1月9日」最高速度21.9M/S，SSR/V2ray/Clash/Shadowrocket/Surfboard免费节点订阅链接</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">83</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div> <!-- container -->
+    </section>
+    <!--====== ABOUT THREE PART ENDS ======-->
+        <!--====== FOOTER PART START ======-->
+    <footer id="footer" class="footer-area">
+        <div class="footer-copyright">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="copyright text-center">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                            <p class="text">SurfboardNode节点订阅中文站 版权所有 Powered by WordPress</p>
+                        </div> <!-- copyright -->
+                    </div>
+                </div> <!-- row -->
+            </div> <!-- container -->
+        </div> <!-- footer copyright -->
+    </footer>
+    <!--====== FOOTER PART ENDS ======-->
+    <!--====== BACK TOP TOP PART START ======-->
+    <a href="#" class="back-to-top"><i class="lni-chevron-up"></i></a>
+    <!--====== BACK TOP TOP PART ENDS ======-->
+    <!--====== jquery js ======-->
+    <script src="/assets/website/js/frontend/surfboardnode/vendor/modernizr-3.6.0.min.js"></script>
+    <script src="/assets/website/js/frontend/surfboardnode/vendor/jquery-1.12.4.min.js"></script>
+    <!--====== Bootstrap js ======-->
+    <script src="/assets/website/js/frontend/surfboardnode/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/surfboardnode/popper.min.js"></script>
+    <!--====== Images Loaded js ======-->
+    <script src="/assets/website/js/frontend/surfboardnode/imagesloaded.pkgd.min.js"></script>
+    <!--====== Scrolling Nav js ======-->
+    <script src="/assets/website/js/frontend/surfboardnode/jquery.easing.min.js"></script>
+    <script src="/assets/website/js/frontend/surfboardnode/scrolling-nav.js"></script>
+    <!--====== Slick js ======-->
+    <script src="/assets/website/js/frontend/surfboardnode/slick.min.js"></script>
+    <!--====== Main js ======-->
+    <script src="/assets/website/js/frontend/surfboardnode/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
