@@ -1,0 +1,235 @@
+<!doctype html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://surfboardnode.github.io/news/article-83491.htm" />
+    <!--====== Required meta tags ======-->
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Vue基础之Vue列表渲染</title>
+        <meta name="description" content="我们用 v-for 指令根据一组数组的选项列表进行渲染。 v-for 指令需要以 item in items 形式的特殊语法， items 是源数据数组并且 item 是数组元素迭代的别名 基本用法：" />
+        <link rel="icon" href="/assets/website/img/surfboardnode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="SurfboardNode节点订阅中文站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://surfboardnode.github.io/news/article-83491.htm" />
+    <meta property="og:site_name" content="SurfboardNode节点订阅中文站" />
+    <meta property="og:title" content="Vue基础之Vue列表渲染" />
+    <meta property="og:image" content="https://surfboardnode.github.io/uploads/20240709-1/96153a512a9733d15753a0bb3e328580.webp" />
+        <meta property="og:release_date" content="2025-03-28T09:56:37" />
+    <meta property="og:updated_time" content="2025-03-28T09:56:37" />
+        <meta property="og:description" content="我们用 v-for 指令根据一组数组的选项列表进行渲染。 v-for 指令需要以 item in items 形式的特殊语法， items 是源数据数组并且 item 是数组元素迭代的别名 基本用法：" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Vue基础之Vue列表渲染">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!--====== Bootstrap css ======-->
+    <link rel="stylesheet" href="/assets/website/css/surfboardnode/bootstrap.min.css">
+    <!--====== Slick css ======-->
+    <link rel="stylesheet" href="/assets/website/css/surfboardnode/slick.css">
+    <!--====== Magnific Popup css ======-->
+    <link rel="stylesheet" href="/assets/website/css/surfboardnode/magnific-popup.css">
+    <!--====== Line Icons css ======-->
+    <link rel="stylesheet" href="/assets/website/css/surfboardnode/LineIcons.css">
+    <!--====== Default css ======-->
+    <link rel="stylesheet" href="/assets/website/css/surfboardnode/default.css">
+    <!--====== Style css ======-->
+    <link rel="stylesheet" href="/assets/website/css/surfboardnode/style.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4YFZCSBJW0"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-4YFZCSBJW0');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+    <!--====== HEADER ONE PART START ======-->
+    <header class="header-area">
+        <div class="navbar-area navbar-one navbar-transparent">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <nav class="navbar navbar-expand-lg">
+                    <a class="navbar-brand" href="/">
+                                        <span>
+                        Surfboard Node                    </span>
+                                        </a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarOne" aria-controls="navbarOne" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="toggler-icon"></span>
+                        <span class="toggler-icon"></span>
+                        <span class="toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse sub-menu-bar" id="navbarOne">
+                        <ul class="navbar-nav m-auto">
+                                                        <li class="nav-item">
+                                <a href="/">首页</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a href="/free-nodes/">免费节点</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a href="/paid-subscribe/">推荐机场</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a href="/client.htm">客户端</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a href="/news/">新闻资讯</a>
+                            </li>
+                                                    </ul>
+                    </div>
+                </nav> <!-- navbar -->
+            </div>
+        </div> <!-- row -->
+    </div> <!-- container -->
+</div>
+        <div id="home" class="header-content-area d-flex align-items-center list" style="height:450px;">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="header-wrapper">
+                            <div class="header-content">
+                                <h1 class="header-title">Vue基础之Vue列表渲染</h1>
+                                <p class="text nav">
+                                    <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / <span>正文</span>
+                                </p>
+                            </div> <!-- header content -->
+                            <div class="header-image d-none d-lg-block">
+                                <div class="image">
+                                    <img src="/assets/website/img/surfboardnode/header.png" alt="Header">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> <!-- row -->
+            </div> <!-- container -->
+            <div class="header-shape">
+                <img src="/assets/website/img/surfboardnode/header-shape.svg" alt="shape">
+            </div> <!-- header-shape -->
+        </div> <!-- header content area -->
+    </header>
+    <!--====== HEADER ONE PART ENDS ======-->
+    <!--====== ABOUT THREE PART START ======-->
+    <section id="about" class="about-area pt-70 pb-100">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> </h1> <p>我们用 v-for 指令根据一组数组的选项列表进行渲染。 v-for 指令需要以 item in items 形式的特殊语法， items 是源数据数组并且 item 是数组元素迭代的别名</p> <h2 id="基本用法">基本用法：</h2> <p><img decoding="async" src="http://img.555519.xyz/uploads/20230112/2d1c6c5aab17b9fcc42c0e3eb1b40a69.jpg" alt="Vue基础之Vue列表渲染"><br /> 在 v-for 块中，我们拥有对父作用域属性的完全访问权限。 v-for 还支持一个可选的第二个参数为当前项的索引 <br /><img decoding="async" src="http://img.555519.xyz/uploads/20230112/039b39668bb4bfed2e911bd70166ed80.jpg" alt="Vue基础之Vue列表渲染"><br /> 你也可以用 of 替代 in 作为分隔符，因为它是最接近 JavaScript 迭代器的语法 <br /><img decoding="async" src="http://img.555519.xyz/uploads/20230112/3bbf599c5810857dd61c6f549acf6575.jpg" alt="Vue基础之Vue列表渲染"></p> <h2 id="对象迭代-v-for">对象迭代 v-for：</h2> <p>你也可以用 v-for 通过一个对象的属性来迭代 <br /><img decoding="async" src="http://img.555519.xyz/uploads/20230112/d050728d02a29e2107eb1c7240508c90.jpg" alt="Vue基础之Vue列表渲染"><br /> 你也可以提供第二个的参数为键名 <br /><img decoding="async" src="http://img.555519.xyz/uploads/20230112/093f19c70afa5d04617c0877483ad648.jpg" alt="Vue基础之Vue列表渲染"><br /> 第三个参数为索引 <br /><img decoding="async" src="http://img.555519.xyz/uploads/20230112/81c4337d837c88040f26aa4453aefe5c.jpg" alt="Vue基础之Vue列表渲染"></p> <h2 id="整数迭代-v-for">整数迭代 v-for：</h2> <p>v-for 也可以取整数。在这种情况下，它将重复多次模板 <br /><img decoding="async" src="http://img.555519.xyz/uploads/20230112/e9509b393a90b29908c132d6ef9c6e5a.jpg" alt="Vue基础之Vue列表渲染"><br /> 结果 <br /><img decoding="async" src="http://img.555519.xyz/uploads/20230112/137a807b82947761ef4d648d70ce0cdc.jpg" alt="Vue基础之Vue列表渲染"></p> <h2 id="组件-和-v-for">组件 和 v-for：</h2> <p>在自定义组件里，你可以像任何普通元素一样用 v-for <br /><img decoding="async" src="http://img.555519.xyz/uploads/20230112/1d599267d0d2673f47196ad0421ac668.jpg" alt="Vue基础之Vue列表渲染"><br /> 然而他不能自动传递数据到组件里，因为组件有自己独立的作用域。为了传递迭代数据到组件里，我们要用 props <br /><img decoding="async" src="http://img.555519.xyz/uploads/20230112/4ed7ec723561657778aa8c8fc232c5bf.jpg" alt="Vue基础之Vue列表渲染"><br /> 不自动注入 item 到组件里的原因是，因为这使得组件会紧密耦合到 v-for 如何运作。在一些情况下，明确数据的来源可以使组件可重用</p> <h2 id="key">key:</h2> <p>为了给 Vue 一个提示，以便它能跟踪每个节点的身份，从而重用和重新排序现有元素，你需要为每项提供一个唯一 key 属性。理想的 key 值是每项都有唯一 id。这个特殊的属性相当于 Vue 1.x 的 track-by ，但它的工作方式类似于一个属性，所以你需要用 v-bind 来绑定动态值 <br /><img decoding="async" src="http://img.555519.xyz/uploads/20230112/9e5d982fc6301e23b952e2efdd8a7432.jpg" alt="Vue基础之Vue列表渲染"></p> </h1> <h2 id="变异方法会改变原始数组且会触发视图更新">变异方法：会改变原始数组,且会触发视图更新</h2> <p>push、pop、shift、unshift、splice、sort、reverse</p> <h2 id="重塑数组不会改变原始数组总是返回一个新数组">重塑数组：不会改变原始数组,总是返回一个新数组</h2> <p>filter、concat、slice</p> <h2 id="显示过滤排序结果">显示过滤/排序结果：</h2> <p>有时，我们想要显示一个数组的过滤或排序副本，而不实际改变或重置原始数据。在这种情况下，可以创建返回过滤或排序数组的计算属性 <br /> 例如 <br /><img decoding="async" src="http://img.555519.xyz/uploads/20230112/a18bac7a8f228f41e4e717820445608e.jpg" alt="Vue基础之Vue列表渲染"><br /> 只要number被修改，则会出发计算属性eventNumbers进行计算</p> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-82778.htm">宠物粮食加工厂加盟条件要求是什么（宠物粮加工需要多少钱）</a></p>
+                                        <p>下一个：<a href="/news/article-83493.htm">我被猫咬了,没去***,会不会死已经十天（被猫咬了没打疫苗,过多久就会没事了呢?）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-83493.htm" title="我被猫咬了,没去***,会不会死已经十天（被猫咬了没打疫苗,过多久就会没事了呢?）">我被猫咬了,没去***,会不会死已经十天（被猫咬了没打疫苗,过多久就会没事了呢?）</a></li>
+                        <li class="py-2"><a href="/news/article-43664.htm" title="动物诊疗许可证申请书（动物诊疗许可证申领准备材料）">动物诊疗许可证申请书（动物诊疗许可证申领准备材料）</a></li>
+                        <li class="py-2"><a href="/news/article-50142.htm" title="如何将CONCAT()函数应用于MySQL表的列？">如何将CONCAT()函数应用于MySQL表的列？</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-11-linux-surfboard-node.htm" title="「1月11日」最高速度22.9M/S，SSR/Shadowrocket/V2ray/Clash/Surfboard免费节点订阅链接">「1月11日」最高速度22.9M/S，SSR/Shadowrocket/V2ray/Clash/Surfboard免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-54948.htm" title="手把手教你调用微信扫一扫！三分钟包会">手把手教你调用微信扫一扫！三分钟包会</a></li>
+                        <li class="py-2"><a href="/news/article-49619.htm" title="Android EditText光标指定位置">Android EditText光标指定位置</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-6-surfboard-node.htm" title="「3月6日」最高速度19.4M/S，Shadowrocket/V2ray/Clash/SSR/Surfboard免费节点订阅链接">「3月6日」最高速度19.4M/S，Shadowrocket/V2ray/Clash/SSR/Surfboard免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-18-clash-node-daily-updates.htm" title="「2月18日」最高速度18.3M/S，V2ray/Shadowrocket/SSR/Clash/Surfboard免费节点订阅链接">「2月18日」最高速度18.3M/S，V2ray/Shadowrocket/SSR/Clash/Surfboard免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-72521.htm" title="SpringBoot快速开发利器：CLI 属实真牛逼！">SpringBoot快速开发利器：CLI 属实真牛逼！</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-2-node-share.htm" title="「3月2日」最高速度18.4M/S，Shadowrocket/Clash/SSR/V2ray/Surfboard免费节点订阅链接">「3月2日」最高速度18.4M/S，Shadowrocket/Clash/SSR/V2ray/Surfboard免费节点订阅链接</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">89</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">83</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div> <!-- container -->
+    </section>
+    <!--====== ABOUT THREE PART ENDS ======-->
+        <!--====== FOOTER PART START ======-->
+    <footer id="footer" class="footer-area">
+        <div class="footer-copyright">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="copyright text-center">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                            <p class="text">SurfboardNode节点订阅中文站 版权所有 Powered by WordPress</p>
+                        </div> <!-- copyright -->
+                    </div>
+                </div> <!-- row -->
+            </div> <!-- container -->
+        </div> <!-- footer copyright -->
+    </footer>
+    <!--====== FOOTER PART ENDS ======-->
+    <!--====== BACK TOP TOP PART START ======-->
+    <a href="#" class="back-to-top"><i class="lni-chevron-up"></i></a>
+    <!--====== BACK TOP TOP PART ENDS ======-->
+    <!--====== jquery js ======-->
+    <script src="/assets/website/js/frontend/surfboardnode/vendor/modernizr-3.6.0.min.js"></script>
+    <script src="/assets/website/js/frontend/surfboardnode/vendor/jquery-1.12.4.min.js"></script>
+    <!--====== Bootstrap js ======-->
+    <script src="/assets/website/js/frontend/surfboardnode/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/surfboardnode/popper.min.js"></script>
+    <!--====== Images Loaded js ======-->
+    <script src="/assets/website/js/frontend/surfboardnode/imagesloaded.pkgd.min.js"></script>
+    <!--====== Scrolling Nav js ======-->
+    <script src="/assets/website/js/frontend/surfboardnode/jquery.easing.min.js"></script>
+    <script src="/assets/website/js/frontend/surfboardnode/scrolling-nav.js"></script>
+    <!--====== Slick js ======-->
+    <script src="/assets/website/js/frontend/surfboardnode/slick.min.js"></script>
+    <!--====== Main js ======-->
+    <script src="/assets/website/js/frontend/surfboardnode/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
