@@ -1,0 +1,234 @@
+<!doctype html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://surfboardnode.github.io/news/article-88504.htm" />
+    <!--====== Required meta tags ======-->
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>分享C++三种类型new类型的运算符使用详情_C 语言_</title>
+        <meta name="description" content="目录  1.new操作符 2.::operator new  2.1原始调用 2.2重载1 2.3重载2  3.place new     1.new操作符 new operator，平时用的最多的n" />
+        <link rel="icon" href="/assets/website/img/surfboardnode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="SurfboardNode节点订阅中文站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://surfboardnode.github.io/news/article-88504.htm" />
+    <meta property="og:site_name" content="SurfboardNode节点订阅中文站" />
+    <meta property="og:title" content="分享C++三种类型new类型的运算符使用详情_C 语言_" />
+    <meta property="og:image" content="https://surfboardnode.github.io/uploads/20240709-1/94bf0254d077d3abc184d8498a37adb1.webp" />
+        <meta property="og:release_date" content="2025-04-04T09:11:43" />
+    <meta property="og:updated_time" content="2025-04-04T09:11:43" />
+        <meta property="og:description" content="目录  1.new操作符 2.::operator new  2.1原始调用 2.2重载1 2.3重载2  3.place new     1.new操作符 new operator，平时用的最多的n" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="分享C++三种类型new类型的运算符使用详情_C 语言_">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!--====== Bootstrap css ======-->
+    <link rel="stylesheet" href="/assets/website/css/surfboardnode/bootstrap.min.css">
+    <!--====== Slick css ======-->
+    <link rel="stylesheet" href="/assets/website/css/surfboardnode/slick.css">
+    <!--====== Magnific Popup css ======-->
+    <link rel="stylesheet" href="/assets/website/css/surfboardnode/magnific-popup.css">
+    <!--====== Line Icons css ======-->
+    <link rel="stylesheet" href="/assets/website/css/surfboardnode/LineIcons.css">
+    <!--====== Default css ======-->
+    <link rel="stylesheet" href="/assets/website/css/surfboardnode/default.css">
+    <!--====== Style css ======-->
+    <link rel="stylesheet" href="/assets/website/css/surfboardnode/style.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4YFZCSBJW0"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-4YFZCSBJW0');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+    <!--====== HEADER ONE PART START ======-->
+    <header class="header-area">
+        <div class="navbar-area navbar-one navbar-transparent">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <nav class="navbar navbar-expand-lg">
+                    <a class="navbar-brand" href="/">
+                                        <span>
+                        Surfboard Node                    </span>
+                                        </a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarOne" aria-controls="navbarOne" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="toggler-icon"></span>
+                        <span class="toggler-icon"></span>
+                        <span class="toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse sub-menu-bar" id="navbarOne">
+                        <ul class="navbar-nav m-auto">
+                                                        <li class="nav-item">
+                                <a href="/">首页</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a href="/free-nodes/">免费节点</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a href="/paid-subscribe/">推荐机场</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a href="/client.htm">客户端</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a href="/news/">新闻资讯</a>
+                            </li>
+                                                    </ul>
+                    </div>
+                </nav> <!-- navbar -->
+            </div>
+        </div> <!-- row -->
+    </div> <!-- container -->
+</div>
+        <div id="home" class="header-content-area d-flex align-items-center list" style="height:450px;">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="header-wrapper">
+                            <div class="header-content">
+                                <h1 class="header-title">分享C++三种类型new类型的运算符使用详情_C 语言_</h1>
+                                <p class="text nav">
+                                    <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / <span>正文</span>
+                                </p>
+                            </div> <!-- header content -->
+                            <div class="header-image d-none d-lg-block">
+                                <div class="image">
+                                    <img src="/assets/website/img/surfboardnode/header.png" alt="Header">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> <!-- row -->
+            </div> <!-- container -->
+            <div class="header-shape">
+                <img src="/assets/website/img/surfboardnode/header-shape.svg" alt="shape">
+            </div> <!-- header-shape -->
+        </div> <!-- header content area -->
+    </header>
+    <!--====== HEADER ONE PART ENDS ======-->
+    <!--====== ABOUT THREE PART START ======-->
+    <section id="about" class="about-area pt-70 pb-100">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="navCategory"> <h5 class="catalogue">目录</h5> <ul class="first_class_ul"> <li><a href="#_label0" rel="nofollow">1.new操作符</a></li> <li><a href="#_label1" rel="nofollow">2.::operator new</a></li> <ul class="second_class_ul"> <li><a href="#_lab2_1_0" rel="nofollow">2.1原始调用</a></li> <li><a href="#_lab2_1_1" rel="nofollow">2.2重载1</a></li> <li><a href="#_lab2_1_2" rel="nofollow">2.3重载2</a></li> </ul> <li><a href="#_label2" rel="nofollow">3.place new</a></li> <ul class="second_class_ul"></ul> </ul> </div> <p class="maodian"><a name="_label0" rel="nofollow"></a></p> <h2>1.new操作符</h2> <p>new operator，平时用的最多的new操作符，其对应delete operator，不能被重载，其包含两个操作（既申请空间，又调用构造函数）</p> <ul> <li>（1）使用::operator new申请内存</li> <li>（2）调用类的构造函数</li> </ul> <div class="ay1code"> <pre class="brush:cpp;">class CTestUse  {  public:      CTestUse() { cout &lt;&lt; __FUNCTION__ &lt;&lt; endl; }      virtual ~CTestUse() { cout &lt;&lt; __FUNCTION__ &lt;&lt; endl; }     private:  };     void test()  {      string *pStr = new string("new operator");      cout &lt;&lt; *pStr &lt;&lt; endl;      delete pStr;         CTestUse *pCase = new CTestUse;      delete pCase;  }        int main(int argc, char *argv[])  {      test();         return 0;  }</pre> </div> <p><strong>运行结果如下：</strong></p> <p style="text-align:center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220414/713dc4f5ca9dfa5bc88bcb6c5af616eb.jpg"></p> <p class="maodian"><a name="_label1" rel="nofollow"></a></p> <h2>2.::operator new</h2> <p>::operator new，只会申请空间，不会调用构造函数，可以被重载，其对应 ::operator delete （只申请空间）</p> <p class="maodian"><a name="_lab2_1_0" rel="nofollow"></a></p> <h3>2.1原始调用</h3> <div class="ay1code"> <pre class="brush:cpp;">class CTestUse1  {  public:      CTestUse1() { cout &lt;&lt; __FUNCTION__ &lt;&lt; endl; }      virtual ~CTestUse1() { cout &lt;&lt; __FUNCTION__ &lt;&lt; endl; }      void show() { cout &lt;&lt; __FILE__ &lt;&lt; " " &lt;&lt; __FUNCTION__ &lt;&lt; endl; }     private:  };        void test1()  {      CTestUse1 *pCase = (CTestUse1 *)::operator new (sizeof(CTestUse1));      pCase-&gt;show();      ::operator delete(pCase);     }     int main(int argc, char *argv[])  {      test1();         return 0;  }</pre> </div> <p><strong>运行结果如下：</strong></p> <p style="text-align:center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220414/5f43ea2abb7dd2f415fd4229cca2d518.jpg"></p> <p class="maodian"><a name="_lab2_1_1" rel="nofollow"></a></p> <h3>2.2重载1</h3> <div class="ay1code"> <pre class="brush:cpp;">class CTestUse2  {  public:      CTestUse2() { cout &lt;&lt; __FUNCTION__ &lt;&lt; endl; }      virtual ~CTestUse2() { cout &lt;&lt; __FUNCTION__ &lt;&lt; endl; }      void show() { cout &lt;&lt; __FILE__ &lt;&lt; " " &lt;&lt; __FUNCTION__ &lt;&lt; endl; }         void* operator new(size_t size) {          cout &lt;&lt; __FUNCTION__ &lt;&lt; endl;          return ::operator new(size);      }         void operator delete(void* ptr) {          cout &lt;&lt; __FUNCTION__ &lt;&lt; endl;          ::operator delete(ptr);      }     private:  };     void test2()  {      CTestUse2 *pCase = new CTestUse2;      pCase-&gt;show();      delete pCase;     }     int main(int argc, char *argv[])  {      test2();         return 0;  }</pre> </div> <p><strong>运行结果如下：</strong></p> <p style="text-align:center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220414/ae23fdc189750486d00de468591f25f8.jpg"></p> <p class="maodian"><a name="_lab2_1_2" rel="nofollow"></a></p> <h3>2.3重载2</h3> <div class="ay1code"> <pre class="brush:cpp;">class CTestUse3  {  public:      CTestUse3() { cout &lt;&lt; __FUNCTION__ &lt;&lt; endl; }      virtual ~CTestUse3() { cout &lt;&lt; __FUNCTION__ &lt;&lt; endl; }      void show() { cout &lt;&lt; __FILE__ &lt;&lt; " " &lt;&lt; __FUNCTION__ &lt;&lt; endl; }         void* operator new(size_t size, string str) {          cout &lt;&lt; __FUNCTION__ &lt;&lt; str &lt;&lt; endl;          return ::operator new(size);      }         void operator delete(void* ptr) {          cout &lt;&lt; __FUNCTION__ &lt;&lt; endl;          ::operator delete(ptr);      }     private:  };     void test3()  {      CTestUse3 *pCase = new ("heshiyang") CTestUse3;      pCase-&gt;show();      delete pCase;     }     int main(int argc, char *argv[])  {      test3();         return 0;  }</pre> </div> <p><strong>运行结果如下：</strong></p> <p style="text-align:center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220414/f876184aeef5bbcb088a5bda0f5d261c.jpg"></p> <p class="maodian"><a name="_label2" rel="nofollow"></a></p> <h2>3.place new</h2> <p>place new在已经构建好的内存中创建对象，其只会返回已经申请好的内存指针，多用在高性能场景下，提前申请好内存，可以节省申请内存开消 （只调用构造函数）</p> <div class="ay1code"> <pre class="brush:cpp;">class CTestUse4  {  public:      CTestUse4() { cout &lt;&lt; __FUNCTION__ &lt;&lt; endl; }      virtual ~CTestUse4() { cout &lt;&lt; __FUNCTION__ &lt;&lt; endl; }      void show() { cout &lt;&lt; __FILE__ &lt;&lt; " " &lt;&lt; __FUNCTION__ &lt;&lt; endl; }         void* operator new(size_t size, void* p) {          cout &lt;&lt; __FUNCTION__ &lt;&lt; endl;          return p;      }         void operator delete(void* ptr) {          cout &lt;&lt; __FUNCTION__ &lt;&lt; endl;          ::operator delete(ptr);      }     private:  };     void test4()  {      char* pChar = new char[sizeof(CTestUse4)];      CTestUse4* pCase = new (pChar) CTestUse4; //调用全局::new (pChar) CTestUse4，new (pChar) CTestUse4调用重载new      //delete pCase;      pCase-&gt;~CTestUse4();  }     int main(int argc, char *argv[])  {      test4();         return 0;  }</pre> </div> <p><strong>运行结果如下：</strong></p> <p style="text-align:center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220414/71a3c3f9c197c40116514acc35d935d2.jpg"></p> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-88503.htm">mybatis 加载配置文件的方法（两种方式）</a></p>
+                                        <p>下一个：<a href="/news/article-89222.htm">领养狐狸领养证（huxly领养）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-69878.htm" title="宠物粮在哪里批发便宜又好呢知乎（宠物粮批发进货渠道）">宠物粮在哪里批发便宜又好呢知乎（宠物粮批发进货渠道）</a></li>
+                        <li class="py-2"><a href="/news/article-66673.htm" title="宠物领养去哪里领（宠物到哪领养）">宠物领养去哪里领（宠物到哪领养）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-16-clash-node.htm" title="「3月16日」最高速度19.1M/S，Shadowrocket/Clash/V2ray/SSR/Surfboard免费节点订阅链接">「3月16日」最高速度19.1M/S，Shadowrocket/Clash/V2ray/SSR/Surfboard免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-7-free-surfboard.htm" title="「4月7日」最高速度21.4M/S，SSR/Shadowrocket/Clash/V2ray/Surfboard免费节点订阅链接">「4月7日」最高速度21.4M/S，SSR/Shadowrocket/Clash/V2ray/Surfboard免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-84924.htm" title="家用小型饲料颗粒机500元（家用小型饲料颗粒机500元一台）">家用小型饲料颗粒机500元（家用小型饲料颗粒机500元一台）</a></li>
+                        <li class="py-2"><a href="/news/article-86366.htm" title="宠物领养协议合同电子版有效吗怎么写的 宠物领养协议合同电子版有效吗怎么写的啊">宠物领养协议合同电子版有效吗怎么写的 宠物领养协议合同电子版有效吗怎么写的啊</a></li>
+                        <li class="py-2"><a href="/news/article-90713.htm" title="宠物领养协议具有法律效应吗为什么还要签字 宠物领养协议具有法律效应吗为什么还要签字呢">宠物领养协议具有法律效应吗为什么还要签字 宠物领养协议具有法律效应吗为什么还要签字呢</a></li>
+                        <li class="py-2"><a href="/news/article-67316.htm" title="宠物领养证办理日期有要求吗知乎文章（宠物领养证书怎么办理）">宠物领养证办理日期有要求吗知乎文章（宠物领养证书怎么办理）</a></li>
+                        <li class="py-2"><a href="/news/article-82038.htm" title="动物医院收费标准最新版是多少钱（动物医院收费标准最新版是多少钱啊）">动物医院收费标准最新版是多少钱（动物医院收费标准最新版是多少钱啊）</a></li>
+                        <li class="py-2"><a href="/news/article-81374.htm" title="Rancher上部署Redis部署">Rancher上部署Redis部署</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">21</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">89</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div> <!-- container -->
+    </section>
+    <!--====== ABOUT THREE PART ENDS ======-->
+        <!--====== FOOTER PART START ======-->
+    <footer id="footer" class="footer-area">
+        <div class="footer-copyright">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="copyright text-center">
+                                                <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                            <p class="text">SurfboardNode节点订阅中文站 版权所有 Powered by WordPress</p>
+                        </div> <!-- copyright -->
+                    </div>
+                </div> <!-- row -->
+            </div> <!-- container -->
+        </div> <!-- footer copyright -->
+    </footer>
+    <!--====== FOOTER PART ENDS ======-->
+    <!--====== BACK TOP TOP PART START ======-->
+    <a href="#" class="back-to-top"><i class="lni-chevron-up"></i></a>
+    <!--====== BACK TOP TOP PART ENDS ======-->
+    <!--====== jquery js ======-->
+    <script src="/assets/website/js/frontend/surfboardnode/vendor/modernizr-3.6.0.min.js"></script>
+    <script src="/assets/website/js/frontend/surfboardnode/vendor/jquery-1.12.4.min.js"></script>
+    <!--====== Bootstrap js ======-->
+    <script src="/assets/website/js/frontend/surfboardnode/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/surfboardnode/popper.min.js"></script>
+    <!--====== Images Loaded js ======-->
+    <script src="/assets/website/js/frontend/surfboardnode/imagesloaded.pkgd.min.js"></script>
+    <!--====== Scrolling Nav js ======-->
+    <script src="/assets/website/js/frontend/surfboardnode/jquery.easing.min.js"></script>
+    <script src="/assets/website/js/frontend/surfboardnode/scrolling-nav.js"></script>
+    <!--====== Slick js ======-->
+    <script src="/assets/website/js/frontend/surfboardnode/slick.min.js"></script>
+    <!--====== Main js ======-->
+    <script src="/assets/website/js/frontend/surfboardnode/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
