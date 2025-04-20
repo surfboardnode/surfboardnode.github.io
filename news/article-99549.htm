@@ -1,0 +1,234 @@
+<!doctype html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://surfboardnode.github.io/news/article-99549.htm" />
+    <!--====== Required meta tags ======-->
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>jQuery 判断图片加载完毕例子</title>
+        <meta name="description" content="为什么80%的码农都做不了架构师？&gt;&gt;&gt; &nbsp;&nbsp;  今天做一个截图功能需要先判断图片是不是加载完了，如果加载完了我们就可以操作了否则可以刷新等待加载了，下面文章整理" />
+        <link rel="icon" href="/assets/website/img/surfboardnode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="SurfboardNode节点订阅中文站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://surfboardnode.github.io/news/article-99549.htm" />
+    <meta property="og:site_name" content="SurfboardNode节点订阅中文站" />
+    <meta property="og:title" content="jQuery 判断图片加载完毕例子" />
+    <meta property="og:image" content="https://surfboardnode.github.io/uploads/20240709-1/96153a512a9733d15753a0bb3e328580.webp" />
+        <meta property="og:release_date" content="2025-04-19T08:58:37" />
+    <meta property="og:updated_time" content="2025-04-19T08:58:37" />
+        <meta property="og:description" content="为什么80%的码农都做不了架构师？&gt;&gt;&gt; &nbsp;&nbsp;  今天做一个截图功能需要先判断图片是不是加载完了，如果加载完了我们就可以操作了否则可以刷新等待加载了，下面文章整理" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="jQuery 判断图片加载完毕例子">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!--====== Bootstrap css ======-->
+    <link rel="stylesheet" href="/assets/website/css/surfboardnode/bootstrap.min.css">
+    <!--====== Slick css ======-->
+    <link rel="stylesheet" href="/assets/website/css/surfboardnode/slick.css">
+    <!--====== Magnific Popup css ======-->
+    <link rel="stylesheet" href="/assets/website/css/surfboardnode/magnific-popup.css">
+    <!--====== Line Icons css ======-->
+    <link rel="stylesheet" href="/assets/website/css/surfboardnode/LineIcons.css">
+    <!--====== Default css ======-->
+    <link rel="stylesheet" href="/assets/website/css/surfboardnode/default.css">
+    <!--====== Style css ======-->
+    <link rel="stylesheet" href="/assets/website/css/surfboardnode/style.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4YFZCSBJW0"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-4YFZCSBJW0');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+    <!--====== HEADER ONE PART START ======-->
+    <header class="header-area">
+        <div class="navbar-area navbar-one navbar-transparent">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <nav class="navbar navbar-expand-lg">
+                    <a class="navbar-brand" href="/">
+                                        <span>
+                        Surfboard Node                    </span>
+                                        </a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarOne" aria-controls="navbarOne" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="toggler-icon"></span>
+                        <span class="toggler-icon"></span>
+                        <span class="toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse sub-menu-bar" id="navbarOne">
+                        <ul class="navbar-nav m-auto">
+                                                        <li class="nav-item">
+                                <a href="/">首页</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a href="/free-nodes/">免费节点</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a href="/paid-subscribe/">推荐机场</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a href="/client.htm">客户端</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a href="/news/">新闻资讯</a>
+                            </li>
+                                                    </ul>
+                    </div>
+                </nav> <!-- navbar -->
+            </div>
+        </div> <!-- row -->
+    </div> <!-- container -->
+</div>
+        <div id="home" class="header-content-area d-flex align-items-center list" style="height:450px;">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="header-wrapper">
+                            <div class="header-content">
+                                <h1 class="header-title">jQuery 判断图片加载完毕例子</h1>
+                                <p class="text nav">
+                                    <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / <span>正文</span>
+                                </p>
+                            </div> <!-- header content -->
+                            <div class="header-image d-none d-lg-block">
+                                <div class="image">
+                                    <img src="/assets/website/img/surfboardnode/header.png" alt="Header">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> <!-- row -->
+            </div> <!-- container -->
+            <div class="header-shape">
+                <img src="/assets/website/img/surfboardnode/header-shape.svg" alt="shape">
+            </div> <!-- header-shape -->
+        </div> <!-- header content area -->
+    </header>
+    <!--====== HEADER ONE PART ENDS ======-->
+    <!--====== ABOUT THREE PART START ======-->
+    <section id="about" class="about-area pt-70 pb-100">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="htmledit_views"> <div class="content" id="articleContent"> <div class="ad-wrap"> <p><a style="color:#A00;font-weight:bold;" href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://my.oschina.net/u/2663968/blog/3051541"  rel="nofollow">为什么80%的码农都做不了架构师？&gt;&gt;&gt; </a>&nbsp;&nbsp;<img decoding="async" src="http://img.555519.xyz/uploads/20230109/9938184aed04264319bbf83fe8da03ee.jpg" alt="jQuery 判断图片加载完毕例子"></p> </p></div> <p>今天做一个截图功能需要先判断图片是不是加载完了，如果加载完了我们就可以操作了否则可以刷新等待加载了，下面文章整理了基于jquery图片加载判断的例子，大家可参考一下。</p> <p>complete判断图片是否加载了</p> <p>感谢谷歌，找到了好使的方法，简单用法就是：</p> <pre class="brush:js;toolbar: true; auto-links: false;"><code>qim=new&nbsp;Image();//新建一个图片； qim.src=$preload;//图片地址是你准备要加载的地址； if(qim.complete){&nbsp;$("#cxNfloor").html($filetoload);//qim.complete表示这个图片是否加载完毕了 }</code></pre> <p>后来又发现一个方法</p> <pre class="brush:js;toolbar: true; auto-links: false;"><code>$("").load(function(){...});</code></pre> <p>其中选择器是图片的id或class，function里面的方法就是回调函数，在图片加载完成后执行，但是我试验了很多，压根儿不是那么回事，正确的解决方法是：</p> <pre class="brush:js;toolbar: true; auto-links: false;"><code>//jquery的方式 $("#imageId").load(function(){ &nbsp;&nbsp;&nbsp;alert("加载完成！"); });</code></pre> <p>有朋友说使用js是最好的，方法如下</p> <pre class="brush:js;toolbar: true; auto-links: false;"><code>document.getElementById("img2").onload=function(){}</code></pre> <p>在网上找到一段代码</p> <p>例子</p> <pre class="brush:js;toolbar: true; auto-links: false;"><code>function&nbsp;loadImage(url,&nbsp;callback)&nbsp;{ &nbsp;var&nbsp;img&nbsp;=&nbsp;new&nbsp;Image();&nbsp;//创建一个Image对象，实现图片的预下载 &nbsp;img.src&nbsp;=&nbsp;url; &nbsp; &nbsp;if(img.complete)&nbsp;{&nbsp;//&nbsp;如果图片已经存在于浏览器缓存，直接调用回调函数 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;callback.call(img); &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return;&nbsp;//&nbsp;直接返回，不用再处理onload事件 &nbsp;&nbsp;&nbsp;&nbsp;} &nbsp;img.onload&nbsp;=&nbsp;function&nbsp;()&nbsp;{&nbsp;//图片下载完毕时异步调用callback函数。 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;callback.call(img);//将回调函数的this替换为Image对象 &nbsp;&nbsp;&nbsp;&nbsp;}; };</code></pre> <p>下面是针对多个image的加载判断。</p> <pre class="brush:js;toolbar: true; auto-links: false;"><code>var&nbsp;imgdefereds=[]; $('img').each(function(){ &nbsp;var&nbsp;dfd=$.Deferred(); &nbsp;$(this).bind('load',function(){ &nbsp;&nbsp;dfd.resolve(); &nbsp;}).bind('error',function(){ &nbsp;//图片加载错误，加入错误处理 &nbsp;//&nbsp;dfd.resolve(); &nbsp;}) &nbsp;if(this.complete)&nbsp;setTimeout(function(){ &nbsp;&nbsp;dfd.resolve(); &nbsp;},1000); &nbsp;imgdefereds.push(dfd); }) $.when.apply(null,imgdefereds).done(function(){ &nbsp;&nbsp;&nbsp;&nbsp;callback(); });</code></pre> <p>使用这种方法就可以避免window.onload的不足，不过代码稍显复杂 在性能方面比起window.onload经强很多。</p> <div class="ad-wrap"> <div id="blog-title-ad">    <ins class="adsbygoogle"></ins>   </div> </p></div> </div> <p>转载于:https://my.oschina.net/wolfx/blog/618135</p> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-98847.htm">养猫的人容易得什么癌（养猫的人容易得病）</a></p>
+                                        <p>下一个：<a href="/news/article-99550.htm">济南宠物领养群（济南领养动物）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-91313.htm" title="猫抓了一下有淡淡红痕没出血但有点疼怎么回事（猫抓伤有红印未出血）">猫抓了一下有淡淡红痕没出血但有点疼怎么回事（猫抓伤有红印未出血）</a></li>
+                        <li class="py-2"><a href="/news/article-75879.htm" title="动物医院价格表图片大全集（动物医院价格表图片大全集高清）">动物医院价格表图片大全集（动物医院价格表图片大全集高清）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-30-linux-surfboard-node.htm" title="「3月30日」最高速度21.4M/S，SSR/Clash/Shadowrocket/V2ray/Surfboard免费节点订阅链接">「3月30日」最高速度21.4M/S，SSR/Clash/Shadowrocket/V2ray/Surfboard免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-87064.htm" title="动物医院设备app（动物医院设备标语）">动物医院设备app（动物医院设备标语）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-20-node-share-links.htm" title="「3月20日」最高速度21.3M/S，SSR/Clash/V2ray/Shadowrocket/Surfboard免费节点订阅链接">「3月20日」最高速度21.3M/S，SSR/Clash/V2ray/Shadowrocket/Surfboard免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-4-clash-windows.htm" title="「4月4日」最高速度20.4M/S，Clash/SSR/Shadowrocket/V2ray/Surfboard免费节点订阅链接">「4月4日」最高速度20.4M/S，Clash/SSR/Shadowrocket/V2ray/Surfboard免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-72522.htm" title="动物疫苗多少钱一支啊图片及价格查询表（动物疫苗法最新消息2019）">动物疫苗多少钱一支啊图片及价格查询表（动物疫苗法最新消息2019）</a></li>
+                        <li class="py-2"><a href="/news/article-90712.htm" title="Django 获取请求参数">Django 获取请求参数</a></li>
+                        <li class="py-2"><a href="/news/article-100462.htm" title="宠物领养中心是免费的吗知乎文章（宠物领养中心需要什么条件）">宠物领养中心是免费的吗知乎文章（宠物领养中心需要什么条件）</a></li>
+                        <li class="py-2"><a href="/news/article-98846.htm" title="动物疫苗接种注意事项有哪些内容（动物疫苗注射工作注意事项）">动物疫苗接种注意事项有哪些内容（动物疫苗注射工作注意事项）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">60</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">89</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div> <!-- container -->
+    </section>
+    <!--====== ABOUT THREE PART ENDS ======-->
+        <!--====== FOOTER PART START ======-->
+    <footer id="footer" class="footer-area">
+        <div class="footer-copyright">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="copyright text-center">
+                                                <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                            <p class="text">SurfboardNode节点订阅中文站 版权所有 Powered by WordPress</p>
+                        </div> <!-- copyright -->
+                    </div>
+                </div> <!-- row -->
+            </div> <!-- container -->
+        </div> <!-- footer copyright -->
+    </footer>
+    <!--====== FOOTER PART ENDS ======-->
+    <!--====== BACK TOP TOP PART START ======-->
+    <a href="#" class="back-to-top"><i class="lni-chevron-up"></i></a>
+    <!--====== BACK TOP TOP PART ENDS ======-->
+    <!--====== jquery js ======-->
+    <script src="/assets/website/js/frontend/surfboardnode/vendor/modernizr-3.6.0.min.js"></script>
+    <script src="/assets/website/js/frontend/surfboardnode/vendor/jquery-1.12.4.min.js"></script>
+    <!--====== Bootstrap js ======-->
+    <script src="/assets/website/js/frontend/surfboardnode/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/surfboardnode/popper.min.js"></script>
+    <!--====== Images Loaded js ======-->
+    <script src="/assets/website/js/frontend/surfboardnode/imagesloaded.pkgd.min.js"></script>
+    <!--====== Scrolling Nav js ======-->
+    <script src="/assets/website/js/frontend/surfboardnode/jquery.easing.min.js"></script>
+    <script src="/assets/website/js/frontend/surfboardnode/scrolling-nav.js"></script>
+    <!--====== Slick js ======-->
+    <script src="/assets/website/js/frontend/surfboardnode/slick.min.js"></script>
+    <!--====== Main js ======-->
+    <script src="/assets/website/js/frontend/surfboardnode/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
