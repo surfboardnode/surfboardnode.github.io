@@ -1,0 +1,237 @@
+<!doctype html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://surfboardnode.github.io/news/article-102487.htm" />
+    <!--====== Required meta tags ======-->
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>pandas中的apply()使用</title>
+        <meta name="description" content="apply() 函数可以直接对 Series 或者 DataFrame 中元素进行逐元素遍历操作，方便且高效，apply() 使用时，通常放入一个 lambda 函数表达式、或一个函数作为操作运算。 " />
+        <link rel="icon" href="/assets/website/img/surfboardnode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="SurfboardNode节点订阅中文站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://surfboardnode.github.io/news/article-102487.htm" />
+    <meta property="og:site_name" content="SurfboardNode节点订阅中文站" />
+    <meta property="og:title" content="pandas中的apply()使用" />
+    <meta property="og:image" content="https://surfboardnode.github.io/uploads/20240709-1/8c0be97f61bea1669597e3178d0e6d0e.webp" />
+        <meta property="og:release_date" content="2025-04-23T08:43:57" />
+    <meta property="og:updated_time" content="2025-04-23T08:43:57" />
+        <meta property="og:description" content="apply() 函数可以直接对 Series 或者 DataFrame 中元素进行逐元素遍历操作，方便且高效，apply() 使用时，通常放入一个 lambda 函数表达式、或一个函数作为操作运算。 " />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="pandas中的apply()使用">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!--====== Bootstrap css ======-->
+    <link rel="stylesheet" href="/assets/website/css/surfboardnode/bootstrap.min.css">
+    <!--====== Slick css ======-->
+    <link rel="stylesheet" href="/assets/website/css/surfboardnode/slick.css">
+    <!--====== Magnific Popup css ======-->
+    <link rel="stylesheet" href="/assets/website/css/surfboardnode/magnific-popup.css">
+    <!--====== Line Icons css ======-->
+    <link rel="stylesheet" href="/assets/website/css/surfboardnode/LineIcons.css">
+    <!--====== Default css ======-->
+    <link rel="stylesheet" href="/assets/website/css/surfboardnode/default.css">
+    <!--====== Style css ======-->
+    <link rel="stylesheet" href="/assets/website/css/surfboardnode/style.css">
+    <link rel="stylesheet" href="/assets/website/css/G.css" />
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4YFZCSBJW0"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-4YFZCSBJW0');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+    <!--====== HEADER ONE PART START ======-->
+    <header class="header-area">
+        <div class="navbar-area navbar-one navbar-transparent">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <nav class="navbar navbar-expand-lg">
+                    <a class="navbar-brand" href="/">
+                                        <span>
+                        Surfboard Node                    </span>
+                                        </a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarOne" aria-controls="navbarOne" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="toggler-icon"></span>
+                        <span class="toggler-icon"></span>
+                        <span class="toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse sub-menu-bar" id="navbarOne">
+                        <ul class="navbar-nav m-auto">
+                                                        <li class="nav-item">
+                                <a href="/">首页</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a href="/free-nodes/">免费节点</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a href="/paid-subscribe/">推荐机场</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a href="/client.htm">客户端</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a href="/news/">新闻资讯</a>
+                            </li>
+                                                    </ul>
+                    </div>
+                </nav> <!-- navbar -->
+            </div>
+        </div> <!-- row -->
+    </div> <!-- container -->
+</div>
+        <div id="home" class="header-content-area d-flex align-items-center list" style="height:450px;">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="header-wrapper">
+                            <div class="header-content">
+                                <h1 class="header-title">pandas中的apply()使用</h1>
+                                <p class="text nav">
+                                    <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / <span>正文</span>
+                                </p>
+                            </div> <!-- header content -->
+                            <div class="header-image d-none d-lg-block">
+                                <div class="image">
+                                    <img src="/assets/website/img/surfboardnode/header.png" alt="Header">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> <!-- row -->
+            </div> <!-- container -->
+            <div class="header-shape">
+                <img src="/assets/website/img/surfboardnode/header-shape.svg" alt="shape">
+            </div> <!-- header-shape -->
+        </div> <!-- header content area -->
+    </header>
+    <!--====== HEADER ONE PART ENDS ======-->
+    <!--====== ABOUT THREE PART START ======-->
+    <section id="about" class="about-area pt-70 pb-100">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="" data-url="">
+                <div class="xcblog-blog-detail">
+                      				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <p>apply() 函数可以直接对 Series 或者 DataFrame 中元素进行逐元素遍历操作，方便且高效，apply() 使用时，通常放入一个 lambda 函数表达式、或一个函数作为操作运算。</p> <pre><code class="prism language-python">DataFrame<span class="token punctuation">.</span><span class="token builtin">apply</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> func<span class="token punctuation">,</span> axis<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span> raw<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">,</span> result_type<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">,</span> args<span class="token operator">=</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token operator">**</span>kwds </code></pre> <p>参数说明：</p> <ul> <li>func 代表的是传入的函数或 lambda 表达式；</li> <li>axis 参数可提供的有两个，该参数默认为0/列<br /> 0 或者 index ，表示函数处理的是每一列；<br /> 1 或 columns ，表示处理的是每一行;</li> <li>raw ；bool 类型，默认为 False;<br /> False ，表示把每一行或列作为 Series 传入函数中；<br /> True，表示接受的是 ndarray 数据类型；</li> </ul> <p>apply() 最后的是经过函数处理，数据以 Series 或 DataFrame 格式返回。<br /> 先看Series的apply()使用：</p> <pre><code class="prism language-python">s <span class="token operator">=</span> pd<span class="token punctuation">.</span>Series<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">)</span> a <span class="token operator">=</span> s<span class="token punctuation">.</span><span class="token builtin">apply</span><span class="token punctuation">(</span><span class="token keyword">lambda</span> x<span class="token punctuation">:</span> <span class="token keyword">print</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">)</span> b <span class="token operator">=</span> s<span class="token punctuation">.</span><span class="token builtin">apply</span><span class="token punctuation">(</span><span class="token keyword">lambda</span> x<span class="token punctuation">:</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token builtin">type</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> </code></pre> <p>输出结果：<br /> 1<br /> 2<br /> 3<br /> &lt;class ‘int’&gt;<br /> &lt;class ‘int’&gt;<br /> &lt;class ‘int’&gt;<br /> 可以看出，在apply()中，会自动取出每个元素，相当于循环遍历了一遍调用的Series<br /> a,b的输出结果为:<br /> 0, None<br /> 1, None<br /> 2, None<br /> 因为中间的lambda函数只是打印，所以返回的是None。<br /> 在DataFrame中apply()的使用：<br /> DataFrame中传入的参数就是Series结构了，例如：</p> <pre><code class="prism language-python">matrix <span class="token operator">=</span> <span class="token punctuation">[</span>     <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">,</span>     <span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">]</span><span class="token punctuation">,</span>     <span class="token punctuation">[</span><span class="token number">7</span><span class="token punctuation">,</span><span class="token number">8</span><span class="token punctuation">,</span><span class="token number">9</span><span class="token punctuation">]</span> <span class="token punctuation">]</span> df <span class="token operator">=</span> pd<span class="token punctuation">.</span>DataFrame<span class="token punctuation">(</span>matrix<span class="token punctuation">,</span> columns<span class="token operator">=</span><span class="token builtin">list</span><span class="token punctuation">(</span><span class="token string">'xyz'</span><span class="token punctuation">)</span><span class="token punctuation">,</span> index<span class="token operator">=</span><span class="token builtin">list</span><span class="token punctuation">(</span><span class="token string">'abc'</span><span class="token punctuation">)</span><span class="token punctuation">)</span> </code></pre> <p>df的结构长这样：<br /><img decoding="async" src="http://img.555519.xyz/uploads/20230118/8c90f4955cbaed26ff0af016a6716ff9.jpg" alt="pandas中的apply()使用"></p> <pre><code class="prism language-python">a<span class="token operator">=</span>df<span class="token punctuation">.</span><span class="token builtin">apply</span><span class="token punctuation">(</span><span class="token keyword">lambda</span> x<span class="token punctuation">:</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token builtin">type</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> </code></pre> <p>输出如下：<br /> &lt;class ‘pandas.core.series.Series’&gt;<br /> &lt;class ‘pandas.core.series.Series’&gt;<br /> &lt;class ‘pandas.core.series.Series’&gt;<br /> 可见传入lambda函数的参数类型是Series<br /> 现在求DataFrame中每个数的平方：</p> <pre><code class="prism language-python">a<span class="token operator">=</span>df<span class="token punctuation">.</span><span class="token builtin">apply</span><span class="token punctuation">(</span><span class="token keyword">lambda</span> x<span class="token punctuation">:</span> x<span class="token operator">*</span>x<span class="token punctuation">)</span> </code></pre> <p>输出：<br /><img decoding="async" src="http://img.555519.xyz/uploads/20230118/7ceda1b67935ad7513ffd010577296a2.jpg" alt="pandas中的apply()使用">用apply()求指定行的平方：</p> <pre><code class="prism language-python">a<span class="token operator">=</span>df<span class="token punctuation">.</span><span class="token builtin">apply</span><span class="token punctuation">(</span><span class="token keyword">lambda</span> x<span class="token punctuation">:</span> x<span class="token operator">*</span>x <span class="token keyword">if</span> x<span class="token punctuation">.</span>name<span class="token operator">==</span><span class="token string">'a'</span> <span class="token keyword">else</span> x<span class="token punctuation">,</span> axis<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">)</span> </code></pre> <p>输出如下：<br /><img decoding="async" src="http://img.555519.xyz/uploads/20230118/e969cadf0c30ebf189bb4606d3e8595f.jpg" alt="pandas中的apply()使用"><br /> 发现一种奇怪的现象：</p> <pre><code class="prism language-python">a<span class="token operator">=</span>df<span class="token punctuation">.</span><span class="token builtin">apply</span><span class="token punctuation">(</span><span class="token keyword">lambda</span> x<span class="token punctuation">:</span> x<span class="token punctuation">.</span>mean<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">if</span> x<span class="token punctuation">.</span>name<span class="token operator">==</span><span class="token string">'a'</span> <span class="token keyword">else</span> <span class="token boolean">None</span><span class="token punctuation">,</span> axis<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">)</span> </code></pre> <p>输出如下：<br /><img decoding="async" src="http://img.555519.xyz/uploads/20230118/1c93343e00e40f73b94f8b8594f3e726.jpg" alt="pandas中的apply()使用"><br /> 其实主要是看lambda函数返回的是什么，在DataFrame中，传入的是Series，返回的自然是Series的运算结果。例如上面求对第一行的Series求平方，结果还是一个Series（如下例），而对第一行求平均数返回的是一个数，自然结果的第一行就成了一个数。</p> <pre><code class="prism language-python">s <span class="token operator">=</span> pd<span class="token punctuation">.</span>Series<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">)</span> ss <span class="token operator">=</span> s<span class="token operator">*</span>s <span class="token keyword">print</span><span class="token punctuation">(</span>ss<span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token builtin">type</span><span class="token punctuation">(</span>ss<span class="token punctuation">)</span><span class="token punctuation">)</span> </code></pre> <p><img decoding="async" src="http://img.555519.xyz/uploads/20230118/a30c4c6e42afb5de785b68f722f1f962.jpg" alt="pandas中的apply()使用"><br /> 总的来说，apply()函数就是自动对Series或DataFrame中的每个元素执行指定的函数操作。特别注意DataFrame中的参数是Series，那么函数中自然就是对Series的操作了。</p> </p></div> 			                </div>
+                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-102486.htm">python定义整型常量_Python笔记——数据类型、变量和常量</a></p>
+                                        <p>下一个：<a href="/news/article-103312.htm">Docker基础数据卷容器的说明与共享数据原理详解</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-4-9-node-share.htm" title="「4月9日」最高速度22.7M/S，V2ray/Shadowrocket/Clash/SSR/Surfboard免费节点订阅链接">「4月9日」最高速度22.7M/S，V2ray/Shadowrocket/Clash/SSR/Surfboard免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-86366.htm" title="宠物领养协议合同电子版有效吗怎么写的 宠物领养协议合同电子版有效吗怎么写的啊">宠物领养协议合同电子版有效吗怎么写的 宠物领养协议合同电子版有效吗怎么写的啊</a></li>
+                        <li class="py-2"><a href="/news/article-98846.htm" title="动物疫苗接种注意事项有哪些内容（动物疫苗注射工作注意事项）">动物疫苗接种注意事项有哪些内容（动物疫苗注射工作注意事项）</a></li>
+                        <li class="py-2"><a href="/news/article-66028.htm" title="上海宠物领养中心地址电话号码查询（上海的宠物领养中心）">上海宠物领养中心地址电话号码查询（上海的宠物领养中心）</a></li>
+                        <li class="py-2"><a href="/news/article-76557.htm" title="深入浅出Java线程池原理分析与使用">深入浅出Java线程池原理分析与使用</a></li>
+                        <li class="py-2"><a href="/news/article-91314.htm" title="宠物粮市场前景怎么样知乎视频（宠物粮市场前景怎么样知乎视频）">宠物粮市场前景怎么样知乎视频（宠物粮市场前景怎么样知乎视频）</a></li>
+                        <li class="py-2"><a href="/news/article-79284.htm" title="穷养猫咪从开始要多少钱（猫咪穷养一个月多少钱）">穷养猫咪从开始要多少钱（猫咪穷养一个月多少钱）</a></li>
+                        <li class="py-2"><a href="/news/article-81376.htm" title="宠物粮生产基地都在哪个城市开（宠物粮批发）">宠物粮生产基地都在哪个城市开（宠物粮批发）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-20-node-share-links.htm" title="「3月20日」最高速度21.3M/S，SSR/Clash/V2ray/Shadowrocket/Surfboard免费节点订阅链接">「3月20日」最高速度21.3M/S，SSR/Clash/V2ray/Shadowrocket/Surfboard免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-13-free-surfboard.htm" title="「4月13日」最高速度20.5M/S，V2ray/Shadowrocket/Clash/SSR/Surfboard免费节点订阅链接">「4月13日」最高速度20.5M/S，V2ray/Shadowrocket/Clash/SSR/Surfboard免费节点订阅链接</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">72</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">89</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div> <!-- container -->
+    </section>
+    <!--====== ABOUT THREE PART ENDS ======-->
+        <!--====== FOOTER PART START ======-->
+    <footer id="footer" class="footer-area">
+        <div class="footer-copyright">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="copyright text-center">
+                                                <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                            <p class="text">SurfboardNode节点订阅中文站 版权所有 Powered by WordPress</p>
+                        </div> <!-- copyright -->
+                    </div>
+                </div> <!-- row -->
+            </div> <!-- container -->
+        </div> <!-- footer copyright -->
+    </footer>
+    <!--====== FOOTER PART ENDS ======-->
+    <!--====== BACK TOP TOP PART START ======-->
+    <a href="#" class="back-to-top"><i class="lni-chevron-up"></i></a>
+    <!--====== BACK TOP TOP PART ENDS ======-->
+    <!--====== jquery js ======-->
+    <script src="/assets/website/js/frontend/surfboardnode/vendor/modernizr-3.6.0.min.js"></script>
+    <script src="/assets/website/js/frontend/surfboardnode/vendor/jquery-1.12.4.min.js"></script>
+    <!--====== Bootstrap js ======-->
+    <script src="/assets/website/js/frontend/surfboardnode/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/surfboardnode/popper.min.js"></script>
+    <!--====== Images Loaded js ======-->
+    <script src="/assets/website/js/frontend/surfboardnode/imagesloaded.pkgd.min.js"></script>
+    <!--====== Scrolling Nav js ======-->
+    <script src="/assets/website/js/frontend/surfboardnode/jquery.easing.min.js"></script>
+    <script src="/assets/website/js/frontend/surfboardnode/scrolling-nav.js"></script>
+    <!--====== Slick js ======-->
+    <script src="/assets/website/js/frontend/surfboardnode/slick.min.js"></script>
+    <!--====== Main js ======-->
+    <script src="/assets/website/js/frontend/surfboardnode/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
