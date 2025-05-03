@@ -1,0 +1,237 @@
+<!doctype html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://surfboardnode.github.io/news/article-110764.htm" />
+    <!--====== Required meta tags ======-->
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Mybatis学习之程序编译后在target/classes目录下找不到主配置文件或sql映射文件（sql mapper）</title>
+        <meta name="description" content="程序编译后在target/classes目录下找不到主配置文件或sql映射文件（sql mapper）时的六种解决方法 一.首先保证主配置文件是放在resources目录之下     二.看pom.x" />
+        <link rel="icon" href="/assets/website/img/surfboardnode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="SurfboardNode节点订阅中文站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://surfboardnode.github.io/news/article-110764.htm" />
+    <meta property="og:site_name" content="SurfboardNode节点订阅中文站" />
+    <meta property="og:title" content="Mybatis学习之程序编译后在target/classes目录下找不到主配置文件或sql映射文件（sql mapper）" />
+    <meta property="og:image" content="https://surfboardnode.github.io/uploads/20240709-1/4195fb87063a994d41a6faca255eeea1.webp" />
+        <meta property="og:release_date" content="2025-05-03T10:29:37" />
+    <meta property="og:updated_time" content="2025-05-03T10:29:37" />
+        <meta property="og:description" content="程序编译后在target/classes目录下找不到主配置文件或sql映射文件（sql mapper）时的六种解决方法 一.首先保证主配置文件是放在resources目录之下     二.看pom.x" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Mybatis学习之程序编译后在target/classes目录下找不到主配置文件或sql映射文件（sql mapper）">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!--====== Bootstrap css ======-->
+    <link rel="stylesheet" href="/assets/website/css/surfboardnode/bootstrap.min.css">
+    <!--====== Slick css ======-->
+    <link rel="stylesheet" href="/assets/website/css/surfboardnode/slick.css">
+    <!--====== Magnific Popup css ======-->
+    <link rel="stylesheet" href="/assets/website/css/surfboardnode/magnific-popup.css">
+    <!--====== Line Icons css ======-->
+    <link rel="stylesheet" href="/assets/website/css/surfboardnode/LineIcons.css">
+    <!--====== Default css ======-->
+    <link rel="stylesheet" href="/assets/website/css/surfboardnode/default.css">
+    <!--====== Style css ======-->
+    <link rel="stylesheet" href="/assets/website/css/surfboardnode/style.css">
+    <link rel="stylesheet" href="/assets/website/css/G.css" />
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4YFZCSBJW0"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-4YFZCSBJW0');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+    <!--====== HEADER ONE PART START ======-->
+    <header class="header-area">
+        <div class="navbar-area navbar-one navbar-transparent">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <nav class="navbar navbar-expand-lg">
+                    <a class="navbar-brand" href="/">
+                                        <span>
+                        Surfboard Node                    </span>
+                                        </a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarOne" aria-controls="navbarOne" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="toggler-icon"></span>
+                        <span class="toggler-icon"></span>
+                        <span class="toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse sub-menu-bar" id="navbarOne">
+                        <ul class="navbar-nav m-auto">
+                                                        <li class="nav-item">
+                                <a href="/">首页</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a href="/free-nodes/">免费节点</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a href="/paid-subscribe/">推荐机场</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a href="/client.htm">客户端</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a href="/news/">新闻资讯</a>
+                            </li>
+                                                    </ul>
+                    </div>
+                </nav> <!-- navbar -->
+            </div>
+        </div> <!-- row -->
+    </div> <!-- container -->
+</div>
+        <div id="home" class="header-content-area d-flex align-items-center list" style="height:450px;">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="header-wrapper">
+                            <div class="header-content">
+                                <h1 class="header-title">Mybatis学习之程序编译后在target/classes目录下找不到主配置文件或sql映射文件（sql mapper）</h1>
+                                <p class="text nav">
+                                    <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / <span>正文</span>
+                                </p>
+                            </div> <!-- header content -->
+                            <div class="header-image d-none d-lg-block">
+                                <div class="image">
+                                    <img src="/assets/website/img/surfboardnode/header.png" alt="Header">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> <!-- row -->
+            </div> <!-- container -->
+            <div class="header-shape">
+                <img src="/assets/website/img/surfboardnode/header-shape.svg" alt="shape">
+            </div> <!-- header-shape -->
+        </div> <!-- header content area -->
+    </header>
+    <!--====== HEADER ONE PART ENDS ======-->
+    <!--====== ABOUT THREE PART START ======-->
+    <section id="about" class="about-area pt-70 pb-100">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="" data-url="">
+                <div class="xcblog-blog-detail xcblog-blog-detail-defined">
+                      				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <h2><a id="targetclassessqlsql_mapper_0" rel="nofollow"></a>程序编译后在target/classes目录下找不到主配置文件或sql映射文件（sql mapper）时的六种解决方法</h2> <p>一.首先保证主配置文件是放在resources目录之下</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220723/f91f3a5eb4b6d15ba466816bb696fd56.jpg" alt="Mybatis学习之程序编译后在target/classes目录下找不到主配置文件或sql映射文件（sql mapper）"></p> <ul> <li></li> </ul> <p>二.看pom.xml文件中是否有resources标签</p> <pre><code class="prism language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>build</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>resources</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>resource</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>directory</span><span class="token punctuation">&gt;</span></span>src/main/java<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>directory</span><span class="token punctuation">&gt;</span></span><span class="token comment">&lt;!--所在的目录--&gt;</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>includes</span><span class="token punctuation">&gt;</span></span><span class="token comment">&lt;!--包括目录下的.properties,.xml 文件都会扫描到--&gt;</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>include</span><span class="token punctuation">&gt;</span></span>**/*.properties<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>include</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>include</span><span class="token punctuation">&gt;</span></span>**/*.xml<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>include</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>includes</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>filtering</span><span class="token punctuation">&gt;</span></span>false<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>filtering</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>resource</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>resources</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>build</span><span class="token punctuation">&gt;</span></span></code></pre> <ul> <li></li> </ul> <p>三.以上都有的情况下，仍然在classes目录下找不到文件时，<br /> 在maven操作下：点击clean----再点击compile，进行重新编译</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220723/b4d56fe72584fba50ed673d8e86e6587.jpg" alt="Mybatis学习之程序编译后在target/classes目录下找不到主配置文件或sql映射文件（sql mapper）"></p> <ul> <li></li> </ul> <p>四.点击Bulid----再点击Rebulid Project。强制重新编译该项目。</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220723/e46d9579f7e8f73e7ec31024a4a6b9ce.jpg" alt="Mybatis学习之程序编译后在target/classes目录下找不到主配置文件或sql映射文件（sql mapper）"></p> <ul> <li></li> </ul> <p>五.清除idea之前的缓存再重启idea</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220723/c4c2bf381e61c23ec0be4f5d8f5bead8.jpg" alt="Mybatis学习之程序编译后在target/classes目录下找不到主配置文件或sql映射文件（sql mapper）"><br /> 然后再点击：</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220723/fb05d81ee325dd65c40c740cd63d2102.jpg" alt="Mybatis学习之程序编译后在target/classes目录下找不到主配置文件或sql映射文件（sql mapper）"></p> <p><strong>在这里对这三个选项进行说明</strong>：</p> <ul> <li> <p><code>Clear file system cache and Local History</code>：<br /> 清除文件系统缓存和本地历史记录：删除虚拟文件系统缓存以及存储在本地历史记录中的信息</p> </li> <li> <p><code>Clear downloaded shared indexes</code>：<br /> 下载新的共享索引之前进行确认：显示通知，提示下载新的共享索引。</p> </li> <li> <p><code>Ask before downloading new shared indexes</code>：<br /> 删除下载的共享索引。</p> </li> </ul> <p>六.以上方法都无法解决时，可以直接手动复制主配置文件或sql映射文件到target/classes目录之下</p> </div> 			                </div>
+                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-110030.htm">宠物粮食品牌名字4个字大全图片及名字 宠物粮食品牌名字4个字大全图片及名字</a></p>
+                                        <p>下一个：<a href="/news/article-110765.htm">青岛南京路动物防疫站宠物医院在哪里（青岛市南京路动物防疫站）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-4-29-free-surfboard.htm" title="「4月29日」最高速度20.5M/S，Shadowrocket/SSR/Clash/V2ray/Surfboard免费节点订阅链接">「4月29日」最高速度20.5M/S，Shadowrocket/SSR/Clash/V2ray/Surfboard免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-26-surfboard-node.htm" title="「4月26日」最高速度19M/S，SSR/Shadowrocket/V2ray/Clash/Surfboard免费节点订阅链接">「4月26日」最高速度19M/S，SSR/Shadowrocket/V2ray/Clash/Surfboard免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-101779.htm" title="宠物店一年利润怎么样直观数据怎么写文案（宠物店一年利润表）">宠物店一年利润怎么样直观数据怎么写文案（宠物店一年利润表）</a></li>
+                        <li class="py-2"><a href="/news/article-106443.htm" title="宠物粮的种类大全（宠物粮go）">宠物粮的种类大全（宠物粮go）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-20-surfboard-node.htm" title="「4月20日」最高速度18.5M/S，Clash/V2ray/SSR/Shadowrocket/Surfboard免费节点订阅链接">「4月20日」最高速度18.5M/S，Clash/V2ray/SSR/Shadowrocket/Surfboard免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-87063.htm" title="接口隔离原则（Interface Segregation Principle，ISP）">接口隔离原则（Interface Segregation Principle，ISP）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-19-linux-surfboard-node.htm" title="「4月19日」最高速度21.8M/S，Clash/SSR/V2ray/Shadowrocket/Surfboard免费节点订阅链接">「4月19日」最高速度21.8M/S，Clash/SSR/V2ray/Shadowrocket/Surfboard免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-96701.htm" title="猫咪三针疫苗多久打一次啊视频（猫三针疫苗要多久）">猫咪三针疫苗多久打一次啊视频（猫三针疫苗要多久）</a></li>
+                        <li class="py-2"><a href="/news/article-106444.htm" title="三国杀出场台词大全（三国杀台词出处）">三国杀出场台词大全（三国杀台词出处）</a></li>
+                        <li class="py-2"><a href="/news/article-92136.htm" title="利用ref获取单个元素或者组件，ref">利用ref获取单个元素或者组件，ref</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">9</span> <a href="/date/2025-05/" title="2025-05 归档">2025-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">90</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div> <!-- container -->
+    </section>
+    <!--====== ABOUT THREE PART ENDS ======-->
+        <!--====== FOOTER PART START ======-->
+    <footer id="footer" class="footer-area">
+        <div class="footer-copyright">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="copyright text-center">
+                                                <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                            <p class="text">SurfboardNode节点订阅中文站 版权所有 Powered by WordPress</p>
+                        </div> <!-- copyright -->
+                    </div>
+                </div> <!-- row -->
+            </div> <!-- container -->
+        </div> <!-- footer copyright -->
+    </footer>
+    <!--====== FOOTER PART ENDS ======-->
+    <!--====== BACK TOP TOP PART START ======-->
+    <a href="#" class="back-to-top"><i class="lni-chevron-up"></i></a>
+    <!--====== BACK TOP TOP PART ENDS ======-->
+    <!--====== jquery js ======-->
+    <script src="/assets/website/js/frontend/surfboardnode/vendor/modernizr-3.6.0.min.js"></script>
+    <script src="/assets/website/js/frontend/surfboardnode/vendor/jquery-1.12.4.min.js"></script>
+    <!--====== Bootstrap js ======-->
+    <script src="/assets/website/js/frontend/surfboardnode/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/surfboardnode/popper.min.js"></script>
+    <!--====== Images Loaded js ======-->
+    <script src="/assets/website/js/frontend/surfboardnode/imagesloaded.pkgd.min.js"></script>
+    <!--====== Scrolling Nav js ======-->
+    <script src="/assets/website/js/frontend/surfboardnode/jquery.easing.min.js"></script>
+    <script src="/assets/website/js/frontend/surfboardnode/scrolling-nav.js"></script>
+    <!--====== Slick js ======-->
+    <script src="/assets/website/js/frontend/surfboardnode/slick.min.js"></script>
+    <!--====== Main js ======-->
+    <script src="/assets/website/js/frontend/surfboardnode/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
