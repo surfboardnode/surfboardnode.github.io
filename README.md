@@ -1,4 +1,4 @@
-# 「9月21日」最高速度22.2M/S，V2ray/Shadowrocket/Clash/SSR/Surfboard免费节点订阅链接  更新时间 2025-09-21 10:41:38
+# 「9月21日」最高速度22.7M/S，SSR/V2ray/Clash/Shadowrocket/Surfboard免费节点订阅链接  更新时间 2025-09-21 21:32:18
 所有免费clash节点都爬取自网络，请勿用于非法用途 。节点地址：<a href="https://surfboardnode.github.io" target="_blank">点击跳转</a>
 
 ## clash使用教程：
