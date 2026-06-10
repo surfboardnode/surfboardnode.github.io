@@ -328,9 +328,14 @@ iOS 用户可以通过 <strong data-start="1532" data-end="1545">App Store</stro
     </div>
 <h4>FAQ</h4>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Shadowrocket 的分流规则如何实现广告拦截？</h5></div>
+    <div class="panel-heading"><h5>Hiddify Next 如何管理用户流量配额？</h5></div>
     <div class="panel-body">
-        通过配置规则，将广告域名或请求路径匹配到黑名单策略，使请求直接阻断或重定向到本地地址。这样用户浏览网页或使用应用时可自动屏蔽大部分广告内容。<hr />    </div>
+        管理员可以为每个用户设置上传和下载带宽以及总流量上限。超出限制可自动降速或阻止访问，保证服务器资源合理分配，提高整体网络公平性和用户体验。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Nekoray 节点订阅失败如何处理？</h5></div>
+    <div class="panel-body">
+        首先确认订阅 URL 是否有效，并确保网络连接正常。可手动刷新或重新添加订阅链接，保证节点列表最新。结合策略组使用，确保稳定科学上网体验。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>VMess 使用 AEAD 加密对安全性有何帮助？</h5></div>
@@ -338,9 +343,14 @@ iOS 用户可以通过 <strong data-start="1532" data-end="1545">App Store</stro
         AEAD 加密可防止数据篡改、重放攻击和流量特征泄露。高封锁环境下使用，有助于保持节点长期可用，保证数据安全和连接稳定性，同时降低被检测的风险。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Hiddify Next 如何管理用户流量配额？</h5></div>
+    <div class="panel-heading"><h5>Potatso Lite 显示证书错误，如何修复？</h5></div>
     <div class="panel-body">
-        管理员可以为每个用户设置上传和下载带宽以及总流量上限。超出限制可自动降速或阻止访问，保证服务器资源合理分配，提高整体网络公平性和用户体验。<hr />    </div>
+        证书错误通常由域名与证书不匹配或证书链不完整引起。请检查服务器证书是否为有效域名签发并包含完整链，如果使用 Let's Encrypt，请确保证书未过期并已正确安装到反向代理或服务端。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>V2Ray 如何通过策略组优化访问速度？</h5></div>
+    <div class="panel-body">
+        策略组允许用户将节点按延迟、地域或用途分组。结合路由规则，V2Ray 会自动选择最优节点处理流量，提升访问速度并降低延迟，尤其在访问海外网站时效果明显。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>VLESS 的 Reality 模式需要额外配置吗？</h5></div>
@@ -348,9 +358,9 @@ iOS 用户可以通过 <strong data-start="1532" data-end="1545">App Store</stro
         Reality 模式需要配置伪装域名、公钥和服务器指纹等参数。正确配置后，可有效隐藏流量特征，提高在高封锁环境下的可用性和安全性。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Nekoray 节点订阅失败如何处理？</h5></div>
+    <div class="panel-heading"><h5>Shadowrocket 的分流规则如何实现广告拦截？</h5></div>
     <div class="panel-body">
-        首先确认订阅 URL 是否有效，并确保网络连接正常。可手动刷新或重新添加订阅链接，保证节点列表最新。结合策略组使用，确保稳定科学上网体验。<hr />    </div>
+        通过配置规则，将广告域名或请求路径匹配到黑名单策略，使请求直接阻断或重定向到本地地址。这样用户浏览网页或使用应用时可自动屏蔽大部分广告内容。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>Shadowrocket 的节点测速结果如何应用？</h5></div>
@@ -365,17 +375,7 @@ iOS 用户可以通过 <strong data-start="1532" data-end="1545">App Store</stro
 <div class="panel panel-default">
     <div class="panel-heading"><h5>VMess 的 WebSocket + TLS 配置有哪些好处？</h5></div>
     <div class="panel-body">
-        WebSocket + TLS 可伪装为普通 HTTPS 流量，增强抗封锁能力和隐蔽性。结合域名伪装和策略组使用，可以在高封锁网络中保持稳定、高速和安全的网络访问体验。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>V2Ray 如何通过策略组优化访问速度？</h5></div>
-    <div class="panel-body">
-        策略组允许用户将节点按延迟、地域或用途分组。结合路由规则，V2Ray 会自动选择最优节点处理流量，提升访问速度并降低延迟，尤其在访问海外网站时效果明显。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Potatso Lite 显示证书错误，如何修复？</h5></div>
-    <div class="panel-body">
-        证书错误通常由域名与证书不匹配或证书链不完整引起。请检查服务器证书是否为有效域名签发并包含完整链，如果使用 Let's Encrypt，请确保证书未过期并已正确安装到反向代理或服务端。    </div>
+        WebSocket + TLS 可伪装为普通 HTTPS 流量，增强抗封锁能力和隐蔽性。结合域名伪装和策略组使用，可以在高封锁网络中保持稳定、高速和安全的网络访问体验。    </div>
 </div>
 <div class="panel panel-default mt-5">
     <div class="panel-heading">
@@ -425,16 +425,16 @@ iOS 用户可以通过 <strong data-start="1532" data-end="1545">App Store</stro
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2026-5-6-clash-windows.htm" title="「5月6日」最高速度21.4M/S，Shadowrocket节点/Clash节点/SSR节点/Trojan节点/Singbox节点/V2ray节点/Surfboard免费节点订阅链接">「5月6日」最高速度21.4M/S，Shadowrocket节点/Clash节点/SSR节点/Trojan节点/Singbox节点/V2ray节点/Surfboard免费节点订阅链接</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-5-14-free-subscribe-node.htm" title="「5月14日」最高速度22.9M/S，Singbox节点/V2ray节点/Shadowrocket节点/Trojan节点/SSR节点/Clash节点/Surfboard免费节点订阅链接">「5月14日」最高速度22.9M/S，Singbox节点/V2ray节点/Shadowrocket节点/Trojan节点/SSR节点/Clash节点/Surfboard免费节点订阅链接</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-5-24-clash-windows.htm" title="「5月24日」最高速度20.4M/S，SSR节点/V2ray节点/Trojan节点/Singbox节点/Clash节点/Shadowrocket节点/Surfboard免费节点订阅链接">「5月24日」最高速度20.4M/S，SSR节点/V2ray节点/Trojan节点/Singbox节点/Clash节点/Shadowrocket节点/Surfboard免费节点订阅链接</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-5-23-clash-node.htm" title="「5月23日」最高速度22.6M/S，Singbox节点/SSR节点/V2ray节点/Shadowrocket节点/Trojan节点/Clash节点/Surfboard免费节点订阅链接">「5月23日」最高速度22.6M/S，Singbox节点/SSR节点/V2ray节点/Shadowrocket节点/Trojan节点/Clash节点/Surfboard免费节点订阅链接</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-5-18-shadowrocket-node.htm" title="「5月18日」最高速度22.4M/S，Trojan节点/Shadowrocket节点/Clash节点/SSR节点/V2ray节点/Singbox节点/Surfboard免费节点订阅链接">「5月18日」最高速度22.4M/S，Trojan节点/Shadowrocket节点/Clash节点/SSR节点/V2ray节点/Singbox节点/Surfboard免费节点订阅链接</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-5-25-share-surfboard-node.htm" title="「5月25日」最高速度18.1M/S，SSR节点/Clash节点/Trojan节点/Singbox节点/V2ray节点/Shadowrocket节点/Surfboard免费节点订阅链接">「5月25日」最高速度18.1M/S，SSR节点/Clash节点/Trojan节点/Singbox节点/V2ray节点/Shadowrocket节点/Surfboard免费节点订阅链接</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-6-5-linux-surfboard-node.htm" title="「6月5日」最高速度20.2M/S，V2ray节点/Clash节点/SSR节点/Shadowrocket节点/Singbox节点/Trojan节点/Surfboard免费节点订阅链接">「6月5日」最高速度20.2M/S，V2ray节点/Clash节点/SSR节点/Shadowrocket节点/Singbox节点/Trojan节点/Surfboard免费节点订阅链接</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-5-20-clash-node-daily-updates.htm" title="「5月20日」最高速度21M/S，Trojan节点/SSR节点/Clash节点/V2ray节点/Singbox节点/Shadowrocket节点/Surfboard免费节点订阅链接">「5月20日」最高速度21M/S，Trojan节点/SSR节点/Clash节点/V2ray节点/Singbox节点/Shadowrocket节点/Surfboard免费节点订阅链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-6-8-free-surfboard-node.htm" title="「6月8日」最高速度22.1M/S，Trojan节点/V2ray节点/Singbox节点/Shadowrocket节点/SSR节点/Clash节点/Surfboard免费节点订阅链接">「6月8日」最高速度22.1M/S，Trojan节点/V2ray节点/Singbox节点/Shadowrocket节点/SSR节点/Clash节点/Surfboard免费节点订阅链接</a><hr /></li>
                         <li class="py-2"><a href="/free-nodes/2026-5-30-node-share.htm" title="「5月30日」最高速度22.5M/S，SSR节点/V2ray节点/Clash节点/Trojan节点/Singbox节点/Shadowrocket节点/Surfboard免费节点订阅链接">「5月30日」最高速度22.5M/S，SSR节点/V2ray节点/Clash节点/Trojan节点/Singbox节点/Shadowrocket节点/Surfboard免费节点订阅链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-6-2-clash-node.htm" title="「6月2日」最高速度18.4M/S，V2ray节点/SSR节点/Singbox节点/Trojan节点/Clash节点/Shadowrocket节点/Surfboard免费节点订阅链接">「6月2日」最高速度18.4M/S，V2ray节点/SSR节点/Singbox节点/Trojan节点/Clash节点/Shadowrocket节点/Surfboard免费节点订阅链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-6-10-share-surfboard-node.htm" title="「6月10日」最高速度20.3M/S，Trojan节点/SSR节点/Shadowrocket节点/Singbox节点/V2ray节点/Clash节点/Surfboard免费节点订阅链接">「6月10日」最高速度20.3M/S，Trojan节点/SSR节点/Shadowrocket节点/Singbox节点/V2ray节点/Clash节点/Surfboard免费节点订阅链接</a><hr /></li>
                         <li class="py-2"><a href="/free-nodes/2026-5-21-share-surfboard-node.htm" title="「5月21日」最高速度20.4M/S，Clash节点/SSR节点/Singbox节点/Shadowrocket节点/Trojan节点/V2ray节点/Surfboard免费节点订阅链接">「5月21日」最高速度20.4M/S，Clash节点/SSR节点/Singbox节点/Shadowrocket节点/Trojan节点/V2ray节点/Surfboard免费节点订阅链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-5-20-clash-node-daily-updates.htm" title="「5月20日」最高速度21M/S，Trojan节点/SSR节点/Clash节点/V2ray节点/Singbox节点/Shadowrocket节点/Surfboard免费节点订阅链接">「5月20日」最高速度21M/S，Trojan节点/SSR节点/Clash节点/V2ray节点/Singbox节点/Shadowrocket节点/Surfboard免费节点订阅链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-5-31-clash-node.htm" title="「5月31日」最高速度22.3M/S，V2ray节点/Shadowrocket节点/Trojan节点/Clash节点/Singbox节点/SSR节点/Surfboard免费节点订阅链接">「5月31日」最高速度22.3M/S，V2ray节点/Shadowrocket节点/Trojan节点/Clash节点/Singbox节点/SSR节点/Surfboard免费节点订阅链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-5-18-shadowrocket-node.htm" title="「5月18日」最高速度22.4M/S，Trojan节点/Shadowrocket节点/Clash节点/SSR节点/V2ray节点/Singbox节点/Surfboard免费节点订阅链接">「5月18日」最高速度22.4M/S，Trojan节点/Shadowrocket节点/Clash节点/SSR节点/V2ray节点/Singbox节点/Surfboard免费节点订阅链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-5-22-surfboard-node.htm" title="「5月22日」最高速度19.5M/S，V2ray节点/Trojan节点/Singbox节点/SSR节点/Clash节点/Shadowrocket节点/Surfboard免费节点订阅链接">「5月22日」最高速度19.5M/S，V2ray节点/Trojan节点/Singbox节点/SSR节点/Clash节点/Shadowrocket节点/Surfboard免费节点订阅链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-5-7-free-high-speed-nodes.htm" title="「5月7日」最高速度20.4M/S，Trojan节点/Shadowrocket节点/V2ray节点/SSR节点/Clash节点/Singbox节点/Surfboard免费节点订阅链接">「5月7日」最高速度20.4M/S，Trojan节点/Shadowrocket节点/V2ray节点/SSR节点/Clash节点/Singbox节点/Surfboard免费节点订阅链接</a><hr /></li>
                     </ul>
     </div>
 </div>
@@ -446,7 +446,7 @@ iOS 用户可以通过 <strong data-start="1532" data-end="1545">App Store</stro
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">6</span> <a href="/date/2026-06/" title="2026-06 归档">2026-06</a></h4>
+                <h4><span class="badge" style="float: right;">10</span> <a href="/date/2026-06/" title="2026-06 归档">2026-06</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">29</span> <a href="/date/2026-05/" title="2026-05 归档">2026-05</a></h4>
